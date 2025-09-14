@@ -1,0 +1,33 @@
+{
+  "name": "my-next-app",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@mantine/core": "^8.2.3",
+    "@mantine/hooks": "^8.2.3",
+    "@mantine/spotlight": "^8.2.7",
+    "@tabler/icons-react": "^3.34.1",
+    "bootstrap": "^5.3.7",
+    "next": "15.4.6",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "sass": "^1.90.0"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "15.4.6",
+    "postcss-preset-mantine": "^1.18.0",
+    "prettier": "^3.6.2",
+    "typescript": "^5"
+  }
+}

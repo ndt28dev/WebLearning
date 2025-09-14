@@ -1,0 +1,14 @@
+.navbarSpotlight {
+  background-color: white;
+}
+
+.navbarSpotlight:hover {
+  background-color: #f8f9fa;
+}
+
+.actionsList {
+  max-height: 500px;
+  overflow-y: auto;
+
+  scrollbar-width: none;
+}
