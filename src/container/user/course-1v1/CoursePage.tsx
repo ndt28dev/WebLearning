@@ -3,7 +3,7 @@ import { Box } from "@mantine/core";
 
 export default function Course1v1Page() {
   return (
-    <MyLayoutUser>
+    <MyLayoutUser >
       <Box>CoursePage</Box>
     </MyLayoutUser>
   );
