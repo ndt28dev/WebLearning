@@ -143,11 +143,11 @@ export function Header() {
         <ScrollArea h="calc(100vh - 80px)" mx="-md">
           <Divider my="sm" />
 
-          {links.map((link) => {
+          {links.map((link, idx) => {
             if (link.links) {
               // có submenu
               return (
-                <Box key={link.label}>
+                <Box key={idx}>
                   <UnstyledButton
                     className={classes.link}
                     onClick={toggleLinks}
@@ -161,9 +161,9 @@ export function Header() {
                   </UnstyledButton>
 
                   <Collapse in={linksOpened}>
-                    {link.links.map((item) => (
+                    {link.links.map((item, idx) => (
                       <Link
-                        key={item.link}
+                        key={idx}
                         href={item.link}
                         className={classes.link}
                         onClick={closeDrawer}

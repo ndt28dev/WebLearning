@@ -32,8 +32,8 @@ export default function NavbarSpotlight({ menu }: NavbarSpotlightProps) {
     .filter((item) =>
       item.label.toLowerCase().includes(query.toLowerCase().trim())
     )
-    .map((item) => (
-      <Spotlight.Action key={item.label} w={"100%"} style={{ padding: "5px" }}>
+    .map((item, index) => (
+      <Spotlight.Action key={index} w={"100%"} style={{ padding: "5px" }}>
         {item.link ? (
           <Flex
             align={"center"}
@@ -52,6 +52,7 @@ export default function NavbarSpotlight({ menu }: NavbarSpotlightProps) {
           item.links &&
           item.links.map((it, idx) => (
             <Flex
+              key={idx}
               align={"center"}
               justify={"space-between"}
               className={classes.navbarSpotlight}
