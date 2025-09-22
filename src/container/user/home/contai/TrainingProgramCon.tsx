@@ -69,7 +69,7 @@ export default function TrainingProgramCon() {
       {data.trainingPrograms.map((item, index) => (
         <Carousel.Slide key={item.id}>
           <Paper
-            radius={"lg"}
+            radius={"md"}
             p="0"
             bg={"white"}
             style={{ overflow: "hidden" }}

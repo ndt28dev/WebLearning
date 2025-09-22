@@ -8,21 +8,29 @@ interface MyLayoutUserProps {
   bg?: string;
 }
 
-export default function MyLayoutUser({ children, image, status = false, bg }: MyLayoutUserProps) {
+export default function MyLayoutUser({
+  children,
+  image,
+  status = false,
+  bg,
+}: MyLayoutUserProps) {
   return (
     <>
-      <Box mt={66} pos={"relative"} h={1000}>
+      <Box mt={66} pos={"relative"}>
         <Box pos={"relative"}>
-          {
-            status ? (
-              <Box h={300} bg={bg}></Box>
-            ) : (
-              <>
-                <Image src="/images/course/anh1.jpg" w={"100%"} h={300} fit="cover" />
-                <Overlay opacity={0.5} color="black" zIndex={1} />
-              </>
-            )
-          }
+          {status ? (
+            <Box h={300} bg={bg}></Box>
+          ) : (
+            <>
+              <Image
+                src="/images/course/anh1.jpg"
+                w={"100%"}
+                h={300}
+                fit="cover"
+              />
+              <Overlay opacity={0.5} color="black" zIndex={1} />
+            </>
+          )}
           <Flex
             align={"center"}
             justify={"center"}

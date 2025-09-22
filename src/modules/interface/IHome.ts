@@ -1,10 +1,10 @@
 import { IButton } from "./IButton";
+import { ICourse } from "./ICourse";
 import { INewsAndEvents } from "./INewsAndEvents";
 import { IStudentReviews } from "./IParentReviews";
 import { IPartner } from "./IPartner";
 import { IPrivilege } from "./IPrivilege";
 import { IStudentResults } from "./IStudentResults";
-import { ITrainingProgram } from "./ITrainingProgram";
 import { ITutor } from "./ITuTor";
 
 export interface IBannerHome {
@@ -33,7 +33,7 @@ export interface IIntroduceHome {
 
 export interface ITrainingProgramHome {
   topic: string;
-  trainingPrograms: ITrainingProgram[];
+  trainingPrograms: ICourse[];
 }
 
 export interface ITuTorHome {

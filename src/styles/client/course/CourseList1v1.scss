@@ -1,0 +1,28 @@
+.course1v1-pagination {
+  .control {
+    border: 1px solid var(--mantine-color-brand-5);
+    border-radius: 9999px;      
+    width: 40px; 
+    height: 40px;
+    background: transparent;
+    color: var(--mantine-color-brand-6);
+    transition: background .15s ease, color .15s ease, border-color .15s ease;
+  }
+  
+  .control:hover:not([data-active]) {
+    background: color-mix(in srgb, var(--mantine-color-brand-5) 10%, transparent);
+    border-color: var(--mantine-color-brand-5);
+  }
+  
+  .control[data-active] {
+    background: var(--mantine-color-brand-5);
+    border-color: var(--mantine-color-brand-5);
+    color: white;
+  }
+  
+  .dots {
+    color: var(--mantine-color-brand-5);
+  }
+  
+  }
+  

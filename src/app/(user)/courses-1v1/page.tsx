@@ -1,4 +1,4 @@
-import Course1v1Page from "@/container/user/course-1v1/CoursePage";
+import Course1v1Page from "@/container/user/course-1v1/Course1v1Page";
 
 export default function page() {
   return <Course1v1Page />;
