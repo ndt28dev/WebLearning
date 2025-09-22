@@ -1,0 +1,16 @@
+.newsAndEvents {
+  .news-item {
+    .text-title { transition: color 0.2s ease; }
+
+    .text-hover {
+      color: var(--mantine-color-brand-5);
+      cursor: pointer;
+      &:hover { text-decoration: underline; }
+    }
+
+    /* Khi hover vào .text-hover thì đổi màu .text-title */
+    &:has(.text-hover:hover) .text-title {
+      color: var(--mantine-color-brand-5);
+    }
+  }
+}

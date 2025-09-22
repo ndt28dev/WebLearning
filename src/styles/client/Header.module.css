@@ -1,12 +1,16 @@
 .header {
-  height: 56px;
-  background-color: var(--mantine-color-body);
+  background-color: white;
   border-bottom: 1px solid
     light-dark(var(--mantine-color-gray-3), var(--mantine-color-dark-4));
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 .inner {
-  height: 56px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -21,23 +25,44 @@
   color: light-dark(var(--mantine-color-gray-7), var(--mantine-color-dark-0));
   font-size: var(--mantine-font-size-sm);
   font-weight: 500;
+  position: relative;
+  transition: all 0.25s ease;
 
   @mixin hover {
-    background-color: light-dark(
+    /* background-color: light-dark(
       var(--mantine-color-gray-0),
       var(--mantine-color-dark-6)
-    );
+    ); */
+    transform: translateY(-1px);
   }
+}
 
-  [data-mantine-color-scheme] &[data-active] {
-    background-color: var(--mantine-color-blue-filled);
-    color: var(--mantine-color-white);
-  }
+/* Gạch chân hiệu ứng slide */
+.link::after {
+  content: "";
+  position: absolute;
+  left: 12px;
+  bottom: 0px;
+  width: 0%;
+  height: 2px;
+  background-color: var(--mantine-color-brand-5);
+  transition: width 0.3s ease;
+  border-radius: 2px;
+}
+
+.link:hover::after {
+  width: calc(100% - 24px);
 }
 
 .link[data-active="true"],
 .mantine-Menu-item[data-active="true"] {
   font-weight: 600;
-  color: var(--mantine-color-blue-6);
+  color: var(--mantine-color-brand-5);
   background-color: var(--mantine-color-blue-0);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transform: scale(1.05);
+}
+
+.link[data-active="true"]::after {
+  /* width: calc(100% - 24px); */
 }

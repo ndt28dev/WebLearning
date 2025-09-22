@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import {
+  Badge,
   Box,
   Burger,
   Button,
@@ -11,43 +12,24 @@ import {
   Container,
   Divider,
   Drawer,
+  Flex,
   Group,
   Image,
   Menu,
   ScrollArea,
+  Title,
   UnstyledButton,
   useMantineTheme,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import classes from "@/styles/client/Header.module.css";
-import { IconChevronDown } from "@tabler/icons-react";
+import { IconChevronDown, IconPhoneCall } from "@tabler/icons-react";
 import { ActionToggle } from "@/components/ActionToggle";
-
-type NavLink = {
-  link: string;
-  label: string;
-  links?: { link: string; label: string }[]; // 👈 optional submenu
-};
-
-const links: NavLink[] = [
-  { link: "/", label: "Trang chủ" },
-  { link: "/courses", label: "Khoá học" },
-  { link: "/teacher", label: "Giảng viên" },
-  { link: "/blog", label: "Bài viết" },
-  { link: "/contact", label: "Liên hệ" },
-  {
-    link: "#1",
-    label: "Learn",
-    links: [
-      { link: "/docs", label: "Documentation" },
-      { link: "/resources", label: "Resources" },
-      { link: "/community", label: "Community" },
-      { link: "/blog", label: "Blog" },
-    ],
-  },
-];
+import MyButton from "@/components/mybutton/MyButton";
+import { menuHeader } from "@/modules/data/MenuHeader";
 
 export function Header() {
+  const links = menuHeader;
   const [active, setActive] = useState(links[0].link);
   const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] =
     useDisclosure(false);
@@ -61,6 +43,7 @@ export function Header() {
         component={Link}
         href={item.link}
         onClick={() => setActive(link.link)}
+        style={{ fontSize: "16px" }}
       >
         {item.label}
       </Menu.Item>
@@ -73,6 +56,7 @@ export function Header() {
           trigger="hover"
           transitionProps={{ exitDuration: 0 }}
           withinPortal
+          zIndex={1000}
         >
           <Menu.Target>
             <Link
@@ -80,6 +64,7 @@ export function Header() {
               className={classes.link}
               data-active={active === link.link || undefined}
               onClick={() => setActive(link.link)}
+              style={{ fontSize: "16px" }}
             >
               <Center>
                 <span className={classes.linkLabel}>{link.label}</span>
@@ -99,6 +84,7 @@ export function Header() {
         className={classes.link}
         data-active={active === link.link || undefined}
         onClick={() => setActive(link.link)}
+        style={{ fontSize: "16px" }}
       >
         {link.label}
       </Link>
@@ -108,22 +94,26 @@ export function Header() {
   return (
     <>
       <header className={classes.header}>
-        <Container size="lg" className={classes.inner} p={0}>
-          <Image
-            radius="md"
-            h="100%"
-            w="auto"
-            fit="contain"
-            src="/images/logo/logo.png"
-          />
+        <Container size="lg" className={classes.inner} p={5}>
+          <Link href="/">
+            <Image
+              radius="md"
+              h="56px"
+              w="auto"
+              fit="contain"
+              src="/images/logo/logo.png"
+            />
+          </Link>
           <Group gap={5} visibleFrom="sm">
             {items}
           </Group>
 
           <Group visibleFrom="sm" gap={"xs"}>
-            <Button variant="default">Đăng nhập</Button>
-            <Button>Đăng ký</Button>
-            {/* <ActionToggle /> */}
+            <Group gap={5} bg={"#F3F3F5"} p={"xs"} style={{ borderRadius: 30 }}>
+              <IconPhoneCall size={22} color="#63605e" />
+              <span style={{ color: "#63605e" }}>Hotline: </span>
+              <Title order={5}>0764 513 977</Title>
+            </Group>
           </Group>
           <Burger
             opened={drawerOpened}
@@ -204,7 +194,7 @@ export function Header() {
           <Group justify="center" gap="xs">
             <Button variant="default">Đăng nhập</Button>
             <Button>Đăng ký</Button>
-            <ActionToggle />
+            {/* <ActionToggle /> */}
           </Group>
         </ScrollArea>
       </Drawer>

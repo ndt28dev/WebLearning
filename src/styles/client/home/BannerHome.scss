@@ -1,0 +1,42 @@
+
+.bannerHome {
+
+    .bannerHome-right-img1,
+    .bannerHome-right-img2,
+    .bannerHome-right-img3,
+    .bannerHome-right-img4 {
+        width: 100%;
+    }
+
+    .bannerHome-right-img1 {
+        height: 40% ;
+        border-top-left-radius: 80px;
+        border-top-right-radius: 20px;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+    }
+
+    .bannerHome-right-img2 {
+        height: 60% ;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+    }
+
+    .bannerHome-right-img3 {
+        height: 60% ;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 80px;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+    }
+
+    .bannerHome-right-img4 {
+        height: 40% ;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 80px;
+    }
+}

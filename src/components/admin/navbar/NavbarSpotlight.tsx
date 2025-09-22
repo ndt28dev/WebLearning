@@ -33,12 +33,7 @@ export default function NavbarSpotlight({ menu }: NavbarSpotlightProps) {
       item.label.toLowerCase().includes(query.toLowerCase().trim())
     )
     .map((item) => (
-      <Spotlight.Action
-        key={item.label}
-        w={"100%"}
-        style={{ padding: "5px" }}
-        onClick={() => console.log(item)}
-      >
+      <Spotlight.Action key={item.label} w={"100%"} style={{ padding: "5px" }}>
         {item.link ? (
           <Flex
             align={"center"}
