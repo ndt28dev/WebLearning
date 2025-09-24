@@ -26,9 +26,8 @@ import {
   IconSchool,
   IconUserStar,
 } from "@tabler/icons-react";
-import "@/styles/client/course/CourseList1v1.scss";
 import { useEffect, useMemo, useRef, useState } from "react";
-import NavbarCourse1v1 from "./NavbarCourse1v1";
+import "@/styles/client/course/CourseList1v1.scss";
 
 export default function CourseList1v1() {
   const data: ICourse1v1[] = dataCourses1v1;
@@ -227,27 +226,22 @@ export default function CourseList1v1() {
     ));
 
   return (
-    <Grid>
-      <Grid.Col span={{ base: 12, md: 3 }}>
-        <NavbarCourse1v1 />
-      </Grid.Col>
-      <Grid.Col span={{ base: 12, md: 9 }}>
-        <div ref={topRef} />
-        {items(course1v1Data)}
-        <Center mt={20} className="course1v1-pagination">
-          <Pagination
-            color="brand"
-            radius="xl"
-            classNames={{
-              control: "control",
-              dots: "dots",
-            }}
-            total={totalPages}
-            value={page}
-            onChange={setPage}
-          />
-        </Center>
-      </Grid.Col>
-    </Grid>
+    <>
+      <div ref={topRef} />
+      {items(course1v1Data)}
+      <Center mt={20} className="course1v1-pagination">
+        <Pagination
+          color="brand"
+          radius="xl"
+          classNames={{
+            control: "control",
+            dots: "dots",
+          }}
+          total={totalPages}
+          value={page}
+          onChange={setPage}
+        />
+      </Center>
+    </>
   );
 }
