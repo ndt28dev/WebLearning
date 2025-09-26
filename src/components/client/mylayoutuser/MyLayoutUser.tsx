@@ -1,11 +1,21 @@
 import { Box, Container, Flex, Image, Overlay, Text } from "@mantine/core";
 import MyBreadcrumbs from "../mybreadcrumbs/MyBreadcrumbs";
+interface Breadcrumbs {
+  title: string;
+  href: string;
+}
+
+interface HeaderProps {
+  title: string;
+  items: Breadcrumbs[];
+}
 
 interface MyLayoutUserProps {
   children: React.ReactNode;
   image?: string;
   status?: boolean;
   bg?: string;
+  header: HeaderProps;
 }
 
 export default function MyLayoutUser({
@@ -13,6 +23,7 @@ export default function MyLayoutUser({
   image,
   status = false,
   bg,
+  header,
 }: MyLayoutUserProps) {
   return (
     <>
@@ -44,20 +55,9 @@ export default function MyLayoutUser({
               c={"white"}
               style={{ textTransform: "capitalize" }}
             >
-              Kèm 1v1 cùng gia sư
+              {header.title}
             </Text>
-            <MyBreadcrumbs
-              items={[
-                {
-                  title: "Trang chủ",
-                  href: "/",
-                },
-                {
-                  title: "Kèm 1v1 cùng gia sư",
-                  href: "/course-1v1",
-                },
-              ]}
-            />
+            <MyBreadcrumbs items={header.items} />
           </Flex>
         </Box>
         <Container pt={30} pb={30} size={"lg"}>

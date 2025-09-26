@@ -1,3 +1,5 @@
+import CourseOfflinePage from "@/container/user/course-offline/CourseOfflinePage";
+
 export default function page() {
-  return <div>page</div>;
+  return <CourseOfflinePage />;
 }
