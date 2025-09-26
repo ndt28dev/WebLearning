@@ -1,25 +1,19 @@
 import MyLayoutUser from "@/components/client/mylayoutuser/MyLayoutUser";
-import { Box } from "@mantine/core";
 import Course1v1 from "./Course1v1";
-import { title } from "process";
+import { headerCourse1v1Data } from "@/modules/data/DataHeader";
+import PrivilegeHome from "../home/PrivilegeHome";
+import StudentResultsHome from "../home/StudentResultsHome";
+import StudentReviewsHome from "../home/StudentReviewsHome";
+import ScheduleConsultationHome from "../home/ScheduleConsultationHome";
 
 export default function Course1v1Page() {
-  const headerData = {
-    title: "Kèm 1v1 cùng gia sư",
-    items: [
-      {
-        title: "Trang chủ",
-        href: "/",
-      },
-      {
-        title: "Kèm 1v1 cùng gia sư",
-        href: "/courses-1v1",
-      },
-    ],
-  };
   return (
-    <MyLayoutUser image="/images/course/anh1.jpg" header={headerData}>
+    <MyLayoutUser image="/images/course/anh1.jpg" header={headerCourse1v1Data}>
       <Course1v1 />
+      <PrivilegeHome />
+      <StudentResultsHome />
+      <StudentReviewsHome />
+      <ScheduleConsultationHome />
     </MyLayoutUser>
   );
 }

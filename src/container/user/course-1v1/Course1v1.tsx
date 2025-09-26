@@ -1,5 +1,5 @@
 "use client";
-import { Box, Grid, Stack } from "@mantine/core";
+import { Box, Container, Grid, Stack } from "@mantine/core";
 import CourseFind1v1 from "./contai/CourseFind1v1";
 import CourseList1v1 from "./contai/CourseList1v1";
 import SlideBarCourse1v1 from "./contai/SlideBarCourse1v1";
@@ -11,7 +11,7 @@ export default function Course1v1() {
     duration: 800,
   });
   return (
-    <>
+    <Container pt={50} pb={50} size={"lg"}>
       <div ref={targetRef} />
       <Stack gap={10}>
         <Grid>
@@ -26,6 +26,6 @@ export default function Course1v1() {
           </Grid.Col>
         </Grid>
       </Stack>
-    </>
+    </Container>
   );
 }

@@ -60,9 +60,7 @@ export default function MyLayoutUser({
             <MyBreadcrumbs items={header.items} />
           </Flex>
         </Box>
-        <Container pt={30} pb={30} size={"lg"}>
-          {children}
-        </Container>
+        {children}
       </Box>
     </>
   );
