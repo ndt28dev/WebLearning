@@ -22,12 +22,7 @@ export default function MyLayoutUser({
             <Box h={300} bg={bg}></Box>
           ) : (
             <>
-              <Image
-                src="/images/course/anh1.jpg"
-                w={"100%"}
-                h={300}
-                fit="cover"
-              />
+              <Image src={image} w={"100%"} h={300} fit="cover" />
               <Overlay opacity={0.5} color="black" zIndex={1} />
             </>
           )}
@@ -65,7 +60,7 @@ export default function MyLayoutUser({
             />
           </Flex>
         </Box>
-        <Container pt={50} pb={50} size={"lg"}>
+        <Container pt={30} pb={30} size={"lg"}>
           {children}
         </Container>
       </Box>

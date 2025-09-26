@@ -31,3 +31,11 @@ export interface IDayStudy {
 export interface ILevelStudy {
   levels: string[];
 }
+
+export interface IUniversity {
+  universities: string[];
+}
+
+export interface IExperience {
+  experiences: string[];
+}

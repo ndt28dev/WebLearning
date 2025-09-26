@@ -4,7 +4,7 @@ import Course1v1 from "./Course1v1";
 
 export default function Course1v1Page() {
   return (
-    <MyLayoutUser>
+    <MyLayoutUser image="/images/course/anh1.jpg">
       <Course1v1 />
     </MyLayoutUser>
   );

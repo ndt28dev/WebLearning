@@ -3,6 +3,7 @@ import MyButton from "@/components/mybutton/MyButton";
 import { dataCourses1v1 } from "@/modules/data/DataCourse1v1";
 import { ICourse1v1 } from "@/modules/interface/Icourse1v1";
 import {
+  ActionIcon,
   Badge,
   Box,
   Card,
@@ -18,27 +19,41 @@ import {
   Tooltip,
 } from "@mantine/core";
 import {
+  IconAdjustments,
+  IconBookmark,
+  IconBookmarkAi,
+  IconBookmarkEdit,
+  IconBookmarkFilled,
   IconBorderRadius,
   IconBriefcase,
   IconCalendarClock,
   IconClock,
   IconCurrencyDollar,
+  IconHeart,
   IconSchool,
   IconUserStar,
 } from "@tabler/icons-react";
 import { useEffect, useMemo, useRef, useState } from "react";
 import "@/styles/client/course/CourseList1v1.scss";
 
-export default function CourseList1v1() {
+type Props = { onJumpTop?: () => void };
+
+export default function CourseList1v1({ onJumpTop }: Props) {
   const data: ICourse1v1[] = dataCourses1v1;
   const [page, setPage] = useState<number>(1);
   const totalProducts = 4;
   const pageSize = Math.max(1, totalProducts || 0);
   const totalPages = Math.ceil((data?.length ?? 0) / pageSize);
 
-  const topRef = useRef<HTMLDivElement | null>(null);
-  const headerOffset = 82;
-  const didMount = useRef(false);
+  const [listHeart, setListHeart] = useState<number[]>([101, 103]);
+
+  const handleHeart = (id: number) => {
+    if (listHeart.includes(id)) {
+      setListHeart(listHeart.filter((item) => item !== id));
+    } else {
+      setListHeart([...listHeart, id]);
+    }
+  };
 
   const course1v1Data = useMemo(() => {
     const start = (page - 1) * pageSize;
@@ -46,19 +61,17 @@ export default function CourseList1v1() {
     return (data ?? []).slice(start, end);
   }, [data, page, pageSize]);
 
-  useEffect(() => {
-    if (!didMount.current) {
-      didMount.current = true;
-      return;
-    }
-    if (!topRef.current) return;
+  const handlePageChange = (p: number) => {
+    setPage(p);
+    onJumpTop?.();
+  };
 
-    const y =
-      topRef.current.getBoundingClientRect().top +
-      window.scrollY -
-      headerOffset;
-    window.scrollTo({ top: y, behavior: "smooth" });
-  }, [page]);
+  const setColorIconHeart = (id: number) => {
+    if (listHeart.includes(id)) {
+      return true;
+    }
+    return false;
+  };
 
   const TrainingDay = (day: string) => {
     const days = day
@@ -206,20 +219,49 @@ export default function CourseList1v1() {
                 VNĐ/Tháng
               </Text>
             </Flex>
-            <Group gap={10} mt={5}>
-              <MyButton
-                color="var(--mantine-color-brand-5)"
-                variant="filled"
-                label="Liên hệ gia sư"
-                link=""
-              />
-              <MyButton
-                variant="outline"
-                color="var(--mantine-color-brand-5)"
-                label="Xem lịch dạy"
-                link=""
-              />
-            </Group>
+            <Flex align={"center"} justify={"space-between"}>
+              <Group gap={10} mt={5}>
+                <MyButton
+                  color="var(--mantine-color-brand-5)"
+                  variant="filled"
+                  label="Liên hệ gia sư"
+                  link=""
+                />
+                <MyButton
+                  variant="outline"
+                  color="var(--mantine-color-brand-5)"
+                  label="Xem lịch dạy"
+                  link=""
+                />
+                <MyButton
+                  variant="light"
+                  color="var(--mantine-color-brand-5)"
+                  label="Xem hồ sơ"
+                  link=""
+                />
+              </Group>
+              <Tooltip
+                label={
+                  setColorIconHeart(item.id) ? "Bỏ lưu" : "Lưu vào bộ yêu thích"
+                }
+                variant="light"
+                color="red"
+                position={"right"}
+              >
+                <ActionIcon
+                  variant={setColorIconHeart(item.id) ? "filled" : "outline"}
+                  color={"red"}
+                  size="lg"
+                  onClick={() => handleHeart(item.id)}
+                >
+                  <IconHeart
+                    size={25}
+                    stroke={1.2}
+                    color={setColorIconHeart(item.id) ? "white" : "red"}
+                  />
+                </ActionIcon>
+              </Tooltip>
+            </Flex>
           </Stack>
         </Flex>
       </Card>
@@ -227,7 +269,6 @@ export default function CourseList1v1() {
 
   return (
     <>
-      <div ref={topRef} />
       {items(course1v1Data)}
       <Center mt={20} className="course1v1-pagination">
         <Pagination
@@ -239,7 +280,7 @@ export default function CourseList1v1() {
           }}
           total={totalPages}
           value={page}
-          onChange={setPage}
+          onChange={handlePageChange}
         />
       </Center>
     </>

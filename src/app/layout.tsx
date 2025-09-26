@@ -4,7 +4,6 @@ import "./globals.css";
 import "@mantine/core/styles.css";
 import { Container, createTheme, MantineProvider, Paper } from "@mantine/core";
 import { ColorSchemeScript, mantineHtmlProps } from "@mantine/core";
-import "bootstrap/dist/css/bootstrap.min.css";
 import "@mantine/carousel/styles.css";
 
 const geistSans = Geist({
@@ -26,15 +25,15 @@ const theme = createTheme({
   colors: {
     brand: [
       "#F2F9FF", // 0
-      "#AF0606", // 1
+      "#DCEEFF", // 1
       "#99c2ef", // 2
       "#66a3e6", // 3
       "#3385de", // 4
-      "#3070CA", // 5:
+      "#3070CA", // 5
       "#265aa2", // 6
       "#1d4379", // 7
       "#132d51", // 8
-      "#0a1628", // 9: đậm nhất
+      "#0a1628", // 9
     ],
   },
   primaryColor: "brand",

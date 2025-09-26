@@ -1,9 +1,11 @@
 import {
   ICity,
   IDayStudy,
+  IExperience,
   ILevelStudy,
   ISubject,
   ITimeStudy,
+  IUniversity,
 } from "../interface/InterfaceFindClient";
 
 export const cities: ICity[] = [
@@ -80,40 +82,40 @@ export const subjects: ISubject[] = [
   {
     educationalLevel: "TTH",
     subject: [
-      "Toán 1",
-      "Tiếng Việt",
-      "Tự nhiên & Xã hội",
-      "Mỹ thuật",
-      "Âm nhạc",
+      "TTH-Toán 1",
+      "TTH-Tiếng Việt",
+      "TTH-Tự nhiên & Xã hội",
+      "TTH-Mỹ thuật",
+      "TTH-Âm nhạc",
     ],
   },
   {
     educationalLevel: "THCS",
     subject: [
-      "Toán 2",
-      "Ngữ văn",
-      "Tiếng Anh",
-      "Vật lý",
-      "Hóa học",
-      "Sinh học",
-      "Lịch sử",
-      "Địa lý",
-      "Tin học",
+      "THCS-Toán 2",
+      "THCS-Ngữ văn",
+      "THCS-Tiếng Anh",
+      "THCS-Vật lý",
+      "THCS-Hóa học",
+      "THCS-Sinh học",
+      "THCS-Lịch sử",
+      "THCS-Địa lý",
+      "THCS-Tin học",
     ],
   },
   {
     educationalLevel: "THPT",
     subject: [
-      "Toán 3",
-      "Ngữ văn",
-      "Tiếng Anh",
-      "Vật lý",
-      "Hóa học",
-      "Sinh học",
-      "Lịch sử",
-      "Địa lý",
-      "GDCD",
-      "Tin học",
+      "THPT-Toán 3",
+      "THPT-Ngữ văn",
+      "THPT-Tiếng Anh",
+      "THPT-Vật lý",
+      "THPT-Hóa học",
+      "THPT-Sinh học",
+      "THPT-Lịch sử",
+      "THPT-Địa lý",
+      "THPT-GDCD",
+      "THPT-Tin học",
     ],
   },
 ];
@@ -149,5 +151,28 @@ export const levelStudyData: ILevelStudy = {
     "Sinh viên năm cuối",
     "Thạc sĩ",
     "Tiến sĩ",
+  ],
+};
+
+export const universityData: IUniversity = {
+  universities: [
+    "SGU – Đại học Sài Gòn",
+    "HCMUS – ĐH Khoa học Tự nhiên (ĐHQG-HCM)",
+    "UIT – ĐH Công nghệ Thông tin (ĐHQG-HCM)",
+    "HUST – ĐH Bách Khoa Hà Nội",
+    "UET – ĐH Công nghệ (ĐHQG-HN)",
+    "PTIT – Học viện Công nghệ Bưu chính Viễn thông",
+    "HCMUTE – ĐH Sư Phạm Kỹ Thuật TP.HCM",
+    "HNUE – ĐH Sư Phạm Hà Nội",
+  ],
+};
+
+export const experienceData: IExperience = {
+  experiences: [
+    "Dưới 1 năm",
+    "Khoảng 2 năm",
+    "Khoảng 3 năm",
+    "Khoảng 4 năm",
+    "Từ 5 năm trở lên",
   ],
 };

@@ -72,9 +72,7 @@ export default function Footer() {
           {(data.menuFooterInfo?.phone?.length ?? 0) > 0 && (
             <Group gap={10} align="center" mb={5}>
               <IconPhoneCall size={18} stroke={1.5} color="white" />
-              <Text size="sm" c="white" fz={"md"}>
-                Hotline:
-              </Text>
+
               <Stack gap={0}>
                 {data.menuFooterInfo.phone?.map((item, index) => (
                   <Text key={index} c="white" fz={"md"} fw={700}>
@@ -96,9 +94,7 @@ export default function Footer() {
               }
             >
               <IconMapPin size={18} stroke={1.5} color="white" />
-              <Text size="sm" c="white" fz={"md"}>
-                Địa chỉ {index + 1}:
-              </Text>
+
               <Text c="white" fz={"md"} fw={700} flex={1}>
                 {item}
               </Text>
