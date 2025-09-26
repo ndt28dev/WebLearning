@@ -45,7 +45,7 @@ export default function CourseList1v1({ onJumpTop }: Props) {
   const pageSize = Math.max(1, totalProducts || 0);
   const totalPages = Math.ceil((data?.length ?? 0) / pageSize);
 
-  const [listHeart, setListHeart] = useState<number[]>([101, 103]);
+  const [listHeart, setListHeart] = useState<number[]>([101, 102]);
 
   const handleHeart = (id: number) => {
     if (listHeart.includes(id)) {
@@ -268,7 +268,7 @@ export default function CourseList1v1({ onJumpTop }: Props) {
     ));
 
   return (
-    <>
+    <Box>
       {items(course1v1Data)}
       <Center mt={20} className="course1v1-pagination">
         <Pagination
@@ -283,6 +283,6 @@ export default function CourseList1v1({ onJumpTop }: Props) {
           onChange={handlePageChange}
         />
       </Center>
-    </>
+    </Box>
   );
 }
