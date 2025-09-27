@@ -1,5 +1,6 @@
 import { IButton } from "./IButton";
 import { ICourse } from "./ICourse";
+import { ICourseOffline } from "./ICourseOffline";
 import { INewsAndEvents } from "./INewsAndEvents";
 import { IStudentReviews } from "./IParentReviews";
 import { IPartner } from "./IPartner";
@@ -33,7 +34,7 @@ export interface IIntroduceHome {
 
 export interface ITrainingProgramHome {
   topic: string;
-  trainingPrograms: ICourse[];
+  trainingPrograms: ICourseOffline[];
 }
 
 export interface ITuTorHome {
