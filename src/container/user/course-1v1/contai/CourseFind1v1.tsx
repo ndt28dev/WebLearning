@@ -102,7 +102,7 @@ export default function CourseFind1v1() {
               label="Bộ tìm kiếm nhanh"
               color="var(--mantine-color-brand-5)"
               variant="light"
-              position="right"
+              position="top"
             >
               <ActionIcon
                 variant="filled"

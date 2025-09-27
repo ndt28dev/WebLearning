@@ -207,7 +207,7 @@ export default function CourseItem1v1({ item }: Props) {
               }
               variant="light"
               color="red"
-              position={"right"}
+              position={"left"}
             >
               <ActionIcon
                 variant={setColorIconHeart(item.id || 0) ? "filled" : "outline"}
