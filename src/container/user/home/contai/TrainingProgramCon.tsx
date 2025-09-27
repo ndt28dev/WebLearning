@@ -26,7 +26,6 @@ import {
   IconStar,
   IconTimeDuration0,
 } from "@tabler/icons-react";
-import "@mantine/carousel/styles.css";
 import "@/styles/client/home/TrainingProgramCon.scss";
 import { formatDate } from "@/utils/format";
 import MyButton from "@/components/mybutton/MyButton";
