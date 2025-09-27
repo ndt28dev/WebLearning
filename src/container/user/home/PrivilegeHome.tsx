@@ -8,7 +8,7 @@ export default function PrivilegeHome() {
         backgroundColor: "var(--mantine-color-brand-0)",
       }}
     >
-      <Container size={"lg"}>
+      <Container size={"xl"}>
         <Privilege />
       </Container>
     </Box>

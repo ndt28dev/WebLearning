@@ -9,7 +9,7 @@ export default function StudentReviewsHome() {
           "linear-gradient(to bottom, rgba(255,255,255,0) 0%, var(--mantine-color-brand-2) 100%)",
       }}
     >
-      <Container size={"lg"}>
+      <Container size={"xl"}>
         <StudentReviews />
       </Container>
     </Box>

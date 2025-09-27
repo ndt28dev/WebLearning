@@ -1,12 +1,8 @@
-import { ITeacher } from "./ITeacher";
+import { ICourse } from "./ICourse";
+import { ICity } from "./InterfaceFindClient";
 
-export interface ICourse1v1 {
-  id: number;
-  teacher: ITeacher;
-  totalTime?: string;
-  price?: number;
-  day?: string;
-  startTime?: string;
-  endTime?: string;
-  subjects?: string[];
+export interface ICourse1v1 extends ICourse {
+  subjects?: string[]; // những môn đki dạy kèm
+  price?: number; // giá
+  address?: ICity; // địa chỉ quận đăng kí dạy
 }

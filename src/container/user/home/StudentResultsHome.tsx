@@ -11,7 +11,7 @@ export default function StudentResultsHome() {
         backgroundRepeat: "no-repeat",
       }}
     >
-      <Container size={"lg"}>
+      <Container size={"xl"}>
         <StudentResults />
       </Container>
     </Box>

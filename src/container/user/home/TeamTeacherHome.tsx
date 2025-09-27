@@ -12,7 +12,7 @@ export default function TeamTeacherHome() {
         backgroundRepeat: "no-repeat",
       }}
     >
-      <Container size={"lg"}>
+      <Container size={"xl"}>
         <TeamTeacher />
       </Container>
     </Box>

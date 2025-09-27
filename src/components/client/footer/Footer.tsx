@@ -53,7 +53,7 @@ export default function Footer() {
 
   return (
     <footer className={classes.footer}>
-      <Container size={"lg"} className={classes.inner}>
+      <Container size={"xl"} className={classes.inner}>
         <div className={classes.logo}>
           <Flex align={"center"}>
             <Image w={100} h={100} src={data.menuFooterInfo.image} alt="logo" />
@@ -195,7 +195,7 @@ export default function Footer() {
         </div>
         <div className={classes.groups}>{groups}</div>
       </Container>
-      <Container size={"lg"} className={classes.afterFooter} pt={5} pb={5}>
+      <Container size={"xl"} className={classes.afterFooter} pt={5} pb={5}>
         <Text w={"100%"} ta={"center"} c="white" size="sm">
           © Design T-Learning by Ndt28dev 2025
         </Text>

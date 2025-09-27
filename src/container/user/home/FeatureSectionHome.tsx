@@ -26,7 +26,7 @@ export default function FeatureSectionHome() {
         backgroundRepeat: "no-repeat",
       }}
     >
-      <Container size={"lg"}>
+      <Container size={"xl"}>
         <FeatureSectionHomeCon />
         <Introduce />
       </Container>

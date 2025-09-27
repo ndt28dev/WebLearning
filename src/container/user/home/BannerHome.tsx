@@ -9,7 +9,7 @@ import BannerHomeRight from "./contai/BannerHomeRight";
 export default function BannerHome() {
   return (
     <Box p={"lg"} className="bannerHome">
-      <Container size={"lg"} h="100%">
+      <Container size={"xl"} h="100%">
         <Grid align="center" gutter={60}>
           <Grid.Col span={{ base: 12, md: 6 }}>
             <BannerHomeLeft />

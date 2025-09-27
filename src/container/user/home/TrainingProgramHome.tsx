@@ -12,7 +12,7 @@ export default function TrainingProgramHome() {
         backgroundRepeat: "no-repeat",
       }}
     >
-      <Container size={"lg"}>
+      <Container size={"xl"}>
         <TrainingProgramCon />
       </Container>
     </Box>

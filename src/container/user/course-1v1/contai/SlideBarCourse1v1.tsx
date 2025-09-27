@@ -349,7 +349,7 @@ export default function SlideBarCourse1v1() {
           src={"images/banner/find1v1.webp"}
           alt="logo-find-course1v1"
           radius={"md"}
-          h={"529.89px"}
+          mih={"100%"}
           fit="cover"
         />
       </Box>

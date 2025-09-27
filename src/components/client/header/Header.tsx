@@ -94,7 +94,7 @@ export function Header() {
   return (
     <>
       <header className={classes.header}>
-        <Container size="lg" className={classes.inner} p={5}>
+        <Container size="xl" className={classes.inner} p={5}>
           <Link href="/">
             <Image
               radius="md"

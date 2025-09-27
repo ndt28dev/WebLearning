@@ -11,7 +11,7 @@ export default function ScheduleConsultationHome() {
         backgroundRepeat: "no-repeat",
       }}
     >
-      <Container size={"lg"}>
+      <Container size={"xl"}>
         <ScheduleConsultation />
       </Container>
     </Box>

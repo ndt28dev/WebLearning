@@ -11,7 +11,7 @@ export default function NewsAndEventsHome() {
         backgroundRepeat: "no-repeat",
       }}
     >
-      <Container size={"lg"}>
+      <Container size={"xl"}>
         <NewsAndEvents />
       </Container>
     </Box>

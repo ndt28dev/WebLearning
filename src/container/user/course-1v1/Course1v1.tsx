@@ -11,21 +11,19 @@ export default function Course1v1() {
     duration: 800,
   });
   return (
-    <Container pt={50} pb={50} size={"lg"}>
+    <Container pt={50} pb={50} size={"xl"}>
       <div ref={targetRef} />
-      <Stack gap={10}>
-        <Grid>
-          <Grid.Col span={{ base: 12, md: 3 }} mih={"100%"}>
-            <SlideBarCourse1v1 />
-          </Grid.Col>
-          <Grid.Col span={{ base: 12, md: 9 }}>
-            <Stack gap={10}>
-              <CourseFind1v1 />
-              <CourseList1v1 onJumpTop={() => scrollIntoView()} />
-            </Stack>
-          </Grid.Col>
-        </Grid>
-      </Stack>
+      <Grid>
+        <Grid.Col span={{ base: 12, md: 3 }} mih={"100%"}>
+          <SlideBarCourse1v1 />
+        </Grid.Col>
+        <Grid.Col span={{ base: 12, md: 9 }}>
+          <Stack gap={10}>
+            <CourseFind1v1 />
+            <CourseList1v1 onJumpTop={() => scrollIntoView()} />
+          </Stack>
+        </Grid.Col>
+      </Grid>
     </Container>
   );
 }

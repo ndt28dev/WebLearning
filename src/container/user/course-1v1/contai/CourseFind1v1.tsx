@@ -8,6 +8,7 @@ import {
   Group,
   Input,
   Modal,
+  Pill,
   ScrollArea,
   Stack,
   Text,
@@ -38,6 +39,14 @@ const featuredSnippets: string[] = [
 
 export default function CourseFind1v1() {
   const [opened, { open, close }] = useDisclosure(false);
+
+  const pills = Array(6)
+    .fill(0)
+    .map((_, index) => (
+      <Pill key={index} withRemoveButton size="md">
+        Item {index}
+      </Pill>
+    ));
 
   const renderSearchFeatured = () => (
     <>
@@ -74,51 +83,45 @@ export default function CourseFind1v1() {
     </>
   );
 
-  const renderContentModal = () => (
-    <Flex gap={5}>
-      <Text fz={16}>Tiêu chí tìm kiếm:</Text>
-      <Group gap={5} flex={1}>
-        <Badge size="md" variant="filled" color="brand.5" radius={"md"}>
-          Sinh viên năm nhất SGU
-        </Badge>
-        <Badge size="md" variant="filled" color="brand.5" radius={"md"}>
-          Dưới 1 năm
-        </Badge>
-      </Group>
-    </Flex>
-  );
-
   return (
     <>
-      <Flex align={"center"} justify={"space-between"}>
-        <Text fz={25}>Danh Sách Gia Sư</Text>
-        <Group gap={10}>
-          <Input
-            radius={"sm"}
-            placeholder="Nhập tên gia sư ..."
-            w={400}
-            rightSection={<IconSearch size={20} />}
-            styles={{
-              input: { fontSize: 16, color: "#333" },
-            }}
-          />
-          <Tooltip
-            label="Bộ tìm kiếm nhanh"
-            color="var(--mantine-color-brand-5)"
-            variant="light"
-            position="right"
-          >
-            <ActionIcon
-              variant="filled"
-              color={"var(--mantine-color-brand-5)"}
-              size="lg"
-              onClick={open}
+      <Stack gap={10}>
+        <Flex align={"center"} justify={"space-between"}>
+          <Text fz={25}>Danh Sách Gia Sư</Text>
+          <Group gap={10}>
+            <Input
+              radius={"sm"}
+              placeholder="Nhập tên gia sư ..."
+              w={400}
+              rightSection={<IconSearch size={20} />}
+              styles={{
+                input: { fontSize: 16, color: "#333" },
+              }}
+            />
+            <Tooltip
+              label="Bộ tìm kiếm nhanh"
+              color="var(--mantine-color-brand-5)"
+              variant="light"
+              position="right"
             >
-              <IconAdjustments size={30} stroke={1.5} color="white" />
-            </ActionIcon>
-          </Tooltip>
-        </Group>
-      </Flex>
+              <ActionIcon
+                variant="filled"
+                color={"var(--mantine-color-brand-5)"}
+                size="lg"
+                onClick={open}
+              >
+                <IconAdjustments size={30} stroke={1.5} color="white" />
+              </ActionIcon>
+            </Tooltip>
+          </Group>
+        </Flex>
+        <Flex gap={10}>
+          <Text fz={16} fw={500} c={"dimmed"}>
+            36 kết quả
+          </Text>
+          <Pill.Group flex={1}>{pills}</Pill.Group>
+        </Flex>
+      </Stack>
 
       <Modal
         size={"xl"}
@@ -142,10 +145,7 @@ export default function CourseFind1v1() {
         }
         zIndex={1000}
       >
-        <Stack gap={5}>
-          {renderSearchFeatured()}
-          {/* {renderContentModal()} */}
-        </Stack>
+        <Stack gap={5}>{renderSearchFeatured()}</Stack>
       </Modal>
     </>
   );
