@@ -1,8 +1,7 @@
-"use client";
 import {
   ActionIcon,
-  Badge,
   Box,
+  Button,
   Fieldset,
   Flex,
   Group,
@@ -10,25 +9,25 @@ import {
   Menu,
   Modal,
   Pill,
-  ScrollArea,
   Stack,
   Text,
-  ThemeIcon,
   Tooltip,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
-import "@/styles/client/course/CourseFind.scss";
 import {
   IconAdjustments,
   IconArrowDown,
+  IconArrowsLeftRight,
   IconArrowUp,
   IconCalendar,
   IconCurrencyDollar,
-  IconFilter,
   IconFilterDown,
+  IconMessageCircle,
+  IconPhoto,
   IconSearch,
+  IconSettings,
   IconSparkles,
-  IconUser,
+  IconTrash,
 } from "@tabler/icons-react";
 
 const featuredSnippets: string[] = [
@@ -49,7 +48,7 @@ const featuredSnippets: string[] = [
   "Sinh viên năm 4 FTU - 2–3 năm - SAT Math - Hà Nội - 5.196.000đ/tháng",
 ];
 
-export default function CourseFind1v1() {
+export default function CourseFindOnline() {
   const [opened, { open, close }] = useDisclosure(false);
 
   const pills = Array(6)
@@ -117,22 +116,12 @@ export default function CourseFind1v1() {
       <Menu.Dropdown>
         <Menu.Item
           leftSection={
-            <Group gap={4}>
-              <IconUser size={16} color="var(--mantine-color-brand-5)" />
-            </Group>
+            <IconSparkles size={16} color="var(--mantine-color-brand-5)" />
           }
         >
-          <Text size="md">Gia sư mới</Text>
+          <Text size="md">Khoá học mới nhất</Text>
         </Menu.Item>
-        <Menu.Item
-          leftSection={
-            <Group gap={4}>
-              <IconUser size={16} color="var(--mantine-color-brand-5)" />
-            </Group>
-          }
-        >
-          <Text size="md">Gia sư cũ</Text>
-        </Menu.Item>
+
         <Menu.Item
           leftSection={
             <Group gap={4}>
@@ -146,6 +135,7 @@ export default function CourseFind1v1() {
         >
           <Text size="md">Học phí tăng dần</Text>
         </Menu.Item>
+
         <Menu.Item
           leftSection={
             <Group gap={4}>
@@ -159,6 +149,28 @@ export default function CourseFind1v1() {
         >
           <Text size="md">Học phí giảm dần</Text>
         </Menu.Item>
+
+        <Menu.Item
+          leftSection={
+            <Group gap={4}>
+              <IconCalendar size={16} color="var(--mantine-color-brand-5)" />
+              <IconArrowUp size={16} color="var(--mantine-color-brand-5)" />
+            </Group>
+          }
+        >
+          <Text size="md">Ngày tăng dần</Text>
+        </Menu.Item>
+
+        <Menu.Item
+          leftSection={
+            <Group gap={4}>
+              <IconCalendar size={16} color="var(--mantine-color-brand-5)" />
+              <IconArrowDown size={16} color="var(--mantine-color-brand-5)" />
+            </Group>
+          }
+        >
+          <Text size="md">Ngày giảm dần</Text>
+        </Menu.Item>
       </Menu.Dropdown>
     </Menu>
   );
@@ -167,11 +179,11 @@ export default function CourseFind1v1() {
     <>
       <Stack gap={10}>
         <Flex align={"center"} justify={"space-between"}>
-          <Text fz={25}>Danh Sách Gia Sư</Text>
+          <Text fz={25}>Danh Sách Khoá Học Online</Text>
           <Group gap={10}>
             <Input
               radius={"sm"}
-              placeholder="Nhập tên gia sư ..."
+              placeholder="Nhập tên khoá học, giáo viên"
               w={400}
               rightSection={<IconSearch size={20} />}
               styles={{
@@ -180,7 +192,7 @@ export default function CourseFind1v1() {
             />
             {renderSearchMenu()}
             <Tooltip
-              label="Bộ tìm kiếm nhanh"
+              label={<Text size="md">Bộ tìm kiếm nhanh</Text>}
               color="var(--mantine-color-brand-5)"
               variant="light"
               position="top"
@@ -198,12 +210,11 @@ export default function CourseFind1v1() {
         </Flex>
         <Flex gap={10}>
           <Text fz={16} fw={500} c={"dimmed"}>
-            36 kết quả
+            28 kết quả
           </Text>
           <Pill.Group flex={1}>{pills}</Pill.Group>
         </Flex>
       </Stack>
-
       <Modal
         size={"xl"}
         opened={opened}

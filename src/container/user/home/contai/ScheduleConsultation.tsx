@@ -147,11 +147,12 @@ export default function ScheduleConsultation() {
         </Flex>
       </Stack>
       <MyButton
-        radius="md"
+        radius="sm"
         variant="filled"
         color="var(--mantine-color-brand-5)"
         label={"Nhận tư vấn ngay"}
         link={"#"}
+        size="md"
       />
     </Stack>
   );

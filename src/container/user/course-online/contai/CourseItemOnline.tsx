@@ -1,5 +1,5 @@
+import { ICourseOnline } from "@/modules/interface/ICourseOnline";
 import MyButton from "@/components/mybutton/MyButton";
-import { ICourseOffline } from "@/modules/interface/ICourseOffline";
 import { formatDate } from "@/utils/format";
 import { isUpcoming } from "@/utils/helpers";
 import {
@@ -49,11 +49,11 @@ const TrainingDay = (day: string) => {
 };
 
 interface Props {
-  item: ICourseOffline;
+  item: ICourseOnline;
   display?: boolean;
 }
 
-export default function CourseItemOffline({ item, display = true }: Props) {
+export default function CourseItemOnline({ item, display = true }: Props) {
   const [listHeart, setListHeart] = useState<number[]>([101, 102]);
 
   const setColorIconHeart = (id: number) => {
@@ -157,7 +157,7 @@ export default function CourseItemOffline({ item, display = true }: Props) {
                 <IconUser size={20} color="var(--mantine-color-brand-5)" />
               </ThemeIcon>
               <Text size="md">Giáo viên</Text>
-              <Text size="md" fw={600}>
+              <Text size="md" fw={600} lineClamp={1} flex={1}>
                 {item.teacher?.name}
               </Text>
             </Flex>
@@ -174,8 +174,8 @@ export default function CourseItemOffline({ item, display = true }: Props) {
             <Flex gap={5} align={"center"}>
               <ThemeIcon variant="light">
                 <IconCurrencyDollar
-                  color="var(--mantine-color-brand-5)"
                   size={20}
+                  color="var(--mantine-color-brand-5)"
                 />
               </ThemeIcon>
               <Text size="md">Học phí:</Text>
@@ -184,14 +184,6 @@ export default function CourseItemOffline({ item, display = true }: Props) {
                   {Number(item.price).toLocaleString("en-US")}
                 </span>{" "}
                 VND/Khoá
-              </Text>
-            </Flex>
-            <Flex gap={5} align={"center"}>
-              <ThemeIcon variant="light">
-                <IconMapPin size={20} color="var(--mantine-color-brand-5)" />
-              </ThemeIcon>
-              <Text size="md" fw={600} lineClamp={2} flex={1}>
-                {item.clasroom}, {item.address}
               </Text>
             </Flex>
 

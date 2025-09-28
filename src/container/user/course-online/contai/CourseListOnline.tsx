@@ -1,15 +1,13 @@
-"use client";
 import { Center, Grid, Pagination } from "@mantine/core";
-import CourseItemOffline from "./CourseItemOffline";
-import { courseOfflinesData } from "@/modules/data/DataCourseOffline";
-import { ICourseOffline } from "@/modules/interface/ICourseOffline";
+import CourseItemOnline from "./CourseItemOnline";
+import { ICourseOnline } from "@/modules/interface/ICourseOnline";
 import { useMemo, useState } from "react";
-import "@/styles/client/course/CourseList.scss";
+import { courseOnlinesData } from "@/modules/data/DataCourseOnline";
 
 type Props = { onJumpTop?: () => void };
 
-export default function CourseListOffline({ onJumpTop }: Props) {
-  const data: ICourseOffline[] = courseOfflinesData;
+export default function CourseListOnline({ onJumpTop }: Props) {
+  const data: ICourseOnline[] = courseOnlinesData;
   const [page, setPage] = useState<number>(1);
   const totalProducts = 4;
   const pageSize = Math.max(1, totalProducts || 0);
@@ -29,7 +27,7 @@ export default function CourseListOffline({ onJumpTop }: Props) {
       <Grid>
         {courseOfflineData.map((item) => (
           <Grid.Col span={{ base: 12, md: 6 }} key={item.id}>
-            <CourseItemOffline item={item} />
+            <CourseItemOnline item={item} />
           </Grid.Col>
         ))}
       </Grid>

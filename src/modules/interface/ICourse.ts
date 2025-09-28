@@ -4,6 +4,13 @@ export enum CourseStatus {
   NotStarted = "Chưa bắt đầu",
   Ongoing = "Đang diễn ra",
   Ended = "Đã kết thúc",
+  Tutoring = "Dạy kèm",
+}
+
+export enum CourseType {
+  Basic = "BASIC",
+  Advanced = "ADVANCED",
+  ExamPrep = "EXAM_PREP",
 }
 
 export interface ICourse {
@@ -19,4 +26,5 @@ export interface ICourse {
   teacher?: ITeacher; // người dạy
   status?: CourseStatus; // tình trạng khoá học
   isHidden?: boolean; // trạng thái
+  courseType?: CourseType;
 }

@@ -8,7 +8,7 @@ import { useScrollIntoView } from "@mantine/hooks";
 export default function Course1v1() {
   const { scrollIntoView, targetRef } = useScrollIntoView<HTMLDivElement>({
     offset: 80,
-    duration: 800,
+    duration: 200,
   });
   return (
     <Container pt={50} pb={50} size={"xl"}>

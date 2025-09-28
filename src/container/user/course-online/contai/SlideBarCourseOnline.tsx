@@ -3,6 +3,7 @@ import {
   dayStudyData,
   experienceData,
   levelStudyData,
+  monthYearData,
   subjects,
   timeStudyData,
   universityData,
@@ -10,6 +11,7 @@ import {
 import {
   ICity,
   ILevelStudy,
+  IMonthYear,
   ISubject,
 } from "@/modules/interface/InterfaceFindClient";
 import {
@@ -24,18 +26,18 @@ import {
   Text,
 } from "@mantine/core";
 import { useEffect, useMemo, useState } from "react";
+import "@/styles/client/course/CourseList.scss";
 
-export default function SlideBarCourse1v1() {
+export default function SlideBarCourseOnline() {
   const [cityId, setCityId] = useState<string | null>(null);
-  const [levelId, setLevelId] = useState<string | null>(null);
   const [educationalLevel, setEducationalLevel] = useState<string | null>(null);
   const [price, setPrice] = useState<[number, number]>([0, 10000000]);
 
   const cityOptions = (cities: ICity[]) =>
     cities.map((c) => ({ value: String(c.id), label: c.name }));
 
-  const levelOptions = (data: ILevelStudy) =>
-    data.levels.map((c, idx) => ({ value: String(idx), label: c }));
+  const monthYearOptions = (data: IMonthYear) =>
+    data.monthYear.map((c, idx) => ({ value: String(idx), label: c }));
 
   const districtOptionsByCityId = (cities: ICity[], cityId?: string | null) => {
     const city = cities.find((c) => String(c.id) === String(cityId));
@@ -65,51 +67,7 @@ export default function SlideBarCourse1v1() {
     () => subjectByEducationalLevel(subjects, educationalLevel),
     [educationalLevel]
   );
-  const levelData = useMemo(() => levelOptions(levelStudyData), []);
-
-  const renderLocation = () => (
-    <Stack gap={5} pb={10} style={{ borderBottom: "2px solid #E3E9F0" }}>
-      <Select
-        label={
-          <Text size="md" fw={500} mb={5}>
-            Tỉnh/Thành Phố
-          </Text>
-        }
-        placeholder="Chọn tỉnh/thành phố"
-        data={cityData}
-        value={cityId}
-        onChange={setCityId}
-        clearable
-        styles={{
-          input: { fontSize: 14 },
-          option: {
-            fontSize: 14,
-          },
-        }}
-      />
-
-      <MultiSelect
-        searchable
-        disabled={cityId ? false : true}
-        label={
-          <Text size="md" fw={500} mb={5}>
-            Quận/Huyện
-          </Text>
-        }
-        placeholder={cityId ? "Chọn quận/huyện" : "Chọn tỉnh/thành trước"}
-        data={districtData}
-        rightSection={null}
-        rightSectionWidth={0}
-        styles={{
-          input: { fontSize: 14 },
-          pill: { fontSize: 14 },
-          option: {
-            fontSize: 14,
-          },
-        }}
-      />
-    </Stack>
-  );
+  const monthData = useMemo(() => monthYearOptions(monthYearData), []);
 
   const renderAcademic = () => (
     <Stack gap={5} pb={10} style={{ borderBottom: "2px solid #E3E9F0" }}>
@@ -189,14 +147,26 @@ export default function SlideBarCourse1v1() {
       <Checkbox.Group
         label={
           <Text size="md" fw={500} mb={5}>
-            Thể loại
+            Loại khoá học
           </Text>
         }
       >
         <Stack gap="xs">
           <Checkbox
             value={1}
-            label="Dạy kèm"
+            label="Cơ bản"
+            color="brand.5"
+            styles={{
+              input: {
+                borderColor: "var(--mantine-color-brand-5)",
+                "&:checked": { backgroundColor: "red", borderColor: "red" },
+              },
+              label: { marginLeft: -8 },
+            }}
+          />
+          <Checkbox
+            value={2}
+            label="Nâng cao"
             color="brand.5"
             styles={{
               input: {
@@ -218,6 +188,18 @@ export default function SlideBarCourse1v1() {
               label: { marginLeft: -8 },
             }}
           />
+          <Checkbox
+            value={4}
+            label="Luyện đề"
+            color="brand.5"
+            styles={{
+              input: {
+                borderColor: "var(--mantine-color-brand-5)",
+                "&:checked": { backgroundColor: "red", borderColor: "red" },
+              },
+              label: { marginLeft: -8 },
+            }}
+          />
         </Stack>
       </Checkbox.Group>
     </Stack>
@@ -225,6 +207,22 @@ export default function SlideBarCourse1v1() {
 
   const renderSchedule = () => (
     <Stack gap={5}>
+      <Select
+        label={
+          <Text size="md" fw={500} mb={5}>
+            Tháng-Năm
+          </Text>
+        }
+        placeholder="Chọn tháng-năm"
+        data={monthData}
+        clearable
+        styles={{
+          input: { fontSize: 14 },
+          option: {
+            fontSize: 14,
+          },
+        }}
+      />
       <MultiSelect
         label={
           <Text size="md" fw={500} mb={5}>
@@ -261,29 +259,57 @@ export default function SlideBarCourse1v1() {
           },
         }}
       />
+      <Checkbox.Group
+        label={
+          <Text size="md" fw={500} mb={5}>
+            Số buổi học
+          </Text>
+        }
+      >
+        <Stack gap="xs">
+          <Checkbox
+            value={1}
+            label="Dưới 20 buổi"
+            color="brand.5"
+            styles={{
+              input: {
+                borderColor: "var(--mantine-color-brand-5)",
+                "&:checked": { backgroundColor: "red", borderColor: "red" },
+              },
+              label: { marginLeft: -8 },
+            }}
+          />
+          <Checkbox
+            value={2}
+            label="20 - 40 buổi"
+            color="brand.5"
+            styles={{
+              input: {
+                borderColor: "var(--mantine-color-brand-5)",
+                "&:checked": { backgroundColor: "red", borderColor: "red" },
+              },
+              label: { marginLeft: -8 },
+            }}
+          />
+          <Checkbox
+            value={3}
+            label="Trên 40 buổi"
+            color="brand.5"
+            styles={{
+              input: {
+                borderColor: "var(--mantine-color-brand-5)",
+                "&:checked": { backgroundColor: "red", borderColor: "red" },
+              },
+              label: { marginLeft: -8 },
+            }}
+          />
+        </Stack>
+      </Checkbox.Group>
     </Stack>
   );
 
   const renderBudget = () => (
     <Stack gap={5} pb={10} style={{ borderBottom: "2px solid #E3E9F0" }}>
-      <Select
-        label={
-          <Text size="md" fw={500} mb={5}>
-            Trình độ
-          </Text>
-        }
-        placeholder="Chọn trình độ gia sư"
-        data={levelData}
-        value={levelId}
-        onChange={setLevelId}
-        clearable
-        styles={{
-          input: { fontSize: 14 },
-          option: {
-            fontSize: 14,
-          },
-        }}
-      />
       <Text size="md" fw={500} mb={0}>
         Giá:{" "}
         <span
@@ -369,13 +395,11 @@ export default function SlideBarCourse1v1() {
         c={"white"}
         p={6}
       >
-        Tìm kiếm gia sư
+        Tìm kiếm khoá học Online
       </Text>
       <Stack gap={10} p={10}>
-        {renderLocation()}
-        {renderBudget()}
-        {renderUniversity()}
         {renderAcademic()}
+        {renderBudget()}
         {renderSchedule()}
       </Stack>
       <Box h={"100%"} p={10}>

@@ -13,15 +13,29 @@ export const headerCourse1v1Data = {
 };
 
 export const headerCourseOfflineData = {
-  title: "Khoá học offline tại lớp",
+  title: "Khoá học Offline tại lớp",
   items: [
     {
       title: "Trang chủ",
       href: "/",
     },
     {
-      title: "Khoá học offline tại lớp",
+      title: "Khoá học Offline tại lớp",
       href: "/courses-offline",
+    },
+  ],
+};
+
+export const headerCourseOnlineData = {
+  title: "Khoá học Online",
+  items: [
+    {
+      title: "Trang chủ",
+      href: "/",
+    },
+    {
+      title: "Khoá học Online",
+      href: "/courses-online",
     },
   ],
 };

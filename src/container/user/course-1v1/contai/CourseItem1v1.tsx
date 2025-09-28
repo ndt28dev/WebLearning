@@ -24,9 +24,10 @@ import { useState } from "react";
 
 interface Props {
   item: ICourse1v1;
+  display?: boolean;
 }
 
-export default function CourseItem1v1({ item }: Props) {
+export default function CourseItem1v1({ item, display = true }: Props) {
   const [listHeart, setListHeart] = useState<number[]>([101, 102]);
   const lengthSub = 4;
 
@@ -76,12 +77,12 @@ export default function CourseItem1v1({ item }: Props) {
       style={{ border: "1px solid var(--mantine-color-brand-2)" }}
       radius={"md"}
     >
-      <Flex>
+      <Flex align={"center"}>
         <Image
           src={item.teacher?.image}
           w={300}
           h={300}
-          radius={0}
+          radius={5}
           alt={"1v1"}
           fit="cover"
         />
@@ -199,16 +200,7 @@ export default function CourseItem1v1({ item }: Props) {
                 link=""
               />
             </Group>
-            <Tooltip
-              label={
-                setColorIconHeart(item.id || 0)
-                  ? "Bỏ lưu"
-                  : "Lưu vào bộ yêu thích"
-              }
-              variant="light"
-              color="red"
-              position={"left"}
-            >
+            {display && (
               <ActionIcon
                 variant={setColorIconHeart(item.id || 0) ? "filled" : "outline"}
                 color={"red"}
@@ -221,7 +213,7 @@ export default function CourseItem1v1({ item }: Props) {
                   color={setColorIconHeart(item.id || 0) ? "white" : "red"}
                 />
               </ActionIcon>
-            </Tooltip>
+            )}
           </Flex>
         </Stack>
       </Flex>

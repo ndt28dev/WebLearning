@@ -1,13 +1,11 @@
 "use client";
 import { Container, Grid, Stack } from "@mantine/core";
-import CourseListOffline from "./contai/CourseListOffline";
-import CourseFindOffline from "./contai/CourseFindOffline";
-import CourseFind1v1 from "../course-1v1/contai/CourseFind1v1";
-import SlideBarCourse1v1 from "../course-1v1/contai/SlideBarCourse1v1";
 import { useScrollIntoView } from "@mantine/hooks";
-import SlideBarCourseOffline from "./contai/SlideBarCourseOffline";
+import SlideBarCourseOnline from "./contai/SlideBarCourseOnline";
+import CourseFindOnline from "./contai/CourseFindOnline";
+import CourseListOnline from "./contai/CourseListOnline";
 
-export default function CourseOffline() {
+export default function CourseOnline() {
   const { scrollIntoView, targetRef } = useScrollIntoView<HTMLDivElement>({
     offset: 80,
     duration: 200,
@@ -17,12 +15,12 @@ export default function CourseOffline() {
       <div ref={targetRef} />
       <Grid>
         <Grid.Col span={{ base: 12, md: 3 }}>
-          <SlideBarCourseOffline />
+          <SlideBarCourseOnline />
         </Grid.Col>
         <Grid.Col span={{ base: 12, md: 9 }}>
           <Stack gap={10}>
-            <CourseFindOffline />
-            <CourseListOffline onJumpTop={() => scrollIntoView()} />
+            <CourseFindOnline />
+            <CourseListOnline onJumpTop={() => scrollIntoView()} />
           </Stack>
         </Grid.Col>
       </Grid>

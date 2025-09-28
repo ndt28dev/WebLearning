@@ -3,6 +3,7 @@ import {
   IDayStudy,
   IExperience,
   ILevelStudy,
+  IMonthYear,
   ISubject,
   ITimeStudy,
   IUniversity,
@@ -174,5 +175,18 @@ export const experienceData: IExperience = {
     "Khoảng 3 năm",
     "Khoảng 4 năm",
     "Từ 5 năm trở lên",
+  ],
+};
+
+export const monthYearData: IMonthYear = {
+  monthYear: [
+    "Tháng 10 - 2025",
+    "Tháng 11 - 2025",
+    "Tháng 12 - 2025",
+    "Tháng 1 - 2026",
+    "Tháng 2 - 2026",
+    "Tháng 3 - 2026",
+    "Tháng 4 - 2026",
+    "Tháng 5 - 2026",
   ],
 };

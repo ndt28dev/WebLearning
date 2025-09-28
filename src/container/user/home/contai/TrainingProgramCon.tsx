@@ -32,6 +32,7 @@ import MyButton from "@/components/mybutton/MyButton";
 import { isUpcoming } from "@/utils/helpers";
 import MyTitle from "@/components/client/mytitle/MyTitle";
 import CourseItemOffline from "../../course-offline/contai/CourseItemOffline";
+import TrainingProgramItem from "./TrainingProgramItem";
 
 export default function TrainingProgramCon() {
   const data: ITrainingProgramHome = homeMockData.trainingProgramData;
@@ -46,7 +47,7 @@ export default function TrainingProgramCon() {
     >
       {data.trainingPrograms.map((item) => (
         <Carousel.Slide key={item.id}>
-          <CourseItemOffline item={item} />
+          <TrainingProgramItem item={item} />
         </Carousel.Slide>
       ))}
     </Carousel>

@@ -6,6 +6,7 @@ import { INewsAndEvents } from "@/modules/interface/INewsAndEvents";
 import {
   Box,
   Card,
+  Center,
   Flex,
   Grid,
   Group,
@@ -15,6 +16,7 @@ import {
   Text,
 } from "@mantine/core";
 import "@/styles/client/home/NewsAndEvents.scss";
+import MyButton from "@/components/mybutton/MyButton";
 
 export default function NewsAndEvents() {
   const data: INewsAndEventsHome = homeMockData.newsAndEventsData;
@@ -81,7 +83,6 @@ export default function NewsAndEvents() {
   return (
     <Stack pt={50} pb={50} gap={5} className="newsAndEvents">
       <MyTitle topic={data.topic} />
-
       <Grid>
         <Grid.Col span={{ base: 12, md: 6 }}>
           {renderColumnLeft(data.newsAndEvents[0])}
@@ -90,6 +91,15 @@ export default function NewsAndEvents() {
           {renderColumnRight(rightCol)}
         </Grid.Col>
       </Grid>
+      <Center mt={30}>
+        <MyButton
+          label="Xem thêm"
+          link="/courses"
+          variant="filled"
+          size="md"
+          color="brand.5"
+        />
+      </Center>
     </Stack>
   );
 }

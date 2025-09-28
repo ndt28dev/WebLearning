@@ -39,3 +39,7 @@ export interface IUniversity {
 export interface IExperience {
   experiences: string[];
 }
+
+export interface IMonthYear {
+  monthYear: string[];
+}

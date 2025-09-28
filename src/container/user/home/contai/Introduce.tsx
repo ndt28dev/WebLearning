@@ -67,6 +67,7 @@ export default function Introduce() {
           link="/"
           variant="filled"
           color="brand.5"
+          size="md"
           icon1={<IconChevronRight size={20} />}
         />
       </Box>

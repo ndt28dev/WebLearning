@@ -34,7 +34,7 @@ import {
   IconUserStar,
 } from "@tabler/icons-react";
 import { useEffect, useMemo, useRef, useState } from "react";
-import "@/styles/client/course/CourseList1v1.scss";
+import "@/styles/client/course/CourseList.scss";
 import CourseItem1v1 from "./CourseItem1v1";
 
 type Props = { onJumpTop?: () => void };
@@ -64,7 +64,7 @@ export default function CourseList1v1({ onJumpTop }: Props) {
           <CourseItem1v1 key={index} item={item} />
         ))}
       </Stack>
-      <Center mt={20} className="course1v1-pagination">
+      <Center mt={20} className="course-pagination">
         <Pagination
           color="brand"
           radius="xl"

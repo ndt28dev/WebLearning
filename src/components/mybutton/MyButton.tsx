@@ -1,26 +1,29 @@
 import { IButton } from "@/modules/interface/IButton";
-import { Button } from "@mantine/core";
+import { Button, Text } from "@mantine/core";
 import { Icon123 } from "@tabler/icons-react";
 import { useRouter } from "next/navigation";
 
 interface MyButtonProps extends IButton {
   c?: string;
+  disabled?: boolean;
 }
 
 export default function MyButton({
   label,
   link,
   color = "var(--mantine-color-brand-5)",
-  size,
-  radius,
+  size = "md",
+  radius = "sm",
   variant = "default",
   icon,
   icon1,
   c,
+  disabled,
 }: MyButtonProps) {
   const router = useRouter();
   return (
     <Button
+      disabled={disabled}
       color={color}
       size={size}
       radius={radius}
@@ -31,13 +34,9 @@ export default function MyButton({
         router.push(link);
       }}
     >
-      <span
-        style={{
-          color: c,
-        }}
-      >
+      <Text c={c} size={size}>
         {label}
-      </span>
+      </Text>
     </Button>
   );
 }
