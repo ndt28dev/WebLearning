@@ -97,7 +97,7 @@ export default function PartnerModal({ item }: Props) {
           w="100%"
           // h={80}
           fit="cover"
-          radius={"md"}
+          radius={"sm"}
         />
         <Text size="md" c={"dimmed"} ta={"center"}>
           {item.detailsPartner?.description}
