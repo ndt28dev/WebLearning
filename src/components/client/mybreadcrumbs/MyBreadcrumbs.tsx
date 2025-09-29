@@ -9,28 +9,26 @@ interface Item {
 
 interface MyBreadcrumbsProps {
   items: Item[];
+  c?: string;
 }
 
-export default function MyBreadcrumbs({ items }: MyBreadcrumbsProps) {
+export default function MyBreadcrumbs({
+  items,
+  c = "white",
+}: MyBreadcrumbsProps) {
   const itemsBreadcrumbs = items.map((item, index) =>
     index === items.length - 1 ? (
-      <Text size="lg" c={"white"}>
+      <Text size="lg" c={"black"}>
         {item.title}
       </Text>
     ) : (
-      <Anchor
-        href={item.href}
-        component={Link}
-        key={index}
-        fz={"lg"}
-        c={"white"}
-      >
+      <Anchor href={item.href} component={Link} key={index} fz={"lg"} c={c}>
         {item.title}
       </Anchor>
     )
   );
   return (
-    <Breadcrumbs separator={<span style={{ color: "#fff" }}>/</span>}>
+    <Breadcrumbs separator={<span style={{ color: c }}>/</span>}>
       {itemsBreadcrumbs}
     </Breadcrumbs>
   );

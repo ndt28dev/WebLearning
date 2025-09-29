@@ -39,3 +39,17 @@ export const headerCourseOnlineData = {
     },
   ],
 };
+
+export const headerIntroduceData = {
+  title: "Giới thiệu",
+  items: [
+    {
+      title: "Trang chủ",
+      href: "/",
+    },
+    {
+      title: "Giới thiệu",
+      href: "/introduce",
+    },
+  ],
+};
