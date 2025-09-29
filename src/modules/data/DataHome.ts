@@ -465,7 +465,7 @@ export const homeMockData: IHome = {
     title: "Chinh phục học sinh giỏi cùng T-Learning",
     description:
       "Chọn khung giờ phù hợp để đội ngũ T-Learning liên hệ tư vấn lộ trình học, chương trình và học phí. Mỗi phiên kéo dài ~30–45 phút qua điện thoại hoặc Google Meet.",
-    image: "/images/scheduleconsultation/bgr1.png",
+    image: "/images/scheduleConsultation/bgr1.png",
     morning: ["08:00 – 09:00", "09:00 – 10:00", "10:00 – 11:00"],
     afternoon: ["13:00 – 14:00", "14:00 – 15:00", "15:00 – 16:00"],
     evening: ["18:00 – 19:00", "19:00 – 20:00", "20:00 – 21:00"],
