@@ -98,7 +98,7 @@ export default function CourseItemOnline({ item, display = true }: Props) {
         p="0"
         style={{
           overflow: "hidden",
-          border: "1px solid var(--mantine-color-brand-5)",
+          border: "1px solid var(--mantine-color-brand-2)",
         }}
         h={"100%"}
       >

@@ -180,7 +180,7 @@ export default function CourseFind1v1() {
             />
             {renderSearchMenu()}
             <Tooltip
-              label="Bộ tìm kiếm nhanh"
+              label={<Text size="md">Bộ tìm kiếm nhanh</Text>}
               color="var(--mantine-color-brand-5)"
               variant="light"
               position="top"
