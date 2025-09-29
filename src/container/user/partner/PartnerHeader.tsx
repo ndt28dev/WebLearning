@@ -4,7 +4,7 @@ import { IPartnerHeader } from "@/modules/interface/IPartnerData";
 import { Center, Container, Stack, Text } from "@mantine/core";
 
 export default function PartnerHeader() {
-  const data: IPartnerHeader = partnerData.partnerHeader;
+  const data: IPartnerHeader = partnerData.partnerHeader || {};
   return (
     <Stack
       gap={0}
@@ -18,7 +18,7 @@ export default function PartnerHeader() {
       }}
     >
       <Container size={"xl"}>
-        <MyTitle topic={data.topic} colorText="white" color="white" />
+        <MyTitle topic={data.topic!} colorText="white" color="white" />
         <Center>
           <Text size="lg" ta={"center"} c={"white"} w={700}>
             {data.description}
