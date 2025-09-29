@@ -1,8 +1,8 @@
 import { Box, Center, Stack, Text } from "@mantine/core";
 
 type Props = {
-  textTitle: string;
-  textDesc: string;
+  textTitle?: string;
+  textDesc?: string;
   colorTitle?: string;
   colorDesc?: string;
 };

@@ -1,4 +1,5 @@
 import MyTitleBasic from "@/components/client/mytitle/MyTitleBasic";
+import MyGroupText from "@/components/mygrouptext/MyGroupText";
 import { introduceData } from "@/modules/data/DataIntroduce";
 import { Box, Flex, Image, Stack, Text } from "@mantine/core";
 import { IconCheck } from "@tabler/icons-react";

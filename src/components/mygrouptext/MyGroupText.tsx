@@ -7,6 +7,8 @@ interface MyGroupTextProps {
   size?: string;
   fw?: number;
   icon?: React.ReactNode;
+  color?: string;
+  align?: string;
 }
 
 export default function MyGroupText({
@@ -16,15 +18,19 @@ export default function MyGroupText({
   size = "md",
   fw = 500,
   icon,
+  color,
+  align = "center",
 }: MyGroupTextProps) {
   return (
-    <Flex align={"center"} gap={gap}>
+    <Flex align={align} gap={gap}>
       {icon}
       <Group gap={5} flex={1}>
-        <Text size={size} fw={fw}>
+        <Text size={size} c={color}>
           {text1}
         </Text>
-        <Text size={size}>{text2}</Text>
+        <Text size={size} fw={fw} c={color} flex={1}>
+          {text2}
+        </Text>
       </Group>
     </Flex>
   );

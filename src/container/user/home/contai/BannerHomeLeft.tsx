@@ -31,7 +31,7 @@ export default function BannerHomeLeft() {
             key={index}
             gap="5"
             icon={<IconCheck size={20} color="var(--mantine-color-brand-5)" />}
-            text2={item}
+            text1={item}
           />
         ))}
       </Stack>
@@ -57,12 +57,12 @@ export default function BannerHomeLeft() {
 
       <Flex align={"center"} justify={"space-between"}>
         <Stack>
-          <MyGroupText
-            gap="5"
-            fw={600}
-            text1={`${data.numStudent.toLocaleString("en-US")} học`}
-            text2={"viên tại TP.HCM"}
-          />
+          <Group gap={5}>
+            <Text size="md" fw={600}>
+              {data.numStudent.toLocaleString("en-US")} học
+            </Text>
+            <Text size="md">viên tại TP.HCM</Text>
+          </Group>
           <Group gap={"xs"}>
             <Group gap={10} bg={"#F3F3F5"} p={5} style={{ borderRadius: 10 }}>
               <Center w={30}>

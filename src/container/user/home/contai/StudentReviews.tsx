@@ -25,6 +25,7 @@ import {
 } from "@tabler/icons-react";
 import { formatDate } from "@/utils/format";
 import { IStudentReviews } from "@/modules/interface/IParentReviews";
+import MyGroupText from "@/components/mygrouptext/MyGroupText";
 
 export default function StudentReviews() {
   const data: IParentReviewsHome = homeMockData.parentReviewsData;
@@ -68,14 +69,20 @@ export default function StudentReviews() {
               <Text fz={25} fw={600} c={"brand.5"}>
                 {item.name}
               </Text>
-              <Group gap={5}>
-                <IconSchool size={22} color="var(--mantine-color-brand-5)" />
-                <Text>{item.school}</Text>
-              </Group>
-              <Group gap={5}>
-                <IconClock size={22} color="var(--mantine-color-brand-5)" />
-                <Text>{formatDate(item.day)}</Text>
-              </Group>
+              <MyGroupText
+                gap="5"
+                icon={
+                  <IconSchool size={22} color="var(--mantine-color-brand-5)" />
+                }
+                text1={item.school}
+              />
+              <MyGroupText
+                gap="5"
+                icon={
+                  <IconClock size={22} color="var(--mantine-color-brand-5)" />
+                }
+                text1={formatDate(item.day)}
+              />
               <div
                 style={{ height: "0.5px", backgroundColor: "#E3E9F0" }}
               ></div>

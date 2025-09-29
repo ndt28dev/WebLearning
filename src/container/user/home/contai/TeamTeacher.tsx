@@ -194,7 +194,7 @@ export default function TeamTeacher() {
                     />
                   </ThemeIcon>
                 }
-                text2={item.experience}
+                text1={item.experience}
               />
               <MyGroupText
                 gap="5"
@@ -206,7 +206,7 @@ export default function TeamTeacher() {
                     />
                   </ThemeIcon>
                 }
-                text2={item.examScore}
+                text1={item.examScore}
               />
               <Flex align={"center"} gap={10}>
                 <MyButton label={"Xem lịch dạy"} link={""} variant="filled" />

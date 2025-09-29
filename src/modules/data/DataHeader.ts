@@ -53,3 +53,17 @@ export const headerIntroduceData = {
     },
   ],
 };
+
+export const headerPartnerData = {
+  title: "Đối tác",
+  items: [
+    {
+      title: "Trang chủ",
+      href: "/",
+    },
+    {
+      title: "Đối tác",
+      href: "/partner",
+    },
+  ],
+};

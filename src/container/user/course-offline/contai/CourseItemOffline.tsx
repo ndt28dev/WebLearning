@@ -1,4 +1,5 @@
 import MyButton from "@/components/mybutton/MyButton";
+import MyGroupText from "@/components/mygrouptext/MyGroupText";
 import { ICourseOffline } from "@/modules/interface/ICourseOffline";
 import { formatDate } from "@/utils/format";
 import { isUpcoming } from "@/utils/helpers";
@@ -152,24 +153,24 @@ export default function CourseItemOffline({ item, display = true }: Props) {
             >
               {item.title}
             </Text>
-            <Flex gap={5} align={"center"}>
-              <ThemeIcon variant="light">
-                <IconUser size={20} color="var(--mantine-color-brand-5)" />
-              </ThemeIcon>
-              <Text size="md">Giáo viên</Text>
-              <Text size="md" fw={600}>
-                {item.teacher?.name}
-              </Text>
-            </Flex>
-            <Flex gap={5} align={"center"}>
-              <ThemeIcon variant="light">
-                <IconClock size={20} color="var(--mantine-color-brand-5)" />
-              </ThemeIcon>
-              <Text size="md">Giờ học:</Text>
-              <Text size="md" fw={600}>
-                {item.startTime} - {item.endTime}
-              </Text>
-            </Flex>
+            <MyGroupText
+              icon={
+                <ThemeIcon variant="light">
+                  <IconUser size={20} color="var(--mantine-color-brand-5)" />
+                </ThemeIcon>
+              }
+              text1="Giáo viên"
+              text2={item.teacher?.name}
+            />
+            <MyGroupText
+              icon={
+                <ThemeIcon variant="light">
+                  <IconClock size={20} color="var(--mantine-color-brand-5)" />
+                </ThemeIcon>
+              }
+              text1="Giờ học:"
+              text2={`${item.startTime} - ${item.endTime}`}
+            />
             {TrainingDay(item.day || "")}
             <Flex gap={5} align={"center"}>
               <ThemeIcon variant="light">
@@ -186,15 +187,14 @@ export default function CourseItemOffline({ item, display = true }: Props) {
                 VND/Khoá
               </Text>
             </Flex>
-            <Flex gap={5} align={"center"}>
-              <ThemeIcon variant="light">
-                <IconMapPin size={20} color="var(--mantine-color-brand-5)" />
-              </ThemeIcon>
-              <Text size="md" fw={600} lineClamp={2} flex={1}>
-                {item.clasroom}, {item.address}
-              </Text>
-            </Flex>
-
+            <MyGroupText
+              icon={
+                <ThemeIcon variant="light">
+                  <IconMapPin size={20} color="var(--mantine-color-brand-5)" />
+                </ThemeIcon>
+              }
+              text2={`${item.clasroom}, ${item.address}`}
+            />
             <Group align="center" justify="space-between" mt={5}>
               <Group gap={10}>
                 <MyButton

@@ -1,4 +1,5 @@
 import MyButton from "@/components/mybutton/MyButton";
+import MyGroupText from "@/components/mygrouptext/MyGroupText";
 import { ICourse1v1 } from "@/modules/interface/Icourse1v1";
 import {
   ActionIcon,
@@ -144,31 +145,36 @@ export default function CourseItem1v1({ item, display = true }: Props) {
               </Tooltip>
             )}
           </Flex>
-          <Flex align={"center"} gap={5}>
-            <ThemeIcon variant="light">
-              <IconSchool size={20} color={"var(--mantine-color-brand-5)"} />
-            </ThemeIcon>
-            <Text size="md" lineClamp={1}>
-              {item.teacher?.university}
-            </Text>
-          </Flex>
-          <Flex align={"center"} gap={5}>
-            <ThemeIcon variant="light">
-              <IconBriefcase size={20} color={"var(--mantine-color-brand-5)"} />
-            </ThemeIcon>
-            <Text size="md" lineClamp={1}>
-              {item.teacher?.experience}
-            </Text>
-          </Flex>
-          <Flex gap={5} align={"center"}>
-            <ThemeIcon variant="light">
-              <IconClock size={20} color="var(--mantine-color-brand-5)" />
-            </ThemeIcon>
-            <Text size="md">Giờ học:</Text>
-            <Text size="md" fw={600}>
-              {item.startTime} - {item.endTime}
-            </Text>
-          </Flex>
+
+          <MyGroupText
+            icon={
+              <ThemeIcon variant="light">
+                <IconSchool size={20} color={"var(--mantine-color-brand-5)"} />
+              </ThemeIcon>
+            }
+            text1={item.teacher?.university}
+          />
+          <MyGroupText
+            icon={
+              <ThemeIcon variant="light">
+                <IconBriefcase
+                  size={20}
+                  color={"var(--mantine-color-brand-5)"}
+                />
+              </ThemeIcon>
+            }
+            text1={item.teacher?.experience}
+          />
+          <MyGroupText
+            icon={
+              <ThemeIcon variant="light">
+                <IconClock size={20} color="var(--mantine-color-brand-5)" />
+              </ThemeIcon>
+            }
+            text1="Giờ học:"
+            text2={`${item.startTime} - ${item.endTime}`}
+          />
+
           {TrainingDay(item.day || "")}
           <Flex gap={5} align={"center"}>
             <ThemeIcon variant="light">

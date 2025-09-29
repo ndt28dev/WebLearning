@@ -1,3 +1,5 @@
+import PartnerPage from "@/container/user/partner/PartnerPage";
+
 export default function page() {
-  return <div>page partner</div>;
+  return <PartnerPage />;
 }

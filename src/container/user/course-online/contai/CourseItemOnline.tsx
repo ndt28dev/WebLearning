@@ -23,6 +23,7 @@ import {
   IconUser,
 } from "@tabler/icons-react";
 import { useState } from "react";
+import MyGroupText from "@/components/mygrouptext/MyGroupText";
 
 const TrainingDay = (day: string) => {
   const days = day
@@ -152,24 +153,26 @@ export default function CourseItemOnline({ item, display = true }: Props) {
             >
               {item.title}
             </Text>
-            <Flex gap={5} align={"center"}>
-              <ThemeIcon variant="light">
-                <IconUser size={20} color="var(--mantine-color-brand-5)" />
-              </ThemeIcon>
-              <Text size="md">Giáo viên</Text>
-              <Text size="md" fw={600} lineClamp={1} flex={1}>
-                {item.teacher?.name}
-              </Text>
-            </Flex>
-            <Flex gap={5} align={"center"}>
-              <ThemeIcon variant="light">
-                <IconClock size={20} color="var(--mantine-color-brand-5)" />
-              </ThemeIcon>
-              <Text size="md">Giờ học:</Text>
-              <Text size="md" fw={600}>
-                {item.startTime} - {item.endTime}
-              </Text>
-            </Flex>
+
+            <MyGroupText
+              icon={
+                <ThemeIcon variant="light">
+                  <IconUser size={20} color="var(--mantine-color-brand-5)" />
+                </ThemeIcon>
+              }
+              text1="Giáo viên"
+              text2={item.teacher?.name}
+            />
+
+            <MyGroupText
+              icon={
+                <ThemeIcon variant="light">
+                  <IconClock size={20} color="var(--mantine-color-brand-5)" />
+                </ThemeIcon>
+              }
+              text1="Giờ học:"
+              text2={`${item.startTime} - ${item.endTime}`}
+            />
             {TrainingDay(item.day || "")}
             <Flex gap={5} align={"center"}>
               <ThemeIcon variant="light">
