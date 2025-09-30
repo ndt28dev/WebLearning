@@ -79,6 +79,7 @@ export default function StudentResults() {
               color="#000"
               backgroundOpacity={0.6}
               className="student_overlay"
+              zIndex={1}
             >
               <Tooltip label={item.name} bg={"white"} c={"black"}>
                 <Text c="white" fz="md" style={{ textDecoration: "underline" }}>

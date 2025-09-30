@@ -1,11 +1,12 @@
 import MyTitleBasic from "@/components/client/mytitle/MyTitleBasic";
 import MyGroupText from "@/components/mygrouptext/MyGroupText";
 import { introduceData } from "@/modules/data/DataIntroduce";
+import { IIntroduceReason } from "@/modules/interface/IIntroduceData";
 import { Box, Flex, Image, Stack, Text } from "@mantine/core";
 import { IconCheck } from "@tabler/icons-react";
 
 export default function IntroduceReasonItem() {
-  const data = introduceData.introduceReason;
+  const data: IIntroduceReason = introduceData.introduceReason || {};
 
   return (
     <Box pos={"relative"}>
@@ -32,20 +33,21 @@ export default function IntroduceReasonItem() {
             c={"white"}
             style={{ lineHeight: 1.2 }}
           >
-            {data.heading}
+            {data?.heading}
           </Text>
           <Stack gap={10}>
-            {data.reason.map((item, index) => (
-              <Text key={index} size="md" c={"white"}>
-                <IconCheck
-                  size={18}
-                  stroke={4}
-                  color="white"
-                  style={{ marginBottom: -3 }}
-                />{" "}
-                {item}
-              </Text>
-            ))}
+            {data.reason &&
+              data.reason.map((item, index) => (
+                <Text key={index} size="md" c={"white"}>
+                  <IconCheck
+                    size={18}
+                    stroke={4}
+                    color="white"
+                    style={{ marginBottom: -3 }}
+                  />{" "}
+                  {item}
+                </Text>
+              ))}
           </Stack>
         </Stack>
       </Stack>

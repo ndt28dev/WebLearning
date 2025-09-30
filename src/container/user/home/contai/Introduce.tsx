@@ -63,8 +63,8 @@ export default function Introduce() {
       ))}
       <Box>
         <MyButton
-          label="Xem tất cả"
-          link="/"
+          label="Xem thêm"
+          link="/introduce"
           variant="filled"
           color="brand.5"
           size="md"

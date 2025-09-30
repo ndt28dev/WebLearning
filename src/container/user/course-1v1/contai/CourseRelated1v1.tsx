@@ -19,6 +19,7 @@ export default function CourseRelated1v1() {
       slideGap="md"
       pr={100}
       pl={100}
+      emblaOptions={{ loop: true, align: "start" }}
     >
       {data.map((item) => (
         <Carousel.Slide key={item.id}>

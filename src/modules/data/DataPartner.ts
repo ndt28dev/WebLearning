@@ -3,6 +3,7 @@ import { IPartnerData } from "../interface/IPartnerData";
 export const partnerData: IPartnerData = {
   partnerHeader: {
     topic: "Đối tác đồng hành với T-Learning",
+    image: "/images/partner/imageHeader.jpg",
     description:
       "T-Learning hợp tác cùng các trường, tổ chức học thuật và doanh nghiệp để mở rộng tài nguyên, chuẩn hóa chương trình và mang đến cơ hội học tập – thực hành – học bổng cho học viên.",
   },

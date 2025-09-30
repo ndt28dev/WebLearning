@@ -10,6 +10,7 @@ import TrainingProgramHome from "./TrainingProgramHome";
 import NewsAndEventsHome from "./NewsAndEventsHome";
 import StudentReviewsHome from "./StudentReviewsHome";
 import ScheduleConsultationHome from "./ScheduleConsultationHome";
+import MyButtonScroll from "@/components/mybutton/MyButtonScroll";
 
 export default function HomePage() {
   return (

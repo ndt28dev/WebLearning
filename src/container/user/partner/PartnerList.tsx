@@ -64,11 +64,10 @@ export default function PartnerList() {
     <>
       <Box pb={50} className="partnerList">
         <Container size="xl">
-          <Stack>
-            <MyTitleBasic
-              textTitle="Danh sách đối tác"
-              colorTitle="var(--mantine-color-brand-5)"
-            />
+          <Stack gap={10}>
+            <Text fz={25} fw={600} ta={"left"} c={"#333"}>
+              Danh sách đối tác
+            </Text>
             {renderListPartner()}
           </Stack>
         </Container>
@@ -77,6 +76,7 @@ export default function PartnerList() {
       <Modal
         opened={opened}
         onClose={close}
+        lockScroll={false}
         title={
           <Text fz={18} fw={500}>
             {selected?.name ?? "Thông tin đối tác"}

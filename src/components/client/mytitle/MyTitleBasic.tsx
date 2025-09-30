@@ -5,22 +5,29 @@ type Props = {
   textDesc?: string;
   colorTitle?: string;
   colorDesc?: string;
+  taText?: boolean;
 };
 
 export default function MyTitleBasic({
   textTitle,
   textDesc,
-  colorTitle,
+  colorTitle = "#333",
   colorDesc,
+  taText = false,
 }: Props) {
   return (
     <Stack gap={10}>
-      <Text fz={30} fw={700} ta={"center"} c={colorTitle}>
+      <Text fz={30} fw={700} ta={taText ? "left" : "center"} c={colorTitle}>
         {textTitle}
       </Text>
 
       <Center>
-        <Text fz={20} w={700} ta={"center"} c={colorDesc}>
+        <Text
+          fz={20}
+          w={taText ? "100%" : 700}
+          ta={taText ? "left" : "center"}
+          c={colorDesc}
+        >
           {textDesc}
         </Text>
       </Center>

@@ -218,6 +218,7 @@ export default function CourseFindOnline() {
       <Modal
         size={"xl"}
         opened={opened}
+        lockScroll={false}
         onClose={close}
         title={
           <Group gap={10}>

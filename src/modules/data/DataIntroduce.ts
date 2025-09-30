@@ -1,4 +1,6 @@
-export const introduceData = {
+import { IIntroduceData } from "../interface/IIntroduceData";
+
+export const introduceData: IIntroduceData = {
   introduceHeader: {
     topic: "Giới thiệu về T-Learning",
     description:

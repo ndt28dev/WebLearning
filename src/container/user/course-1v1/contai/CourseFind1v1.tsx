@@ -208,6 +208,7 @@ export default function CourseFind1v1() {
         size={"xl"}
         opened={opened}
         onClose={close}
+        lockScroll={false}
         title={
           <Group gap={10}>
             <Text fz={18} fw={500}>

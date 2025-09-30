@@ -44,6 +44,7 @@ export default function TrainingProgramCon() {
       withIndicators={data.trainingPrograms.length > 3}
       slideSize={{ base: "100%", sm: "50%", md: "33.33333%" }}
       slideGap="md"
+      emblaOptions={{ loop: true, align: "start" }}
     >
       {data.trainingPrograms.map((item) => (
         <Carousel.Slide key={item.id}>
@@ -60,7 +61,7 @@ export default function TrainingProgramCon() {
       <Center mt={30}>
         <MyButton
           label="Xem các khoá học tại T-Learning"
-          link="/courses"
+          link="/courses-offline"
           variant="default"
           color="white"
           size="md"

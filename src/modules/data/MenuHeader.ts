@@ -12,7 +12,7 @@ export const menuHeader: NavLink[] = [
     links: [
       { link: "/introduce", label: "Về T-Learning" },
       { link: "/partner", label: "Đối tác" },
-      { link: "/teacher", label: "Đội ngũ gia sư & giáo viên" },
+      { link: "/teachers", label: "Đội ngũ gia sư & giáo viên" },
       { link: "/policy", label: "Chính sách và cam kết" },
       { link: "/recruitment", label: "Tuyển dụng" },
     ],

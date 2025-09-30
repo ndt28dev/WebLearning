@@ -4,19 +4,22 @@ interface MyModalImageProps {
   opened: boolean;
   close: () => void;
   image: string;
+  size?: string;
 }
 
 export default function MyModalImage({
   opened,
   close,
   image,
+  size = "xl",
 }: MyModalImageProps) {
   return (
     <Modal
       opened={opened}
       onClose={close}
       zIndex={10000}
-      size={"lg"}
+      size={size}
+      lockScroll={false}
       title={
         <Flex align={"center"} gap={5}>
           <Image
@@ -32,7 +35,7 @@ export default function MyModalImage({
         </Flex>
       }
     >
-      <Image src={image} alt="it's me" radius={"md"} maw={"100%"} fit="cover" />
+      <Image src={image} alt="it's me" radius={"sm"} w={"100%"} fit="cover" />
     </Modal>
   );
 }

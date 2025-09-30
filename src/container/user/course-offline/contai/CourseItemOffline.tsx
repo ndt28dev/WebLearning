@@ -74,6 +74,7 @@ export default function CourseItemOffline({ item, display = true }: Props) {
 
   return (
     <Tooltip
+      zIndex={1}
       display={display ? "block" : "none"}
       bg={item.bookedCount === item.capacity ? "red" : "white"}
       style={{

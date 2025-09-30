@@ -85,7 +85,7 @@ export default function TeamTeacher() {
     };
 
     emblaRight.on("select", onSelect);
-    onSelect(); // sync lần đầu
+    onSelect();
 
     return () => emblaRight.off("select", onSelect);
   }, [emblaRight, tutorsPerSlide, tutorChunks, data.tutors]);
@@ -209,7 +209,7 @@ export default function TeamTeacher() {
                 text1={item.examScore}
               />
               <Flex align={"center"} gap={10}>
-                <MyButton label={"Xem lịch dạy"} link={""} variant="filled" />
+                <MyButton label={"Xem hồ sơ"} link={""} variant="filled" />
               </Flex>
               <div
                 style={{ height: "0.5px", backgroundColor: "#E3E9F0" }}
@@ -255,7 +255,7 @@ export default function TeamTeacher() {
           <MyTitle topic={data.topic} index={true} />
           <MyButton
             label={"Xem tất cả"}
-            link={""}
+            link={"/teachers"}
             icon1={<IconChevronRight size={20} />}
             variant="filled"
           />

@@ -31,7 +31,11 @@ export default function StudentReviews() {
   const data: IParentReviewsHome = homeMockData.parentReviewsData;
 
   const renderListParentReviews = (data: IStudentReviews[]) => (
-    <Carousel className="carousel" slideGap="md">
+    <Carousel
+      className="carousel"
+      slideGap="md"
+      emblaOptions={{ loop: true, align: "start" }}
+    >
       {data.map((item, index) => (
         <Carousel.Slide key={item.id} h={250} style={{ position: "relative" }}>
           <Flex

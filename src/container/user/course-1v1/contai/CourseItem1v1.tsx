@@ -163,7 +163,7 @@ export default function CourseItem1v1({ item, display = true }: Props) {
                 />
               </ThemeIcon>
             }
-            text1={item.teacher?.experience}
+            text1={item.teacher?.experience?.[0]}
           />
           <MyGroupText
             icon={

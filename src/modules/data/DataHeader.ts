@@ -67,3 +67,17 @@ export const headerPartnerData = {
     },
   ],
 };
+
+export const headerTeachersData = {
+  title: "Đội ngũ gia sư & giáo viên",
+  items: [
+    {
+      title: "Trang chủ",
+      href: "/",
+    },
+    {
+      title: "Đội ngũ gia sư & giáo viên",
+      href: "/teachers",
+    },
+  ],
+};
