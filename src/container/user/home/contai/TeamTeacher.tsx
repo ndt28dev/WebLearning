@@ -10,6 +10,7 @@ import {
   Badge,
   Box,
   Card,
+  Center,
   Flex,
   Grid,
   Group,
@@ -251,15 +252,7 @@ export default function TeamTeacher() {
   return (
     <>
       <Stack pt={50} pb={50} gap={5}>
-        <Flex justify={"space-between"}>
-          <MyTitle topic={data.topic} index={true} />
-          <MyButton
-            label={"Xem tất cả"}
-            link={"/teachers"}
-            icon1={<IconChevronRight size={20} />}
-            variant="filled"
-          />
-        </Flex>
+        <MyTitle topic={data.topic} />
         <Grid>
           <Grid.Col span={{ base: 12, md: 6 }} className="teamTeacher">
             {renderColumnLeft(tutorChunks)}
@@ -268,6 +261,14 @@ export default function TeamTeacher() {
             {renderColumnRight(data.tutors)}
           </Grid.Col>
         </Grid>
+        <Center mt={30}>
+          <MyButton
+            label={"Xem tất cả"}
+            link={"/teachers"}
+            icon1={<IconChevronRight size={20} />}
+            variant="filled"
+          />
+        </Center>{" "}
       </Stack>
       <MyModalImage
         opened={opened}

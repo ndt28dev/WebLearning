@@ -6,6 +6,7 @@ import { Carousel } from "@mantine/carousel";
 import {
   Box,
   Card,
+  Center,
   Flex,
   Grid,
   Group,
@@ -100,17 +101,16 @@ export default function StudentReviews() {
 
   return (
     <Stack pt={50} pb={50} gap={5} className="parentReviews">
-      <Flex justify={"space-between"}>
-        <MyTitle topic={data.topic} index={true} />
+      <MyTitle topic={data.topic} />
+      {renderListParentReviews(data.studentReviews)}
+      <Center mt={30}>
         <MyButton
           label={"Xem tất cả"}
           link={""}
           icon1={<IconChevronRight size={20} />}
           variant="filled"
         />
-      </Flex>
-      {renderListParentReviews(data.studentReviews)}
-      <Grid></Grid>
+      </Center>
     </Stack>
   );
 }
