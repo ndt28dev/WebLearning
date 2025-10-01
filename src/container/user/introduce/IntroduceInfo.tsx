@@ -4,7 +4,7 @@ import IntroduceInfoItem from "./contai/IntroduceInfoItem";
 
 export default function IntroduceInfo() {
   return (
-    <Box pb={50}>
+    <Box pt={20} pb={50}>
       <Container size={"xl"}>
         <IntroduceInfoItem />
       </Container>

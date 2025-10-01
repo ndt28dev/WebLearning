@@ -1,3 +1,5 @@
+import RecruitmentPage from "@/container/user/recruitment/RecruitmentPage";
+
 export default function page() {
-  return <div>page cảm nhận của học viên</div>;
+  return <RecruitmentPage />;
 }

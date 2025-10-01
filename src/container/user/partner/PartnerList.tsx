@@ -62,7 +62,7 @@ export default function PartnerList() {
 
   return (
     <>
-      <Box pb={50} className="partnerList">
+      <Box pt={20} pb={50} className="partnerList">
         <Container size="xl">
           <Stack gap={10}>
             <Text fz={25} fw={600} ta={"left"} c={"#333"}>

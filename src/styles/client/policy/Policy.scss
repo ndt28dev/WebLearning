@@ -1,0 +1,8 @@
+.policyContentItem {
+    overflow: visible;
+  
+    .policyContentItem-text {
+      &:hover { color: var(--mantine-color-brand-5); }
+    }
+  }
+  

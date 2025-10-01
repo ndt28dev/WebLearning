@@ -81,3 +81,31 @@ export const headerTeachersData = {
     },
   ],
 };
+
+export const headerPolicyData = {
+  title: "Chính sách & cam kết",
+  items: [
+    {
+      title: "Trang chủ",
+      href: "/",
+    },
+    {
+      title: "Chính sách & cam kết",
+      href: "/policy",
+    },
+  ],
+};
+
+export const headerRecruitmentData = {
+  title: "Tuyển dụng",
+  items: [
+    {
+      title: "Trang chủ",
+      href: "/",
+    },
+    {
+      title: "Tuyển dụng",
+      href: "/recruitment",
+    },
+  ],
+};
