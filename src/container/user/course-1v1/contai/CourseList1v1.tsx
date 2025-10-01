@@ -1,38 +1,8 @@
 "use client";
-import MyButton from "@/components/mybutton/MyButton";
 import { dataCourses1v1 } from "@/modules/data/DataCourse1v1";
 import { ICourse1v1 } from "@/modules/interface/Icourse1v1";
-import {
-  ActionIcon,
-  Badge,
-  Box,
-  Card,
-  Center,
-  Flex,
-  Grid,
-  Group,
-  Image,
-  Pagination,
-  Stack,
-  Text,
-  ThemeIcon,
-  Tooltip,
-} from "@mantine/core";
-import {
-  IconAdjustments,
-  IconBookmark,
-  IconBookmarkAi,
-  IconBookmarkEdit,
-  IconBookmarkFilled,
-  IconBorderRadius,
-  IconBriefcase,
-  IconCalendarClock,
-  IconClock,
-  IconCurrencyDollar,
-  IconHeart,
-  IconSchool,
-  IconUserStar,
-} from "@tabler/icons-react";
+import { Box, Center, Pagination, Stack } from "@mantine/core";
+
 import { useEffect, useMemo, useRef, useState } from "react";
 import "@/styles/client/course/CourseList.scss";
 import CourseItem1v1 from "./CourseItem1v1";

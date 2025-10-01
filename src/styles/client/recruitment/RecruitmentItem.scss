@@ -1,0 +1,21 @@
+.recruitmentItem {
+    cursor: pointer;
+
+    .recruitmentItem-image {
+        transition: transform .5s ease;
+    }
+
+    &:hover .recruitmentItem-image {
+        transform: scale(1.08);
+    }
+    &:hover .recruitmentItem-title {
+        color: var(--mantine-color-brand-5);
+    }
+
+    // .recruitmentItem-title {
+
+    //     &:hover {
+    //         color: var(--mantine-color-brand-5);
+    //     }
+    // }
+}

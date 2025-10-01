@@ -3,7 +3,7 @@ import PolicyIntroduceItem from "./contai/PolicyIntroduceItem";
 
 export default function PolicyIntroduce() {
   return (
-    <Box pt={20} pb={50}>
+    <Box pt={20} pb={20}>
       <Container size={"xl"}>
         <PolicyIntroduceItem />
       </Container>

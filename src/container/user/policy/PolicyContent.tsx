@@ -4,7 +4,7 @@ import PolicyContentItem from "./contai/PolicyContentItem";
 
 export default function PolicyContent() {
   return (
-    <Box pt={20} pb={50}>
+    <Box pb={50}>
       <Container size={"xl"}>
         <PolicyContentItem />
       </Container>

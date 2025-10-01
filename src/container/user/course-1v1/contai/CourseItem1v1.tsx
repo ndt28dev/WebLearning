@@ -82,8 +82,7 @@ export default function CourseItem1v1({ item, display = true }: Props) {
         <Image
           src={item.teacher?.image}
           w={300}
-          h={300}
-          radius={5}
+          h={305}
           alt={"1v1"}
           fit="cover"
         />
