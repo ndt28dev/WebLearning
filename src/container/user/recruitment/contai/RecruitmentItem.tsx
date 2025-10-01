@@ -19,6 +19,7 @@ export default function RecruitmentItem() {
           <Grid.Col span={{ base: 12, md: 4 }} key={index}>
             <Card
               className="recruitmentItem"
+              h={"100%"}
               p={0}
               radius={"md"}
               bg={"white"}
@@ -32,11 +33,19 @@ export default function RecruitmentItem() {
                 h={240}
                 fit={"cover"}
               />
-              <Card p={"xs"} radius={0}>
+              <Card
+                p="xs"
+                radius={0}
+                h="100%"
+                style={{ display: "flex", flexDirection: "column" }}
+              >
                 <Text size="lg" fw={600} className="recruitmentItem-title">
                   {item.title}
                 </Text>
-                <Flex align={"center"} justify={"space-between"} gap={5} mt={2}>
+                <Text size="md" lineClamp={3}>
+                  {item.description}
+                </Text>
+                <Flex align="center" justify="space-between" gap={5} mt="auto">
                   <MyGroupText
                     icon={<IconUser size={20} style={{ marginBottom: -3 }} />}
                     text1="Số lượng"
