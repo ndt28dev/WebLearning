@@ -109,3 +109,17 @@ export const headerRecruitmentData = {
     },
   ],
 };
+
+export const headerOpeningScheduleData = {
+  title: "Lịch khai giảng",
+  items: [
+    {
+      title: "Trang chủ",
+      href: "/",
+    },
+    {
+      title: "Lịch khai giảng",
+      href: "/opening-schedule",
+    },
+  ],
+};

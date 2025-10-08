@@ -28,15 +28,7 @@ export default function CourseRelatedOffline() {
   );
   return (
     <Stack pt={50} pb={50} gap={5} className="courseCarousel">
-      <Flex justify={"space-between"}>
-        <MyTitle topic={"Khoá học Offline"} />
-        <MyButton
-          label={"Xem tất cả"}
-          link={"/courses-offline"}
-          icon1={<IconChevronRight size={20} />}
-          variant="filled"
-        />
-      </Flex>
+      <MyTitle topic={"Khoá học Offline"} />
       {renderListCourse(courseOfflinesData)}
     </Stack>
   );

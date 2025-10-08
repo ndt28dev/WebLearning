@@ -28,15 +28,7 @@ export default function CourseRelatedOnline() {
   );
   return (
     <Stack pt={50} pb={50} gap={5} className="courseCarousel">
-      <Flex justify={"space-between"}>
-        <MyTitle topic={"Khoá học Online"} />
-        <MyButton
-          label={"Xem tất cả"}
-          link={"/courses-online"}
-          icon1={<IconChevronRight size={20} />}
-          variant="filled"
-        />
-      </Flex>
+      <MyTitle topic={"Khoá học Online"} />
       {renderListCourse(courseOnlinesData)}
     </Stack>
   );

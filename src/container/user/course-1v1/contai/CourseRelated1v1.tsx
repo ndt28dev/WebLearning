@@ -30,15 +30,7 @@ export default function CourseRelated1v1() {
   );
   return (
     <Stack pt={50} pb={50} gap={5} className="courseCarousel">
-      <Flex justify={"space-between"}>
-        <MyTitle topic={"Học kèm 1v1 cùng gia sư"} />
-        <MyButton
-          label={"Xem tất cả"}
-          link={"/courses-1v1"}
-          icon1={<IconChevronRight size={20} />}
-          variant="filled"
-        />
-      </Flex>
+      <MyTitle topic={"Học kèm 1v1 cùng gia sư"} />
       {renderListCourse(dataCourses1v1)}
     </Stack>
   );
