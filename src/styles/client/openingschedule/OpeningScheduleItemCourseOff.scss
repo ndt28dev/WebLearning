@@ -1,0 +1,17 @@
+.openingScheduleItemCourseOff {
+    .dateBadge {
+        position: absolute;
+      
+        &::before {
+          content: "";
+          position: absolute;
+          top: -7.5px;
+          left: 0px;
+          width: 8px;   
+          height: 8px;
+          background: var(--mantine-color-brand-5);
+        
+          clip-path: polygon(0 100%, 100% 0, 100% 100%);
+        }
+    }
+}

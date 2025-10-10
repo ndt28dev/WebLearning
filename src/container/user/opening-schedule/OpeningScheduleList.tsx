@@ -1,5 +1,4 @@
 import { Box, Container } from "@mantine/core";
-import OpeningScheduleItem from "./contai/OpeningScheduleItem";
 import OpeningScheduleContai from "./contai/OpeningScheduleContai";
 
 export default function OpeningScheduleList() {

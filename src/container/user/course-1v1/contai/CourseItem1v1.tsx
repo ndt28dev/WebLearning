@@ -186,7 +186,7 @@ export default function CourseItem1v1({ item, display = true }: Props) {
             <Text size="md" fw={600}>
               <span style={{ color: "var(--mantine-color-brand-5)" }}>
                 {item.price?.toLocaleString("en-US")}
-              </span>{" "}
+              </span>
               VNĐ/Tháng
             </Text>
           </Flex>

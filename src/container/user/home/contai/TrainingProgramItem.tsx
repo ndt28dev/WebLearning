@@ -49,8 +49,7 @@ export default function TrainingProgramItem({ item }: Props) {
       h={"100%"}
     >
       <Flex direction="column" h="100%">
-        <Image src="/images/traning/anh1.jpg" />
-
+        <Image src={item.image} />
         <Flex
           direction="column"
           justify="space-between"

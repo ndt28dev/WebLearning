@@ -6,6 +6,11 @@ import { IconHome } from "@tabler/icons-react";
 import OpeningScheduleHeader from "./OpeningScheduleHeader";
 import OpeningScheduleList from "./OpeningScheduleList";
 import OpeningSchedulePresent from "./OpeningSchedulePresent";
+import TeamTeacherHome from "../home/TeamTeacherHome";
+import PrivilegeHome from "../home/PrivilegeHome";
+import StudentResultsHome from "../home/StudentResultsHome";
+import StudentReviewsHome from "../home/StudentReviewsHome";
+import ScheduleConsultationHome from "../home/ScheduleConsultationHome";
 
 export default function OpeningSchedulePage() {
   return (
@@ -23,6 +28,11 @@ export default function OpeningSchedulePage() {
       </Container>
       <OpeningSchedulePresent />
       <OpeningScheduleList />
+      <TeamTeacherHome />
+      <PrivilegeHome />
+      <StudentResultsHome />
+      <StudentReviewsHome />
+      <ScheduleConsultationHome />
     </MyLayoutBasic>
   );
 }

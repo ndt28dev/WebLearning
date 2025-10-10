@@ -106,7 +106,7 @@ export default function CourseItemOnline({ item, display = true }: Props) {
       >
         <Flex direction="column" h="100%">
           <Box pos={"relative"}>
-            <Image src="/images/traning/anh1.jpg" />
+            <Image src={item.image} alt={"error-image"} w={"100%"} h={275} />
             <Text
               size="md"
               style={{
@@ -186,7 +186,7 @@ export default function CourseItemOnline({ item, display = true }: Props) {
               <Text size="md" fw={600}>
                 <span style={{ color: "var(--mantine-color-brand-5)" }}>
                   {Number(item.price).toLocaleString("en-US")}
-                </span>{" "}
+                </span>
                 VND/Khoá
               </Text>
             </Flex>

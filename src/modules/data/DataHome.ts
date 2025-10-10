@@ -63,7 +63,7 @@ export const homeMockData: IHome = {
         title: "PHÁT TRIỂN TƯ DUY VẬT LÝ THPT",
         description:
           "Giúp học sinh nắm vững kiến thức Vật lý, phát triển tư duy logic và kỹ năng giải bài tập từ cơ bản đến nâng cao.",
-        image: "/images/traning/physics.jpg",
+        image: "/images/training/anh2.jpg",
         price: 3000000,
         totalTime: "30 buổi (60 giờ)",
         day: "Thứ 2 - Thứ 4 - Thứ 6",
@@ -76,7 +76,7 @@ export const homeMockData: IHome = {
         title: "PHÁT TRIỂN TƯ DUY TOÁN CẤP THCS",
         description:
           "Dành cho học sinh lớp 6, 7, 8, 9 nhằm nâng cao khả năng tư duy logic và xử lý bài toán hiệu quả.",
-        image: "/images/traning/math-middle.jpg",
+        image: "/images/training/anh2.jpg",
         price: 2500000,
         totalTime: "25 buổi (50 giờ)",
         day: "Thứ 3 - Thứ 5",
@@ -89,7 +89,7 @@ export const homeMockData: IHome = {
         title: "LUYỆN THI TỐT NGHIỆP THPT",
         description:
           "Cung cấp kiến thức nền tảng và kỹ năng xử lý đề thi tối ưu cho kỳ thi THPT Quốc gia.",
-        image: "/images/traning/university-exam.jpg",
+        image: "/images/training/anh3.jpg",
         price: 4500000,
         totalTime: "40 buổi (80 giờ)",
         day: "Thứ 2 - Thứ 3 - Thứ 5 - Thứ 7 -  Chủ Nhật",
@@ -102,7 +102,7 @@ export const homeMockData: IHome = {
         title: "LUYỆN THI VÀO LỚP 10",
         description:
           "Khóa học Toán - Ngữ Văn - Tiếng Anh dành cho học sinh lớp 9 chuẩn bị thi vào lớp 10 công lập và trường chuyên.",
-        image: "/images/traning/grade10.jpg",
+        image: "/images/training/anh4.jpg",
         price: 3200000,
         totalTime: "28 buổi (56 giờ)",
         day: "Thứ 7 - Chủ Nhật",
@@ -115,7 +115,7 @@ export const homeMockData: IHome = {
         title: "BỒI DƯỠNG KIẾN THỨC TIỂU HỌC",
         description:
           "Bồi dưỡng kiến thức Toán, Tiếng Việt và phát triển tư duy cho học sinh cấp Tiểu học.",
-        image: "/images/traning/primary.jpg",
+        image: "/images/training/anh5.jpg",
         price: 2000000,
         totalTime: "20 buổi (40 giờ)",
         day: "Thứ 3 - Thứ 5",
@@ -128,7 +128,7 @@ export const homeMockData: IHome = {
         title: "KHÓA TIỀN TIỂU HỌC",
         description:
           "Khóa học đặc biệt dành cho trẻ 5-6 tuổi, phát triển kỹ năng mềm, kiến thức nền tảng và tư duy logic trước khi vào lớp 1.",
-        image: "/images/traning/pre-primary.jpg",
+        image: "/images/training/anh6.jpg",
         price: 1500000,
         totalTime: "15 buổi (30 giờ)",
         day: "Thứ 7",
