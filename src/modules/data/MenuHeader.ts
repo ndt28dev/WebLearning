@@ -14,7 +14,6 @@ export const menuHeader: NavLink[] = [
       { link: "/partner", label: "Đối tác" },
       { link: "/teachers", label: "Đội ngũ gia sư & giáo viên" },
       { link: "/policy", label: "Chính sách và cam kết" },
-      { link: "/recruitment", label: "Tuyển dụng" },
     ],
   },
   {
@@ -31,9 +30,9 @@ export const menuHeader: NavLink[] = [
     link: "/students",
     label: "Học viên",
     links: [
-      { link: "/students-1", label: "Quyền lợi" },
-      { link: "/students-2", label: "Thành tích" },
-      { link: "/students-3", label: "Cảm nhận" },
+      { link: "/students-benefits", label: "Quyền lợi" },
+      { link: "/students-achievements", label: "Thành tích" },
+      { link: "/students-feelings", label: "Cảm nhận" },
     ],
   },
   {

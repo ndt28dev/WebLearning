@@ -13,6 +13,8 @@ import NewsAndEventsHome from "../home/NewsAndEventsHome";
 import ScheduleConsultationHome from "../home/ScheduleConsultationHome";
 import PartnerHome from "../home/PartnerHome";
 import { useScrollIntoView } from "@mantine/hooks";
+import RecruitmentEnvironment from "./RecruitmentEnvironment";
+import RecruitmentRegime from "./RecruitmentRegime";
 
 export default function RecruitmentPage() {
   const data: IRecruitmentHeader = recruitmentData.recruitmentHeader || {};
@@ -39,6 +41,8 @@ export default function RecruitmentPage() {
         </Flex>
       </Container>
       <RecruitmentWelfare />
+      <RecruitmentEnvironment />
+      <RecruitmentRegime />
       <RecruitmentFind onJumpTop={scrollIntoView} />
       <RecruitmentList children={<div ref={targetRef} />} />
       <PartnerHome />

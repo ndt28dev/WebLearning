@@ -25,7 +25,7 @@ export default function MyGroupText({
     <Flex align={align} gap={gap}>
       {icon}
       <Group gap={5} flex={1}>
-        <Text size={size} c={color}>
+        <Text size={size} c={color} ta={"left"}>
           {text1}
         </Text>
         <Text size={size} fw={fw} c={color} flex={1}>

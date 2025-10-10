@@ -96,20 +96,6 @@ export const headerPolicyData = {
   ],
 };
 
-export const headerRecruitmentData = {
-  title: "Tuyển dụng",
-  items: [
-    {
-      title: "Trang chủ",
-      href: "/",
-    },
-    {
-      title: "Tuyển dụng",
-      href: "/recruitment",
-    },
-  ],
-};
-
 export const headerOpeningScheduleData = {
   title: "Lịch khai giảng",
   items: [
@@ -120,6 +106,34 @@ export const headerOpeningScheduleData = {
     {
       title: "Lịch khai giảng",
       href: "/opening-schedule",
+    },
+  ],
+};
+
+export const headerStudentsBenefitsData = {
+  title: "Quyền lợi của học viên",
+  items: [
+    {
+      title: "Trang chủ",
+      href: "/",
+    },
+    {
+      title: "Quyền lợi của học viên",
+      href: "/students-benefits",
+    },
+  ],
+};
+
+export const headerRecruitmentData = {
+  title: "Tuyển dụng",
+  items: [
+    {
+      title: "Trang chủ",
+      href: "/",
+    },
+    {
+      title: "Tuyển dụng",
+      href: "/recruitment",
     },
   ],
 };

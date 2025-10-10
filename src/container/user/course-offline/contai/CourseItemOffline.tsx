@@ -194,6 +194,7 @@ export default function CourseItemOffline({ item, display = true }: Props) {
                   <IconMapPin size={20} color="var(--mantine-color-brand-5)" />
                 </ThemeIcon>
               }
+              gap="0"
               text2={`${item.clasroom}, ${item.address}`}
             />
             <Group align="center" justify="space-between" mt={5}>
