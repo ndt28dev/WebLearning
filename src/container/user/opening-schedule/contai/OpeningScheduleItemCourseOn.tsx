@@ -86,7 +86,7 @@ export default function OpeningScheduleItemCourseOn({ item }: Props) {
             alt={"error-image"}
             w={"100%"}
             h={275}
-            style={{ borderRadius: "10px 0 0 10px" }}
+            style={{ borderRadius: "10px 10px 0 0" }}
           />
           <Stack gap={5} p={10} w={"100%"}>
             <Text
