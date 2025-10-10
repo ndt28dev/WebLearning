@@ -19,6 +19,7 @@ export default function IntroducePage() {
       description={data.description!}
       bg="var(--mantine-color-brand-1)"
       status
+      colorText="var(--mantine-color-brand-5)"
     >
       <Container size={"xl"} p={20}>
         <Flex align={"center"} gap={5}>
