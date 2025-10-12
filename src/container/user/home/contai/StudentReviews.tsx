@@ -67,7 +67,7 @@ export default function StudentReviews() {
               style={{
                 userSelect: "none",
                 padding: "10px 10px 10px 175px",
-                borderRadius: "10px",
+                borderRadius: "8px",
                 border: "1px solid var(--mantine-color-brand-2)",
               }}
             >

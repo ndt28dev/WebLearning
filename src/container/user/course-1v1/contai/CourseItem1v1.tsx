@@ -75,7 +75,9 @@ export default function CourseItem1v1({ item, display = true }: Props) {
       key={item.id}
       p={0}
       bg={"white"}
-      style={{ border: "1px solid var(--mantine-color-brand-2)" }}
+      style={{
+        border: "1px solid var(--mantine-color-brand-2)",
+      }}
       radius={"md"}
     >
       <Flex align={"center"}>

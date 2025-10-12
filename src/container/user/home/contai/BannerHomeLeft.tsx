@@ -64,14 +64,14 @@ export default function BannerHomeLeft() {
             <Text size="md">viên tại TP.HCM</Text>
           </Group>
           <Group gap={"xs"}>
-            <Group gap={10} bg={"#F3F3F5"} p={5} style={{ borderRadius: 10 }}>
+            <Group gap={10} bg={"#F3F3F5"} p={5} style={{ borderRadius: 8 }}>
               <Center w={30}>
                 <Avatar src="/images/banner/google.png" alt="gg" size={20} />
               </Center>
               <Group
                 gap={5}
                 bg={"white"}
-                style={{ borderRadius: 10, padding: "4px 12px" }}
+                style={{ borderRadius: 8, padding: "4px 12px" }}
               >
                 <Text size="md">
                   <span style={{ fontWeight: 600, fontSize: 20 }}>4.5</span>
@@ -79,7 +79,7 @@ export default function BannerHomeLeft() {
                 </Text>
               </Group>
             </Group>
-            <Group gap={10} bg={"#F3F3F5"} p={5} style={{ borderRadius: 10 }}>
+            <Group gap={10} bg={"#F3F3F5"} p={5} style={{ borderRadius: 8 }}>
               <Center w={30}>
                 <Avatar
                   src="/images/banner/communication.png"
@@ -90,7 +90,7 @@ export default function BannerHomeLeft() {
               <Group
                 gap={5}
                 bg={"white"}
-                style={{ borderRadius: 10, padding: "4px 10px" }}
+                style={{ borderRadius: 8, padding: "4px 10px" }}
               >
                 <Text size="md">
                   <span style={{ fontWeight: 600, fontSize: 20 }}>4.1</span>

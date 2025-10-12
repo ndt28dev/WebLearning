@@ -36,7 +36,6 @@ export default function CourseListOffline({ onJumpTop }: Props) {
       <Center mt={20} className="course-pagination">
         <Pagination
           color="brand"
-          radius="xl"
           classNames={{
             control: "control",
             dots: "dots",

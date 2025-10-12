@@ -14,7 +14,7 @@ export default function RecruitmentEnvironmentItem() {
       <Text
         fz={22}
         fw={600}
-        style={{ borderRadius: 16, textTransform: "uppercase" }}
+        style={{ borderRadius: 8, textTransform: "uppercase" }}
         p={"xs"}
         bg={"var(--mantine-color-brand-5)"}
         c={"white"}
@@ -28,10 +28,10 @@ export default function RecruitmentEnvironmentItem() {
             bg={"white"}
             pt={15}
             pb={10}
-            radius={"lg"}
+            radius={"md"}
             h={"100%"}
             style={{
-              border: "2px solid var(--mantine-color-brand-2)",
+              border: "1px solid var(--mantine-color-brand-2)",
               position: "relative",
               overflow: "visible",
             }}
@@ -65,10 +65,10 @@ export default function RecruitmentEnvironmentItem() {
             bg={"white"}
             pt={15}
             pb={10}
-            radius={"lg"}
+            radius={"md"}
             h={"100%"}
             style={{
-              border: "2px solid var(--mantine-color-brand-2)",
+              border: "1px solid var(--mantine-color-brand-2)",
               position: "relative",
               overflow: "visible",
             }}
@@ -102,9 +102,9 @@ export default function RecruitmentEnvironmentItem() {
             bg={"white"}
             pt={15}
             pb={10}
-            radius={"lg"}
+            radius={"md"}
             style={{
-              border: "2px solid var(--mantine-color-brand-2)",
+              border: "1px solid var(--mantine-color-brand-2)",
               position: "relative",
               overflow: "visible",
             }}

@@ -52,8 +52,8 @@ export default function ScheduleConsultation() {
       w={"100%"}
       h={"100%"}
       style={{
-        borderTopLeftRadius: "10px",
-        borderBottomLeftRadius: "10px",
+        borderTopLeftRadius: "8px",
+        borderBottomLeftRadius: "8px",
       }}
     />
   );
@@ -147,7 +147,6 @@ export default function ScheduleConsultation() {
         </Flex>
       </Stack>
       <MyButton
-        radius="sm"
         variant="filled"
         color="var(--mantine-color-brand-5)"
         label={"Nhận tư vấn ngay"}
@@ -164,7 +163,7 @@ export default function ScheduleConsultation() {
         bg={"white"}
         style={{
           border: "1px solid var(--mantine-color-brand-5)",
-          borderRadius: 10,
+          borderRadius: 8,
         }}
       >
         <Grid.Col span={{ base: 12, md: 6 }}>

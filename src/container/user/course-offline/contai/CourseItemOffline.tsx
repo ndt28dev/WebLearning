@@ -116,7 +116,7 @@ export default function CourseItemOffline({ item, display = true }: Props) {
                 backgroundColor: "var(--mantine-color-brand-0)",
                 padding: "3px 6px",
                 color: "var(--mantine-color-brand-5)",
-                borderRadius: "5px",
+                borderRadius: "8px",
               }}
             >
               {item.startDate && formatDate(item.startDate)}

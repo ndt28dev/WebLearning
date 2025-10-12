@@ -133,7 +133,6 @@ export default function OpeningScheduleContai() {
       <Center mt={20} className="course-pagination">
         <Pagination
           color="brand"
-          radius="xl"
           classNames={{
             control: "control",
             dots: "dots",
@@ -157,7 +156,6 @@ export default function OpeningScheduleContai() {
       <Center mt={20} className="course-pagination">
         <Pagination
           color="brand"
-          radius="xl"
           classNames={{
             control: "control",
             dots: "dots",

@@ -69,7 +69,7 @@ export default function CourseFindOffline() {
             width: "auto",
             margin: 0,
             padding: "0 4px",
-            borderRadius: 6,
+            borderRadius: 8,
             fontSize: 16,
             color: "var(--mantine-color-brand-5)",
             fontWeight: 600,
@@ -177,7 +177,7 @@ export default function CourseFindOffline() {
           <Text fz={25}>Danh Sách Khoá Học Offline</Text>
           <Group gap={10}>
             <Input
-              radius={"sm"}
+              radius={"md"}
               placeholder="Nhập tên khoá học, giáo viên"
               w={400}
               rightSection={<IconSearch size={20} />}
@@ -222,7 +222,7 @@ export default function CourseFindOffline() {
             </Text>
             <Input
               w={400}
-              radius={"sm"}
+              radius={"md"}
               placeholder="Nhập dữ liệu tìm kiếm..."
               rightSection={<IconSearch size={20} />}
               styles={{

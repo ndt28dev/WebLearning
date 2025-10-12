@@ -27,10 +27,10 @@ export default function RecruitmentRegimeItem() {
             bg={"white"}
             pt={15}
             pb={10}
-            radius={"lg"}
+            radius={"md"}
             h={"100%"}
             style={{
-              border: "2px solid var(--mantine-color-brand-2)",
+              border: "1px solid var(--mantine-color-brand-2)",
               position: "relative",
               overflow: "visible",
             }}
@@ -90,10 +90,10 @@ export default function RecruitmentRegimeItem() {
             bg={"white"}
             pt={15}
             pb={10}
-            radius={"lg"}
+            radius={"md"}
             h={"100%"}
             style={{
-              border: "2px solid var(--mantine-color-brand-2)",
+              border: "1px solid var(--mantine-color-brand-2)",
               position: "relative",
               overflow: "visible",
             }}
@@ -171,10 +171,10 @@ export default function RecruitmentRegimeItem() {
             bg={"white"}
             pt={15}
             pb={10}
-            radius={"lg"}
+            radius={"md"}
             h={"100%"}
             style={{
-              border: "2px solid var(--mantine-color-brand-2)",
+              border: "1px solid var(--mantine-color-brand-2)",
               position: "relative",
               overflow: "visible",
             }}
@@ -240,10 +240,10 @@ export default function RecruitmentRegimeItem() {
             bg={"white"}
             pt={15}
             pb={10}
-            radius={"lg"}
+            radius={"md"}
             h={"100%"}
             style={{
-              border: "2px solid var(--mantine-color-brand-2)",
+              border: "1px solid var(--mantine-color-brand-2)",
               position: "relative",
               overflow: "visible",
             }}

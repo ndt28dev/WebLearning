@@ -74,7 +74,7 @@ export default function OpeningScheduleItemCourseOff({ item }: Props) {
             backgroundColor: "var(--mantine-color-brand-5)",
             padding: "3px 6px",
             color: "white",
-            borderRadius: " 0 5px 5px 0 ",
+            borderRadius: " 0 8px 8px 0 ",
             zIndex: 1,
           }}
         >
@@ -86,7 +86,7 @@ export default function OpeningScheduleItemCourseOff({ item }: Props) {
             alt={"error-image"}
             w={"100%"}
             h={275}
-            style={{ borderRadius: "10px 10px 0 0" }}
+            style={{ borderRadius: "8px 8px 0 0" }}
           />
           <Stack gap={5} p={10} w={"100%"} h={"100%"}>
             <Text
@@ -155,7 +155,6 @@ export default function OpeningScheduleItemCourseOff({ item }: Props) {
                 c={item.capacity === item.bookedCount ? "red" : "green"}
                 style={{
                   padding: "3px 6px",
-                  borderRadius: "5px",
                 }}
               >
                 {item.capacity === item.bookedCount

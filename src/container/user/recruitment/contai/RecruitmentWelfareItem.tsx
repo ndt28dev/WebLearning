@@ -29,6 +29,7 @@ export default function RecruitmentWelfareItem() {
         padding: "50px",
         border: "1px solid var(--mantine-color-brand-2)",
       }}
+      radius={"md"}
     >
       <Text
         fz={30}

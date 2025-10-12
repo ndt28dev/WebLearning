@@ -114,7 +114,7 @@ export default function TeamTeacher() {
                       ? "var(--mantine-color-brand-2)"
                       : "#DFE1E6"
                   }`,
-                  borderRadius: "10px",
+                  borderRadius: "8px",
                   cursor: "pointer",
                 }}
                 bg={

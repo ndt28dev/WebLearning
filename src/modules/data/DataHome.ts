@@ -15,14 +15,14 @@ export const homeMockData: IHome = {
       {
         label: "Đăng ký học thử",
         link: "/register",
-        radius: "sm",
+        radius: "md",
         variant: "filled",
         size: "md",
       },
       {
         label: "Xem lịch khai giảng",
         link: "/courses",
-        radius: "sm",
+        radius: "md",
         variant: "outline",
         size: "md",
       },

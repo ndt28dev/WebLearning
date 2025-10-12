@@ -13,7 +13,7 @@ export default function MyButton({
   link,
   color = "var(--mantine-color-brand-5)",
   size = "md",
-  radius = "sm",
+  radius = "md",
   variant = "default",
   icon,
   icon1,

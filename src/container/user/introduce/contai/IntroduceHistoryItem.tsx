@@ -23,7 +23,7 @@ export default function IntroduceHistoryItem() {
                   p={10}
                   style={{
                     borderLeft: "4px solid var(--mantine-color-brand-5)",
-                    borderRadius: "10px 5px 5px 10px",
+                    borderRadius: "8px 5px 5px 8px",
                   }}
                   gap={0}
                   bg={"var(--mantine-color-brand-0)"}
@@ -44,7 +44,7 @@ export default function IntroduceHistoryItem() {
                   p={10}
                   style={{
                     borderRight: "4px solid var(--mantine-color-brand-5)",
-                    borderRadius: "5px 10px 10px 5px",
+                    borderRadius: "5px 8px 8px 5px",
                   }}
                   bg={"var(--mantine-color-brand-1)"}
                   gap={0}
