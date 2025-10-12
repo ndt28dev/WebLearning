@@ -56,7 +56,7 @@ export default function NewsAndEvents() {
           bg={"white"}
           p={5}
           style={{
-            border: "1px solid var(--mantine-color-brand-5)",
+            border: "1px solid var(--mantine-color-brand-2)",
             borderRadius: "8px",
           }}
           align={"self-start"}

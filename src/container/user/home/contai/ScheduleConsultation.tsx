@@ -162,7 +162,7 @@ export default function ScheduleConsultation() {
       <Grid
         bg={"white"}
         style={{
-          border: "1px solid var(--mantine-color-brand-5)",
+          border: "1px solid var(--mantine-color-brand-2)",
           borderRadius: 8,
         }}
       >
