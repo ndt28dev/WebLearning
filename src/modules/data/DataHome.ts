@@ -274,26 +274,30 @@ export const homeMockData: IHome = {
     privileges: [
       {
         title: "Học tập linh hoạt, không giới hạn",
-        description:
+        description: [
           "Học viên có thể tham gia lớp học trực tuyến mọi lúc, mọi nơi, chỉ cần kết nối internet. Tài liệu và video bài giảng luôn sẵn sàng để ôn tập bất cứ khi nào.",
+        ],
         highlights: ["Học tập"],
       },
       {
         title: "Giảng viên giàu kinh nghiệm",
-        description:
+        description: [
           "Đội ngũ gia sư, giảng viên của T-Learning đều được tuyển chọn kỹ lưỡng, có chuyên môn cao và kinh nghiệm giảng dạy thực tế, luôn tận tâm đồng hành cùng học viên.",
+        ],
         highlights: ["giàu kinh nghiệm"],
       },
       {
         title: "Lộ trình học tập cá nhân hóa",
-        description:
+        description: [
           "Mỗi học viên đều được xây dựng lộ trình học tập riêng dựa trên năng lực và mục tiêu, đảm bảo tiến bộ rõ rệt trong suốt quá trình học.",
+        ],
         highlights: ["cá nhân hóa"],
       },
       {
         title: "Hỗ trợ học viên toàn diện",
-        description:
+        description: [
           "T-Learning cung cấp hệ thống hỗ trợ trực tuyến, giải đáp thắc mắc nhanh chóng và luôn đồng hành cùng học viên để đạt kết quả tốt nhất.",
+        ],
         highlights: ["Hỗ trợ"],
       },
     ],

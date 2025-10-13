@@ -11,6 +11,7 @@ import NewsAndEventsHome from "./NewsAndEventsHome";
 import StudentReviewsHome from "./StudentReviewsHome";
 import ScheduleConsultationHome from "./ScheduleConsultationHome";
 import MyButtonScroll from "@/components/mybutton/MyButtonScroll";
+import ContactFacebookHome from "./ContactFacebookHome";
 
 export default function HomePage() {
   return (
@@ -24,6 +25,7 @@ export default function HomePage() {
       <PartnerHome />
       <NewsAndEventsHome />
       <StudentReviewsHome />
+      <ContactFacebookHome />
       <ScheduleConsultationHome />
     </Box>
   );

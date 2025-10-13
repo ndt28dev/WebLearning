@@ -3,6 +3,15 @@ import MyLayoutBasic from "@/components/client/mylayoutuser/MyLayoutBasic";
 import { headerStudentsBenefitsData } from "@/modules/data/DataHeader";
 import { Container, Flex } from "@mantine/core";
 import { IconHome } from "@tabler/icons-react";
+import StudentsBenefitsIntroduce from "./StudentsBenefitsIntroduce";
+import StudentsBenefitsList from "./StudentsBenefitsList";
+import StudentResultsHome from "../home/StudentResultsHome";
+import StudentReviewsHome from "../home/StudentReviewsHome";
+import TrainingProgramHome from "../home/TrainingProgramHome";
+import TeamTeacherHome from "../home/TeamTeacherHome";
+import NewsAndEventsHome from "../home/NewsAndEventsHome";
+import ContactFacebookHome from "../home/ContactFacebookHome";
+import ScheduleConsultationHome from "../home/ScheduleConsultationHome";
 
 export default function StudentsBenefitsPage() {
   return (
@@ -17,6 +26,13 @@ export default function StudentsBenefitsPage() {
           />
         </Flex>
       </Container>
+      <StudentsBenefitsIntroduce />
+      <StudentsBenefitsList />
+      <StudentResultsHome />
+      <StudentReviewsHome />
+      <NewsAndEventsHome />
+      <ContactFacebookHome />
+      <ScheduleConsultationHome />
     </MyLayoutBasic>
   );
 }

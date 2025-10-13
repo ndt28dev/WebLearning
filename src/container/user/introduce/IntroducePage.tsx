@@ -10,6 +10,7 @@ import IntroduceHistory from "./IntroduceHistory";
 import { IIntroduceHeader } from "@/modules/interface/IIntroduceData";
 import { introduceData } from "@/modules/data/DataIntroduce";
 import ScheduleConsultationHome from "../home/ScheduleConsultationHome";
+import ContactFacebookHome from "../home/ContactFacebookHome";
 
 export default function IntroducePage() {
   const data: IIntroduceHeader = introduceData.introduceHeader || {};
@@ -35,6 +36,7 @@ export default function IntroducePage() {
       <IntroduceValue />
       <IntroduceReason />
       <IntroduceHistory />
+      <ContactFacebookHome />
       <ScheduleConsultationHome />
     </MyLayoutUserBox>
   );

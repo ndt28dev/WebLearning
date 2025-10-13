@@ -7,9 +7,7 @@ interface IPersonSocialLinks {
   intagram?: string;
 }
 
-export interface IPerson {
-  id?: number;
-  code?: string;
+export interface IPerson extends IBaseEntity {
   name?: string;
   image?: string;
   gender?: boolean;

@@ -8,6 +8,7 @@ import { IPartnerHeader } from "@/modules/interface/IPartnerData";
 import { partnerData } from "@/modules/data/DataPartner";
 import NewsAndEventsHome from "../home/NewsAndEventsHome";
 import ScheduleConsultationHome from "../home/ScheduleConsultationHome";
+import ContactFacebookHome from "../home/ContactFacebookHome";
 
 export default function PartnerPage() {
   const data: IPartnerHeader = partnerData.partnerHeader || {};
@@ -31,6 +32,7 @@ export default function PartnerPage() {
       </Container>
       <PartnerList />
       <NewsAndEventsHome />
+      <ContactFacebookHome />
       <ScheduleConsultationHome />
     </MyLayoutUserBox>
   );

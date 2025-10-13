@@ -15,6 +15,7 @@ import PartnerHome from "../home/PartnerHome";
 import { useScrollIntoView } from "@mantine/hooks";
 import RecruitmentEnvironment from "./RecruitmentEnvironment";
 import RecruitmentRegime from "./RecruitmentRegime";
+import ContactFacebookHome from "../home/ContactFacebookHome";
 
 export default function RecruitmentPage() {
   const data: IRecruitmentHeader = recruitmentData.recruitmentHeader || {};
@@ -47,6 +48,7 @@ export default function RecruitmentPage() {
       <RecruitmentList children={<div ref={targetRef} />} />
       <PartnerHome />
       <NewsAndEventsHome />
+      <ContactFacebookHome />
       <ScheduleConsultationHome />
     </MyLayoutUserBox>
   );

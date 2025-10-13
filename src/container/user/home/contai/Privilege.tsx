@@ -8,7 +8,7 @@ import { IconChevronRight } from "@tabler/icons-react";
 import RenderHighlightedTitle from "./RenderHighlightedTitle";
 
 export default function Privilege() {
-  const data: IPrivilegeHome = homeMockData.privilegeData;
+  const data: IPrivilegeHome = homeMockData.privilegeData || {};
   return (
     <Stack pt={50} pb={50} gap={5}>
       <MyTitle topic={data.topic} />
@@ -24,11 +24,11 @@ export default function Privilege() {
             >
               <Text size="xl" fw={600} c={"white"}>
                 <RenderHighlightedTitle
-                  text={item.title}
+                  text={item.title || ""}
                   highlights={item.highlights || []}
                 />
               </Text>
-              <Text size="md">{item.description}</Text>
+              <Text size="md">{item.description && item.description[0]}</Text>
             </Card>
           </Grid.Col>
         ))}

@@ -11,6 +11,7 @@ import PrivilegeHome from "../home/PrivilegeHome";
 import StudentResultsHome from "../home/StudentResultsHome";
 import StudentReviewsHome from "../home/StudentReviewsHome";
 import ScheduleConsultationHome from "../home/ScheduleConsultationHome";
+import ContactFacebookHome from "../home/ContactFacebookHome";
 
 export default function OpeningSchedulePage() {
   return (
@@ -32,6 +33,7 @@ export default function OpeningSchedulePage() {
       <PrivilegeHome />
       <StudentResultsHome />
       <StudentReviewsHome />
+      <ContactFacebookHome />
       <ScheduleConsultationHome />
     </MyLayoutBasic>
   );

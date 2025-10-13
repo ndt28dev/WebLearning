@@ -7,6 +7,7 @@ import StudentReviewsHome from "../home/StudentReviewsHome";
 import ScheduleConsultationHome from "../home/ScheduleConsultationHome";
 import CourseRelatedOnlinePage from "../course-online/CourseRelatedOnlinePage";
 import CourseRelated1v1Page from "../course-1v1/CourseRelated1v1Page";
+import ContactFacebookHome from "../home/ContactFacebookHome";
 
 export default function CourseOfflinePage() {
   return (
@@ -17,9 +18,10 @@ export default function CourseOfflinePage() {
       <CourseOffline />
       <CourseRelated1v1Page />
       <CourseRelatedOnlinePage />
-      <PrivilegeHome />
-      <StudentResultsHome />
+      {/* <PrivilegeHome /> */}
+      {/* <StudentResultsHome /> */}
       <StudentReviewsHome />
+      <ContactFacebookHome />
       <ScheduleConsultationHome />
     </MyLayoutUser>
   );

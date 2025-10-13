@@ -12,6 +12,9 @@ import TeachersInteract from "./TeachersInteract";
 import StudentResultsHome from "../home/StudentResultsHome";
 import StudentReviewsHome from "../home/StudentReviewsHome";
 import ScheduleConsultationHome from "../home/ScheduleConsultationHome";
+import PrivilegeHome from "../home/PrivilegeHome";
+import ContactFacebookHome from "../home/ContactFacebookHome";
+import TrainingProgramHome from "../home/TrainingProgramHome";
 
 export default function TeachersPage() {
   const data: ITeacherHeader = teachersData.teachersHeader || {};
@@ -38,8 +41,11 @@ export default function TeachersPage() {
       <TeachersList />
       <TeacherAdvisor />
       <TeachersInteract />
+      <TrainingProgramHome />
+      <PrivilegeHome />
       <StudentResultsHome />
       <StudentReviewsHome />
+      <ContactFacebookHome />
       <ScheduleConsultationHome />
     </MyLayoutUserBox>
   );

@@ -12,6 +12,8 @@ import ScheduleConsultationHome from "../home/ScheduleConsultationHome";
 import PrivilegeHome from "../home/PrivilegeHome";
 import StudentResultsHome from "../home/StudentResultsHome";
 import StudentReviewsHome from "../home/StudentReviewsHome";
+import TrainingProgramHome from "../home/TrainingProgramHome";
+import ContactFacebookHome from "../home/ContactFacebookHome";
 
 export default function PolicyPage() {
   const data: IPolicyHeader = policyData.policyHeader || {};
@@ -36,9 +38,11 @@ export default function PolicyPage() {
       </Container>
       <PolicyIntroduce />
       <PolicyContent />
+      <TrainingProgramHome />
       <PrivilegeHome />
       <StudentResultsHome />
       <StudentReviewsHome />
+      <ContactFacebookHome />
       <ScheduleConsultationHome />
     </MyLayoutUserBox>
   );
