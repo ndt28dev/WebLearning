@@ -1,3 +1,5 @@
+import ContactPage from "@/container/user/contact/ContactPage";
+
 export default function page() {
-  return <div>page contact</div>;
+  return <ContactPage />;
 }

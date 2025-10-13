@@ -2,10 +2,7 @@ import MyLayoutUserBox from "@/components/client/mylayoutuser/MyLayoutUserBox";
 import { Container, Flex } from "@mantine/core";
 import { IconHome } from "@tabler/icons-react";
 import MyBreadcrumbs from "@/components/client/mybreadcrumbs/MyBreadcrumbs";
-import {
-  headerPartnerData,
-  headerTeachersData,
-} from "@/modules/data/DataHeader";
+import { headerTeachersData } from "@/modules/data/DataHeader";
 import TeachersIntroduce from "./TeachersIntroduce";
 import TeachersList from "./TeachersList";
 import { ITeacherHeader } from "@/modules/interface/ITeacherData";

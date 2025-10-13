@@ -44,10 +44,16 @@ export default function TeachersIntroduceItem() {
               >
                 <Paper
                   radius={99999}
-                  style={{ padding: "4px 6px" }}
+                  w={60}
+                  h={60}
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
                   bg={"var(--mantine-color-brand-5)"}
                 >
-                  <IconComp size={50} stroke={1.2} color="white" />
+                  <IconComp size={32} stroke={1.5} color="white" />
                 </Paper>
                 <Stack gap={0} flex={1}>
                   <Text fz={25} fw={600} c={"var(--mantine-color-brand-5)"}>

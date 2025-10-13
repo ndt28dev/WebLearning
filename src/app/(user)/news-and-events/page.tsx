@@ -1,3 +1,5 @@
+import NewsAndEventsPage from "@/container/user/news-and-events/NewsAndEventsPage";
+
 export default function page() {
-  return <div>page thành tích</div>;
+  return <NewsAndEventsPage />;
 }

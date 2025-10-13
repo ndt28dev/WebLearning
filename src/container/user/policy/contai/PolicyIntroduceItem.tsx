@@ -34,13 +34,18 @@ export default function PolicyIntroduceItem() {
               >
                 <Paper
                   radius={99999}
-                  px={6}
-                  py={4}
+                  h={60}
+                  w={60}
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
                   bg="var(--mantine-color-brand-1)"
                 >
                   <IconComp
-                    size={50}
-                    stroke={1.2}
+                    size={32}
+                    stroke={1.5}
                     color="var(--mantine-color-brand-5)"
                   />
                 </Paper>

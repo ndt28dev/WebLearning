@@ -124,6 +124,48 @@ export const headerStudentsBenefitsData = {
   ],
 };
 
+export const headerStudentsAchievementsData = {
+  title: "Thành tích của học viên",
+  items: [
+    {
+      title: "Trang chủ",
+      href: "/",
+    },
+    {
+      title: "Thành tích của học viên",
+      href: "/students-achievements",
+    },
+  ],
+};
+
+export const headerStudentsFeelingsData = {
+  title: "Cảm nhận của học viên",
+  items: [
+    {
+      title: "Trang chủ",
+      href: "/",
+    },
+    {
+      title: "Cảm nhận của học viên",
+      href: "/students-feelings",
+    },
+  ],
+};
+
+export const headerNewsAndEventsData = {
+  title: "Tin tức & sự kiện",
+  items: [
+    {
+      title: "Trang chủ",
+      href: "/",
+    },
+    {
+      title: "Tin tức & sự kiện",
+      href: "/news-and-events",
+    },
+  ],
+};
+
 export const headerRecruitmentData = {
   title: "Tuyển dụng",
   items: [
@@ -134,6 +176,20 @@ export const headerRecruitmentData = {
     {
       title: "Tuyển dụng",
       href: "/recruitment",
+    },
+  ],
+};
+
+export const headerContactData = {
+  title: "Liên hệ",
+  items: [
+    {
+      title: "Trang chủ",
+      href: "/",
+    },
+    {
+      title: "Liên hệ",
+      href: "/contact",
     },
   ],
 };
