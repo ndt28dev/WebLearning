@@ -86,7 +86,7 @@ export default function StudentReviews() {
                 icon={
                   <IconClock size={22} color="var(--mantine-color-brand-5)" />
                 }
-                text1={formatDate(item.day)}
+                text1={item.day && formatDate(item.day)}
               />
               <div
                 style={{ height: "0.5px", backgroundColor: "#E3E9F0" }}
