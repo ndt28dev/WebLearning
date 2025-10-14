@@ -26,7 +26,7 @@ export default function StudentResults() {
     <Grid>
       {data.map((item, index) => (
         <Grid.Col span={{ base: 12, md: 4 }} key={item.id}>
-          <Card radius={"md"} p={0} shadow="xl" className="student_card">
+          <Card radius={"md"} p={0} shadow="md" className="student_card">
             <Image
               src={item.avatar}
               alt={item.name}

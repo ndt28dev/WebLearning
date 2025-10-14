@@ -95,7 +95,7 @@ export default function OpeningScheduleItemCourseOff({ item }: Props) {
               c="brand.5"
               lineClamp={2}
               mb={"auto"}
-              style={{ lineHeight: 1.3 }}
+              style={{ lineHeight: 1.3, cursor: "pointer" }}
             >
               {item.title}
             </Text>

@@ -13,6 +13,9 @@ import NewsAndEventsHome from "../home/NewsAndEventsHome";
 import ContactFacebookHome from "../home/ContactFacebookHome";
 import ScheduleConsultationHome from "../home/ScheduleConsultationHome";
 import PrivilegeHome from "../home/PrivilegeHome";
+import CourseRelated1v1Page from "../course-1v1/CourseRelated1v1Page";
+import CourseRelatedOfflinePage from "../course-offline/CourseRelatedOfflinePage";
+import CourseRelatedOnlinePage from "../course-online/CourseRelatedOnlinePage";
 
 export default function StudentsBenefitsPage() {
   return (
@@ -30,9 +33,11 @@ export default function StudentsBenefitsPage() {
       <StudentsBenefitsIntroduce />
       <PrivilegeHome status />
       <StudentsBenefitsList />
+      <CourseRelated1v1Page />
+      <CourseRelatedOfflinePage />
+      <CourseRelatedOnlinePage />
       <StudentResultsHome />
       <StudentReviewsHome />
-      <NewsAndEventsHome />
       <ContactFacebookHome />
       <ScheduleConsultationHome />
     </MyLayoutBasic>

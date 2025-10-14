@@ -1,0 +1,22 @@
+.studentResults {
+    cursor: pointer;
+    transition: transform .25s ease;
+    will-change: background-color, transform;
+
+    .studentResults-image {
+        transition: transform .5s ease;
+    }
+
+    &:hover {
+        background: var(--mantine-color-brand-1) !important;
+        transform: translateY(-6px);
+    }
+
+    &:hover .studentResults-image {
+        transform: scale(1.08);
+    }
+    &:hover .studentResults-name {
+        color: var(--mantine-color-brand-5);
+    }
+
+}

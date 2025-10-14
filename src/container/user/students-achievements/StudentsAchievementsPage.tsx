@@ -3,10 +3,20 @@ import MyLayoutBasic from "@/components/client/mylayoutuser/MyLayoutBasic";
 import { headerStudentsAchievementsData } from "@/modules/data/DataHeader";
 import { Container, Flex } from "@mantine/core";
 import { IconHome } from "@tabler/icons-react";
+import StudentsAchievementsParameter from "./StudentsAchievementsParameter";
+import StudentsAchievementsHeader from "./StudentsAchievementsHeader";
+import StudentsAchievementsList from "./StudentsAchievementsList";
+import CourseRelated1v1Page from "../course-1v1/CourseRelated1v1Page";
+import CourseRelatedOfflinePage from "../course-offline/CourseRelatedOfflinePage";
+import CourseRelatedOnlinePage from "../course-online/CourseRelatedOnlinePage";
+import StudentReviewsHome from "../home/StudentReviewsHome";
+import ContactFacebookHome from "../home/ContactFacebookHome";
+import ScheduleConsultationHome from "../home/ScheduleConsultationHome";
 
 export default function StudentsAchievementsPage() {
   return (
     <MyLayoutBasic>
+      <StudentsAchievementsHeader />
       <Container size={"xl"} p={20}>
         <Flex align={"center"} gap={5}>
           <IconHome size={25} color="var(--mantine-color-brand-5)" />
@@ -17,6 +27,14 @@ export default function StudentsAchievementsPage() {
           />
         </Flex>
       </Container>
+      <StudentsAchievementsParameter />
+      <StudentsAchievementsList />
+      <CourseRelated1v1Page />
+      <CourseRelatedOfflinePage />
+      <CourseRelatedOnlinePage />
+      <StudentReviewsHome />
+      <ContactFacebookHome />
+      <ScheduleConsultationHome />
     </MyLayoutBasic>
   );
 }
