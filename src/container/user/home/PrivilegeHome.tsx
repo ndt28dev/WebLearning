@@ -1,7 +1,11 @@
 import { Box, Container } from "@mantine/core";
 import Privilege from "./contai/Privilege";
 
-export default function PrivilegeHome() {
+type Props = {
+  status?: boolean;
+};
+
+export default function PrivilegeHome({ status }: Props) {
   return (
     <Box
       style={{
@@ -9,7 +13,7 @@ export default function PrivilegeHome() {
       }}
     >
       <Container size={"xl"}>
-        <Privilege />
+        <Privilege status={status} />
       </Container>
     </Box>
   );

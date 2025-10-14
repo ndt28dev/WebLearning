@@ -9,6 +9,8 @@ import { partnerData } from "@/modules/data/DataPartner";
 import NewsAndEventsHome from "../home/NewsAndEventsHome";
 import ScheduleConsultationHome from "../home/ScheduleConsultationHome";
 import ContactFacebookHome from "../home/ContactFacebookHome";
+import PartnerContact from "./PartnerContact";
+import PartnerParameter from "./PartnerParameter";
 
 export default function PartnerPage() {
   const data: IPartnerHeader = partnerData.partnerHeader || {};
@@ -30,7 +32,9 @@ export default function PartnerPage() {
           />
         </Flex>
       </Container>
+      <PartnerParameter />
       <PartnerList />
+      <PartnerContact />
       <NewsAndEventsHome />
       <ContactFacebookHome />
       <ScheduleConsultationHome />

@@ -12,6 +12,7 @@ import TeamTeacherHome from "../home/TeamTeacherHome";
 import NewsAndEventsHome from "../home/NewsAndEventsHome";
 import ContactFacebookHome from "../home/ContactFacebookHome";
 import ScheduleConsultationHome from "../home/ScheduleConsultationHome";
+import PrivilegeHome from "../home/PrivilegeHome";
 
 export default function StudentsBenefitsPage() {
   return (
@@ -27,6 +28,7 @@ export default function StudentsBenefitsPage() {
         </Flex>
       </Container>
       <StudentsBenefitsIntroduce />
+      <PrivilegeHome status />
       <StudentsBenefitsList />
       <StudentResultsHome />
       <StudentReviewsHome />

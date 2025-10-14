@@ -7,11 +7,15 @@ import { Card, Flex, Grid, Stack, Text } from "@mantine/core";
 import { IconChevronRight } from "@tabler/icons-react";
 import RenderHighlightedTitle from "./RenderHighlightedTitle";
 
-export default function Privilege() {
+type Props = {
+  status?: boolean;
+};
+
+export default function Privilege({ status }: Props) {
   const data: IPrivilegeHome = homeMockData.privilegeData || {};
   return (
     <Stack pt={50} pb={50} gap={5}>
-      <MyTitle topic={data.topic} />
+      {status === false && <MyTitle topic={data.topic} />}
       <Grid>
         {data.privileges.map((item, index) => (
           <Grid.Col span={{ base: 12, md: 6 }} key={index}>

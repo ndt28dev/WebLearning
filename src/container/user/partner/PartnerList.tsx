@@ -62,7 +62,7 @@ export default function PartnerList() {
 
   return (
     <>
-      <Box pt={20} pb={50} className="partnerList">
+      <Box p={50} className="partnerList" bg={"var(--mantine-color-brand-0)"}>
         <Container size="xl">
           <Stack gap={10}>
             <Text fz={25} fw={600} ta={"left"} c={"#333"}>
