@@ -2,7 +2,7 @@ import { IBenefitsData } from "../interface/IBenefitsData";
 
 export const benefitsData: IBenefitsData = {
   benefitsIntroduce: {
-    image: "/images/benefits/bgr.jpg",
+    image: ["/images/benefits/anh1.jpg", "/images/benefits/anh2.jpg"],
     description: [
       "Đạt mục tiêu đầu ra đã cam kết",
       "Đảm bảo đúng tiến độ học tập",

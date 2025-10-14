@@ -16,10 +16,12 @@ import PrivilegeHome from "../home/PrivilegeHome";
 import CourseRelated1v1Page from "../course-1v1/CourseRelated1v1Page";
 import CourseRelatedOfflinePage from "../course-offline/CourseRelatedOfflinePage";
 import CourseRelatedOnlinePage from "../course-online/CourseRelatedOnlinePage";
+import StudentsBenefitsHeader from "./StudentsBenefitsHeader";
 
 export default function StudentsBenefitsPage() {
   return (
     <MyLayoutBasic>
+      <StudentsBenefitsHeader />
       <Container size={"xl"} p={20}>
         <Flex align={"center"} gap={5}>
           <IconHome size={25} color="var(--mantine-color-brand-5)" />

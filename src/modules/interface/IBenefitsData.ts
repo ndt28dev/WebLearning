@@ -1,7 +1,7 @@
 import { IPrivilege } from "./IPrivilege";
 
 export interface IBenefitsIntroduce {
-  image?: string;
+  image?: string[];
   description?: string[];
 }
 

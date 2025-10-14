@@ -1,7 +1,7 @@
 "use client";
 import { benefitsData } from "@/modules/data/DataBenefits";
 import { IBenefitsIntroduce } from "@/modules/interface/IBenefitsData";
-import { Flex, Grid, Image, Paper, Stack, Text } from "@mantine/core";
+import { Flex, Grid, Group, Image, Paper, Stack, Text } from "@mantine/core";
 import { IconBulb, IconCertificate, IconClockCheck } from "@tabler/icons-react";
 
 const icons = [IconCertificate, IconClockCheck, IconBulb];
@@ -11,9 +11,14 @@ export default function BenefitsIntroduceItem() {
 
   return (
     <Stack gap={20}>
-      {data.image && (
-        <Image src={data.image} radius={"md"} alt="Policy header" w="100%" />
-      )}
+      <Grid>
+        {data.image &&
+          data.image.map((item, index) => (
+            <Grid.Col span={{ base: 12, md: 6 }} key={index}>
+              <Image src={item} radius={"md"} alt="benefits header" />
+            </Grid.Col>
+          ))}
+      </Grid>
       <Grid>
         {data.description?.map((item, index) => {
           const IconComp = icons[index];
