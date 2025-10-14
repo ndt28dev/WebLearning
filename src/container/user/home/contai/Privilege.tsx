@@ -11,7 +11,7 @@ type Props = {
   status?: boolean;
 };
 
-export default function Privilege({ status }: Props) {
+export default function Privilege({ status = false }: Props) {
   const data: IPrivilegeHome = homeMockData.privilegeData || {};
   return (
     <Stack pt={50} pb={50} gap={5}>

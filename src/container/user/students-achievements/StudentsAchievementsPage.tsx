@@ -13,6 +13,7 @@ import StudentReviewsHome from "../home/StudentReviewsHome";
 import ContactFacebookHome from "../home/ContactFacebookHome";
 import ScheduleConsultationHome from "../home/ScheduleConsultationHome";
 import OpeningScheduleContact from "../opening-schedule/OpeningScheduleContact";
+import StudentsAchievementsContact from "./StudentsAchievementsContact";
 
 export default function StudentsAchievementsPage() {
   return (
@@ -30,7 +31,7 @@ export default function StudentsAchievementsPage() {
       </Container>
       <StudentsAchievementsParameter />
       <StudentsAchievementsList />
-      <OpeningScheduleContact />
+      <StudentsAchievementsContact />
       <CourseRelated1v1Page />
       <CourseRelatedOfflinePage />
       <CourseRelatedOnlinePage />
