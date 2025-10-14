@@ -9,12 +9,19 @@ import {
   IconChevronDown,
   IconChevronUp,
 } from "@tabler/icons-react";
+import { useScrollIntoView } from "@mantine/hooks";
 
 const STEP = 8;
 const INITIAL = 8;
 
 export default function StudentsAchievementsItem() {
   const data: IStudentResults[] = achievementsData.achievementsList || [];
+
+  const { scrollIntoView, targetRef } = useScrollIntoView<HTMLDivElement>({
+    offset: 80,
+    duration: 200,
+  });
+
   const [visibleCount, setVisibleCount] = useState(
     Math.min(INITIAL, data.length)
   );
@@ -30,10 +37,14 @@ export default function StudentsAchievementsItem() {
   const handleShowMore = () =>
     setVisibleCount((v) => Math.min(v + STEP, data.length));
 
-  const handleCollapse = () => setVisibleCount(Math.min(INITIAL, data.length));
+  const handleCollapse = () => {
+    setVisibleCount(Math.min(INITIAL, data.length));
+    scrollIntoView();
+  };
 
   return (
     <Stack gap={10}>
+      <div ref={targetRef} />
       <Text fz={25} fw={600} ta={"left"} c={"var(--mantine-color-brand-5)"}>
         Thành tích của học viên
       </Text>

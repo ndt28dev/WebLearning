@@ -6,13 +6,17 @@ export default function OpeningScheduleContactItem() {
   return (
     <Stack gap={0} c={"white"}>
       <Text fz={35} fw={700} ta={"center"}>
-        Liên hệ với chúng tôi để nhận thêm tư vấn
+        Cùng con chạm danh hiệu T-Learning
       </Text>
-      <Center mt={20}>
+      <Text size="xl" fw={500} ta={"center"}>
+        Nhận tư vấn 1:1 miễn phí: đánh giá năng lực đầu vào, gợi ý lộ trình cá
+        nhân hoá, đặt KPI theo mốc thời gian cụ thể
+      </Text>
+      <Center mt={15}>
         <MyButton
           size="md"
-          label={"Liên hệ ngay"}
-          link={"#"}
+          label={"Đăng ký tư vấn miễn phí"}
+          link={"/contact"}
           c="var(--mantine-color-brand-5)"
         />
       </Center>

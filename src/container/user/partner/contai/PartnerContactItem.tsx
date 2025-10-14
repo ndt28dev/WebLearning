@@ -8,10 +8,10 @@ export default function PartnerContactItem() {
       <Text fz={35} fw={700} ta={"center"}>
         Kết nối nhanh – doanh thu tăng – hệ sinh thái lớn
       </Text>
-      <Text fz={35} fw={700} ta={"center"}>
+      <Text size="xl" fw={500} ta={"center"}>
         Tham gia mạng lưới đối tác ngay!
       </Text>
-      <Center mt={20}>
+      <Center mt={15}>
         <MyButton
           size="md"
           label={"Liên hệ ngay"}

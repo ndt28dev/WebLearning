@@ -12,6 +12,7 @@ import CourseRelatedOnlinePage from "../course-online/CourseRelatedOnlinePage";
 import StudentReviewsHome from "../home/StudentReviewsHome";
 import ContactFacebookHome from "../home/ContactFacebookHome";
 import ScheduleConsultationHome from "../home/ScheduleConsultationHome";
+import OpeningScheduleContact from "../opening-schedule/OpeningScheduleContact";
 
 export default function StudentsAchievementsPage() {
   return (
@@ -29,6 +30,7 @@ export default function StudentsAchievementsPage() {
       </Container>
       <StudentsAchievementsParameter />
       <StudentsAchievementsList />
+      <OpeningScheduleContact />
       <CourseRelated1v1Page />
       <CourseRelatedOfflinePage />
       <CourseRelatedOnlinePage />
