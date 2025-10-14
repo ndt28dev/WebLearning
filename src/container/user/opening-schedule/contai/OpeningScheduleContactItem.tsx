@@ -1,15 +1,12 @@
 "use client";
 import MyButton from "@/components/mybutton/MyButton";
-import { Box, Center, Stack, Text } from "@mantine/core";
+import { Center, Stack, Text } from "@mantine/core";
 
-export default function PartnerContactItem() {
+export default function OpeningScheduleContactItem() {
   return (
     <Stack gap={0} c={"white"}>
       <Text fz={35} fw={700} ta={"center"}>
-        Kết nối nhanh – doanh thu tăng – hệ sinh thái lớn
-      </Text>
-      <Text fz={35} fw={700} ta={"center"}>
-        Tham gia mạng lưới đối tác ngay!
+        Liên hệ với chúng tôi để nhận thêm tư vấn
       </Text>
       <Center mt={20}>
         <MyButton

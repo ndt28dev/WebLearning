@@ -12,6 +12,7 @@ import StudentResultsHome from "../home/StudentResultsHome";
 import StudentReviewsHome from "../home/StudentReviewsHome";
 import ScheduleConsultationHome from "../home/ScheduleConsultationHome";
 import ContactFacebookHome from "../home/ContactFacebookHome";
+import OpeningScheduleContact from "./OpeningScheduleContact";
 
 export default function OpeningSchedulePage() {
   return (
@@ -29,6 +30,7 @@ export default function OpeningSchedulePage() {
       </Container>
       <OpeningSchedulePresent />
       <OpeningScheduleList />
+      <OpeningScheduleContact />
       <TeamTeacherHome />
       <PrivilegeHome />
       <StudentResultsHome />
