@@ -34,7 +34,7 @@ const CONTACTS: ContactItem[] = [
   },
   {
     title: "Nhắn tin Zalo",
-    subtitle: "zalo/T-Learning",
+    subtitle: "Zalo/T-Learning",
     image: "/images/contact/icon3.jpg",
     href: "https://zalo.me/0764513977",
     target: "_blank",

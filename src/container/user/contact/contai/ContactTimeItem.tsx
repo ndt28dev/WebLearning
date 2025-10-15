@@ -14,7 +14,7 @@ import { IconMapPin } from "@tabler/icons-react";
 
 export default function ContactTimeItem() {
   return (
-    <Stack gap={50}>
+    <Stack gap={20}>
       <MyTitleBasic textTitle="THỜI GIAN TƯ VẤN & ĐẶT LỊCH HẸN" />
       <Grid>
         <Grid.Col span={{ base: 12, md: 6 }}>
