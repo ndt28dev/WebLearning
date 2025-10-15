@@ -26,8 +26,18 @@ export default function ContactSupportItem() {
               Cần được tư vấn khóa học hoặc lộ trình học cá nhân hóa? Đội ngũ cố
               vấn sẽ giúp bạn chọn chương trình và ưu đãi phù hợp nhất.
             </Text>
-            <Button mt="auto" variant="outline" color="brand.5" size="md">
-              Liên hệ tư vấn
+            <Button
+              mt={"auto"}
+              component="a"
+              href="https://zalo.me/0764513977"
+              target="_blank"
+              rel="noopener noreferrer"
+              variant="outline"
+              color="brand.5"
+              size="md"
+              radius="xl"
+            >
+              <Text size="md">Liên hệ tư vấn</Text>
             </Button>
           </Flex>
         </Grid.Col>
@@ -50,8 +60,18 @@ export default function ContactSupportItem() {
               Gặp sự cố trong quá trình học hoặc cần hỗ trợ kỹ thuật? Bộ phận
               chăm sóc học viên luôn sẵn sàng giúp bạn.
             </Text>
-            <Button mt="auto" variant="filled" color="brand.5" size="md">
-              Liên hệ hỗ trợ
+            <Button
+              mt={"auto"}
+              component="a"
+              href="https://zalo.me/0764513977"
+              target="_blank"
+              rel="noopener noreferrer"
+              variant="filled"
+              color="brand.5"
+              size="md"
+              radius="xl"
+            >
+              <Text size="md">Liên hệ hỗ trợ</Text>
             </Button>
           </Flex>
         </Grid.Col>
@@ -74,8 +94,18 @@ export default function ContactSupportItem() {
               Muốn hợp tác đào tạo hoặc truyền thông cùng T-Learning? Đội ngũ
               đối tác & marketing sẽ phản hồi nhanh chóng.
             </Text>
-            <Button mt="auto" variant="outline" color="brand.5" size="md">
-              Liên hệ hợp tác
+            <Button
+              mt={"auto"}
+              component="a"
+              href="https://zalo.me/0764513977"
+              target="_blank"
+              rel="noopener noreferrer"
+              variant="outline"
+              color="brand.5"
+              size="md"
+              radius="xl"
+            >
+              <Text size="md">Liên hệ hợp tác</Text>
             </Button>
           </Flex>
         </Grid.Col>
@@ -98,8 +128,18 @@ export default function ContactSupportItem() {
               Yêu thích giảng dạy và muốn đồng hành cùng T-Learning? Hãy gia
               nhập đội ngũ giảng viên và chuyên viên học thuật của chúng tôi.
             </Text>
-            <Button mt="auto" variant="filled" color="brand.5" size="md">
-              Ứng tuyển ngay
+            <Button
+              mt={"auto"}
+              component="a"
+              href="https://zalo.me/0764513977"
+              target="_blank"
+              rel="noopener noreferrer"
+              variant="filled"
+              color="brand.5"
+              size="md"
+              radius="xl"
+            >
+              <Text size="md">Ứng tuyển ngay</Text>
             </Button>
           </Flex>
         </Grid.Col>

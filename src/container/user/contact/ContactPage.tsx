@@ -8,6 +8,7 @@ import ContactSupport from "./ContactSupport";
 import ContactInfo from "./ContactInfo";
 import ContactTime from "./ContactTime";
 import ScheduleConsultationHome from "../home/ScheduleConsultationHome";
+import ContactMap from "./ContactMap";
 
 export default function ContactPage() {
   return (
@@ -27,6 +28,7 @@ export default function ContactPage() {
       <ContactInfo />
       <ContactTime />
       <ScheduleConsultationHome status />
+      <ContactMap />
     </MyLayoutBasic>
   );
 }

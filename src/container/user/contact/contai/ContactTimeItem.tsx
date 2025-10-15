@@ -42,12 +42,16 @@ export default function ContactTimeItem() {
               <Box>
                 <Button
                   mt={20}
+                  component="a"
+                  href="https://zalo.me/0764513977"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   variant="filled"
                   color="#C12525"
                   size="md"
-                  radius={"xl"}
+                  radius="xl"
                 >
-                  Nhận tư vấn
+                  <Text size="md">Nhận tư vấn</Text>
                 </Button>
               </Box>
             </Stack>
@@ -104,8 +108,7 @@ export default function ContactTimeItem() {
               <Group gap={10} align="center" mt={20}>
                 <IconMapPin size={20} color="#072362" />
                 <Text size="md" fw={500} flex={1} ta={"center"}>
-                  Toà nhà An Tâm Building, số 213/9 Nguyễn Gia Trí, Phường Thạnh
-                  Mỹ Tây, TP.HCM
+                  273 An Dương Vương, Phường, Chợ Quán, Hồ Chí Minh
                 </Text>
               </Group>
             </Stack>
