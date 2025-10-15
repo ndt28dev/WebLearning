@@ -26,19 +26,17 @@
   font-size: var(--mantine-font-size-sm);
   font-weight: 500;
   position: relative;
-  transition: all 0.25s ease;
-
-  @mixin hover {
-    /* background-color: light-dark(
-      var(--mantine-color-gray-0),
-      var(--mantine-color-dark-6)
-    ); */
-    transform: translateY(-1px);
-    color: var(--mantine-color-brand-5);
-  }
+  transition:
+    transform 0.25s ease,
+    color 0.25s ease,
+    background-color 0.25s ease;
 }
 
-/* Gạch chân hiệu ứng slide */
+.link:hover {
+  transform: translateY(-1px);
+  color: var(--mantine-color-brand-5);
+}
+
 .link::after {
   content: "";
   position: absolute;
@@ -60,10 +58,31 @@
   font-weight: 600;
   color: var(--mantine-color-brand-5);
   background-color: var(--mantine-color-blue-0);
-  /* box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); */
-  transform: scale(1.05);
 }
 
-.link[data-active="true"]::after {
-  /* width: calc(100% - 24px); */
+.subLink {
+  font-size: 15px;
+  font-weight: 500;
+  padding: 8px 12px;
+  color: var(--mantine-color-gray-7);
+  transition:
+    color 0.25s ease,
+    background-color 0.25s ease;
+}
+
+.subLink:hover {
+  color: var(--mantine-color-brand-5);
+  background-color: var(--mantine-color-blue-0);
+}
+
+.subLink[data-active="true"] {
+  font-weight: 600;
+  color: var(--mantine-color-brand-5);
+  background-color: var(--mantine-color-blue-0);
+  border-left: 3px solid var(--mantine-color-brand-5);
+}
+.mantine-Menu-dropdown {
+  border-radius: 8px;
+  border: 1px solid var(--mantine-color-gray-2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }

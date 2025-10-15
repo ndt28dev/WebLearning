@@ -5,7 +5,6 @@ type NavLink = {
 };
 
 export const menuHeader: NavLink[] = [
-  // { link: "/", label: "Trang chủ" },
   {
     link: "/introduce",
     label: "Giới thiệu",
