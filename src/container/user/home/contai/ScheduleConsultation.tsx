@@ -150,7 +150,7 @@ export default function ScheduleConsultation() {
         variant="filled"
         color="var(--mantine-color-brand-5)"
         label={"Nhận tư vấn ngay"}
-        link={"#"}
+        link={"/contact"}
         size="md"
       />
     </Stack>

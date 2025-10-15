@@ -99,7 +99,7 @@ export default function StudentResults() {
       <Center mt={30}>
         <MyButton
           label="Xem thêm"
-          link="/courses"
+          link="/students-achievements"
           variant="filled"
           size="md"
           color="brand.5"

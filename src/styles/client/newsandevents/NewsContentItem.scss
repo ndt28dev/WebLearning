@@ -1,0 +1,20 @@
+.newsContentItem {
+  .newsContentItem-title {
+    transition: color .2s ease; // mượt đổi màu
+
+    &:hover,
+    &:focus-visible {
+      cursor: pointer;
+      color: var(--mantine-color-brand-5);
+      outline: none;
+    }
+  }
+
+  .newsContentItem-xct {
+    width: 90px;
+    &:hover {
+      cursor: pointer;
+      text-decoration: underline;
+    }
+  }
+}

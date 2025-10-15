@@ -1,6 +1,6 @@
 "use client";
 import MyButton from "@/components/mybutton/MyButton";
-import { Box, Center, Stack, Text } from "@mantine/core";
+import { Box, Button, Center, Stack, Text } from "@mantine/core";
 
 export default function PartnerContactItem() {
   return (
@@ -12,12 +12,20 @@ export default function PartnerContactItem() {
         Tham gia mạng lưới đối tác ngay!
       </Text>
       <Center mt={15}>
-        <MyButton
+        <Button
+          component="a"
+          href="https://zalo.me/0764513977"
+          target="_blank"
+          rel="noopener noreferrer"
           size="md"
-          label={"Liên hệ ngay"}
-          link={"#"}
-          c="var(--mantine-color-brand-5)"
-        />
+          radius="md"
+          variant="default"
+          color="white"
+        >
+          <Text c="var(--mantine-color-brand-5)" size={"md"}>
+            Liên hệ qua Zalo
+          </Text>
+        </Button>
       </Center>
     </Stack>
   );

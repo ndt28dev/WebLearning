@@ -1,6 +1,6 @@
 "use client";
 import MyButton from "@/components/mybutton/MyButton";
-import { Center, Stack, Text } from "@mantine/core";
+import { Button, Center, Stack, Text } from "@mantine/core";
 
 export default function StudentsAchievementsContactItem() {
   return (
@@ -13,12 +13,20 @@ export default function StudentsAchievementsContactItem() {
         nhân hoá, đặt KPI theo mốc thời gian cụ thể
       </Text>
       <Center mt={15}>
-        <MyButton
+        <Button
+          component="a"
+          href="https://zalo.me/0764513977"
+          target="_blank"
+          rel="noopener noreferrer"
           size="md"
-          label={"Đăng ký tư vấn miễn phí"}
-          link={"/contact"}
-          c="var(--mantine-color-brand-5)"
-        />
+          radius="md"
+          variant="default"
+          color="white"
+        >
+          <Text c="var(--mantine-color-brand-5)" size={"md"}>
+            Đăng ký tư vấn miễn phí
+          </Text>
+        </Button>
       </Center>
     </Stack>
   );

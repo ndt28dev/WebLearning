@@ -1,6 +1,6 @@
 "use client";
 import MyButton from "@/components/mybutton/MyButton";
-import { Center, Stack, Text } from "@mantine/core";
+import { Button, Center, Stack, Text } from "@mantine/core";
 
 export default function StudentsFeelingsContactItem() {
   return (
@@ -13,13 +13,20 @@ export default function StudentsFeelingsContactItem() {
         gia đình tốt hơn
       </Text>
       <Center mt={15}>
-        <MyButton
+        <Button
+          component="a"
+          href="https://zalo.me/0764513977"
+          target="_blank"
+          rel="noopener noreferrer"
           size="md"
-          label={"Nhận xét ngay"}
-          link={"#"}
+          radius="md"
           variant="filled"
-          c="white"
-        />
+          color="var(--mantine-color-brand-5)"
+        >
+          <Text c="white" size={"md"}>
+            Nhận xét ngay
+          </Text>
+        </Button>
       </Center>
     </Stack>
   );

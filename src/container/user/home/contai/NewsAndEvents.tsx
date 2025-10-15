@@ -94,7 +94,7 @@ export default function NewsAndEvents() {
       <Center mt={30}>
         <MyButton
           label="Xem thêm"
-          link="/courses"
+          link="/news-and-events"
           variant="filled"
           size="md"
           color="brand.5"

@@ -16,7 +16,7 @@ export default function OpeningScheduleContactItem() {
         <MyButton
           size="md"
           label={"Đăng ký ngay"}
-          link={"/opening-schedule"}
+          link={"/courses-offline"}
           c="var(--mantine-color-brand-5)"
         />
       </Center>
