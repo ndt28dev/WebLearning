@@ -3,7 +3,7 @@ import { Grid, Stack, Text, Title } from "@mantine/core";
 
 export default function PartnerParameterItem() {
   return (
-    <Grid gutter={40} align="center">
+    <Grid gutter={50} align="center">
       <Grid.Col span={{ base: 12, md: 6 }}>
         <Stack gap={10}>
           <Title w={400} fz={45} c={"var(--mantine-color-brand-5)"}>
@@ -18,7 +18,7 @@ export default function PartnerParameterItem() {
         </Stack>
       </Grid.Col>
       <Grid.Col span={{ base: 12, md: 6 }}>
-        <Grid>
+        <Grid pl={60} pr={60}>
           <Grid.Col span={{ base: 12, md: 6 }}>
             <Text fz={45} fw={700} c={"var(--mantine-color-brand-5)"}>
               60
