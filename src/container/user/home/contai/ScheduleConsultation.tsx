@@ -41,7 +41,11 @@ const wantOptions = [
   { value: "moc-diem", label: "Mốc điểm mục tiêu & kế hoạch đạt được" },
 ];
 
-export default function ScheduleConsultation() {
+type Props = {
+  status?: boolean;
+};
+
+export default function ScheduleConsultation({ status = false }: Props) {
   const data: IScheduleConsultationHome = homeMockData.scheduleConsultationData;
   const [timeChosen, setTimeChosen] = useState<string>(data.morning[0]);
 
@@ -158,7 +162,7 @@ export default function ScheduleConsultation() {
 
   return (
     <Stack pt={50} pb={50} gap={5}>
-      <MyTitle topic={data.topic} />
+      {status === false && <MyTitle topic={data.topic} />}
       <Grid
         bg={"white"}
         style={{

@@ -14,7 +14,12 @@ export default function NewsAndEventsHeaderItem() {
     >
       {data.map((item, index) => (
         <Grid.Col key={index} span={{ base: 12, md: 6 }}>
-          <Image src={item.image} alt={"error-image"} w={"100%"} />
+          <Image
+            src={item.image}
+            alt={"error-image"}
+            w={"100%"}
+            radius={"md"}
+          />
           <Stack gap={5} mt={10}>
             <Text fz={30} fw={700} c={"var(--mantine-color-brand-5)"}>
               {item.title}

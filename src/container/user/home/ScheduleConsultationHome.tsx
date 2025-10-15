@@ -1,7 +1,11 @@
 import { Box, Container } from "@mantine/core";
 import ScheduleConsultation from "./contai/ScheduleConsultation";
 
-export default function ScheduleConsultationHome() {
+type Props = {
+  status?: boolean;
+};
+
+export default function ScheduleConsultationHome({ status }: Props) {
   return (
     <Box
       style={{
@@ -12,7 +16,7 @@ export default function ScheduleConsultationHome() {
       }}
     >
       <Container size={"xl"}>
-        <ScheduleConsultation />
+        <ScheduleConsultation status={status} />
       </Container>
     </Box>
   );

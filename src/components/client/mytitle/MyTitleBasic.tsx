@@ -24,7 +24,7 @@ export default function MyTitleBasic({
       <Center>
         <Text
           fz={20}
-          w={taText ? "100%" : 700}
+          w={taText ? "100%" : 800}
           ta={taText ? "left" : "center"}
           c={colorDesc}
         >
