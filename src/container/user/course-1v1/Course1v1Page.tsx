@@ -15,8 +15,7 @@ export default function Course1v1Page() {
       <Course1v1 />
       <CourseRelatedOfflinePage />
       <CourseRelatedOnlinePage />
-      {/* <PrivilegeHome /> */}
-      {/* <StudentResultsHome /> */}
+      <StudentResultsHome />
       <StudentReviewsHome />
       <ContactFacebookHome />
       <ScheduleConsultationHome />
