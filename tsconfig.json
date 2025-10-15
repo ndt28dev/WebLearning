@@ -13,8 +13,7 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-    "ignoreDeprecations": "6.0",
-    "baseUrl": ".",
+    // "baseUrl": ".",
     "plugins": [
       {
         "name": "next"
