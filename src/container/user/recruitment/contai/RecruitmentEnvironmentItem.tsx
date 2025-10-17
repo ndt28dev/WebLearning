@@ -76,7 +76,7 @@ export default function RecruitmentEnvironmentItem() {
             <Stack gap={5} ta="center" pt={25}>
               <Text size="md">Đề cao tính cá nhân</Text>
               <Text size="md">Khuyến khích chủ động sáng tạo</Text>
-              <Text size="md">học tập và phát triển</Text>
+              <Text size="md">Học tập và phát triển</Text>
             </Stack>
             <Flex
               justify="center"

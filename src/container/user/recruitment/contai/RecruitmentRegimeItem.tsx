@@ -266,7 +266,7 @@ export default function RecruitmentRegimeItem() {
                   }
                 />
                 <MyGroupText
-                  text1="nhận và vinh danh qua các hình thức như giấy khen, phần thưởng, thăng tiến,..."
+                  text1="Nhận và vinh danh qua các hình thức như giấy khen, phần thưởng, thăng tiến,..."
                   icon={
                     <IconCheck size={20} color="var(--mantine-color-brand-5)" />
                   }
