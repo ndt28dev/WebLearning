@@ -24,7 +24,7 @@ export default function StudentResults() {
 
   const renderListStudentResult = (data: IStudentResults[]) => (
     <Grid>
-      {data.map((item, index) => (
+      {data.map((item) => (
         <Grid.Col span={{ base: 12, md: 4 }} key={item.id}>
           <Card radius={"md"} p={0} shadow="md" className="student_card">
             <Image
