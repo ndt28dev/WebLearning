@@ -157,7 +157,7 @@ export const homeMockData: IHome = {
     tutors: [
       {
         id: 1,
-        name: "Nguyễn Văn An",
+        name: "Trần Thanh Lê",
         subjects: ["Toán học THPT", "Giải tích", "Hình học"],
         image: "/images/tutors/avt1.jpg",
         description:
@@ -171,7 +171,7 @@ export const homeMockData: IHome = {
       },
       {
         id: 2,
-        name: "Trần Thị Minh",
+        name: "Nguyễn Văn A",
         subjects: ["Vật lý THCS", "Vật lý THPT", "Cơ học"],
         image: "/images/tutors/avt2.jpg",
         description:
@@ -185,7 +185,7 @@ export const homeMockData: IHome = {
       },
       {
         id: 3,
-        name: "Lê Hoàng Nam",
+        name: "Võ Minh Hùng",
         subjects: ["Tiếng Anh giao tiếp", "IELTS", "Ngữ pháp nâng cao"],
         image: "/images/tutors/avt3.jpg",
         description:
@@ -199,7 +199,7 @@ export const homeMockData: IHome = {
       },
       {
         id: 4,
-        name: "Phạm Thị Hương",
+        name: "Châu Huỳnh",
         subjects: ["Ngữ văn THCS", "Ngữ văn THPT", "Làm văn nghị luận"],
         image: "/images/tutors/avt4.jpg",
         description:
@@ -213,7 +213,7 @@ export const homeMockData: IHome = {
       },
       {
         id: 5,
-        name: "Đỗ Quang Khải",
+        name: "Đỗ Thuý Hạnh",
         subjects: ["Hóa học THPT", "Hóa hữu cơ", "Hóa vô cơ"],
         image: "/images/tutors/avt5.jpg",
         description:
@@ -227,7 +227,7 @@ export const homeMockData: IHome = {
       },
       {
         id: 6,
-        name: "Nguyễn Thu Trang",
+        name: "Nguyễn Huy Cường",
         subjects: ["Sinh học THCS", "Sinh học THPT", "Di truyền học"],
         image: "/images/tutors/avt6.jpg",
         description:
@@ -241,7 +241,7 @@ export const homeMockData: IHome = {
       },
       {
         id: 7,
-        name: "Phạm Văn Dũng",
+        name: "Nguyễn Minh Khương",
         subjects: ["Tin học cơ sở", "Lập trình C++", "Thuật toán"],
         image: "/images/tutors/avt7.jpg",
         description:
@@ -255,7 +255,7 @@ export const homeMockData: IHome = {
       },
       {
         id: 8,
-        name: "Hoàng Mai Anh",
+        name: "Ngô Hồ Anh Khôi",
         subjects: ["Địa lý THCS", "Địa lý THPT", "Kinh tế - xã hội"],
         image: "/images/tutors/avt8.jpg",
         description:

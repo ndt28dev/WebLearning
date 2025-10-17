@@ -107,7 +107,6 @@ export default function StudentReviews() {
         <MyButton
           label={"Xem tất cả"}
           link={"/students-feelings"}
-          icon1={<IconChevronRight size={20} />}
           variant="filled"
         />
       </Center>

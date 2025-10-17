@@ -5,7 +5,6 @@ export default function TeamTeacherHome() {
   return (
     <Box
       style={{
-        // backgroundImage: "url('/images/banner/bgr6.png')",
         backgroundImage: "url('/images/banner/bgr10.png')",
         backgroundSize: "cover",
         backgroundPosition: "center",

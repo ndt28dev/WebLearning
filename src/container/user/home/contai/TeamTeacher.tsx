@@ -210,7 +210,7 @@ export default function TeamTeacher() {
                 text1={item.examScore}
               />
               <Flex align={"center"} gap={10}>
-                <MyButton label={"Xem hồ sơ"} link={""} variant="filled" />
+                <MyButton label={"Xem hồ sơ"} link={""} variant="outline" />
               </Flex>
               <div
                 style={{ height: "0.5px", backgroundColor: "#E3E9F0" }}
@@ -262,12 +262,7 @@ export default function TeamTeacher() {
           </Grid.Col>
         </Grid>
         <Center mt={30}>
-          <MyButton
-            label={"Xem tất cả"}
-            link={"/teachers"}
-            icon1={<IconChevronRight size={20} />}
-            variant="filled"
-          />
+          <MyButton label={"Xem tất cả"} link={"/teachers"} variant="filled" />
         </Center>{" "}
       </Stack>
       <MyModalImage
