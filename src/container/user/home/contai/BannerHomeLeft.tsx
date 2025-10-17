@@ -53,15 +53,15 @@ export default function BannerHomeLeft() {
           color="var(--mantine-color-brand-5)"
         />
       </Group>
-      <Image src={data.imageStudent} w={120} h={35} />
+      {/* <Image src={data.imageStudent} w={120} h={35} /> */}
 
       <Flex align={"center"} justify={"space-between"}>
-        <Stack>
+        <Stack gap={10}>
           <Group gap={5}>
             <Text size="md" fw={600}>
               {data.numStudent.toLocaleString("en-US")} học
             </Text>
-            <Text size="md">viên tại TP.HCM</Text>
+            <Text size="md">viên tại trung tâm T-Leaning</Text>
           </Group>
           <Group gap={"xs"}>
             <Group gap={10} bg={"#F3F3F5"} p={5} style={{ borderRadius: 8 }}>
@@ -74,7 +74,7 @@ export default function BannerHomeLeft() {
                 style={{ borderRadius: 8, padding: "4px 12px" }}
               >
                 <Text size="md">
-                  <span style={{ fontWeight: 600, fontSize: 20 }}>4.5</span>
+                  <span style={{ fontWeight: 600, fontSize: 20 }}>4.2</span>
                   /5
                 </Text>
               </Group>
@@ -93,18 +93,18 @@ export default function BannerHomeLeft() {
                 style={{ borderRadius: 8, padding: "4px 10px" }}
               >
                 <Text size="md">
-                  <span style={{ fontWeight: 600, fontSize: 20 }}>4.1</span>
+                  <span style={{ fontWeight: 600, fontSize: 20 }}>4.6</span>
                   /5
                 </Text>
               </Group>
             </Group>
           </Group>
         </Stack>
-        <Stack>
+        <Stack gap={10}>
           <Text size="md">Đối tác uy tín của hai đơn vị</Text>
           <Group justify="space-between">
-            <Image src="/images/banner/dv2.webp" w={90} />
-            <Image src="/images/banner/dv1.webp" w={90} />
+            <Image src="/images/partner/anh1.jpg" w={90} />
+            <Image src="/images/partner/anh20.jpg" w={90} />
           </Group>
         </Stack>
       </Flex>
