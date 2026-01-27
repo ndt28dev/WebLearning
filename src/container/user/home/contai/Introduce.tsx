@@ -33,14 +33,16 @@ export default function Introduce() {
     >
       {data.images.map((item, index) => (
         <Carousel.Slide key={index}>
-          <Image
-            src={item}
-            alt="introduce-error-iamge"
-            radius={"md"}
-            h={"567px"}
-            w={"100%"}
-            fit="cover"
-          />
+          <Box h={"567px"}>
+            <Image
+              src={item}
+              alt="introduce-error-iamge"
+              radius={"md"}
+              w={"100%"}
+              h={"100%"}
+              fit="cover"
+            />
+          </Box>
         </Carousel.Slide>
       ))}
     </Carousel>

@@ -2,10 +2,12 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import "@mantine/core/styles.css";
-import { Container, createTheme, MantineProvider, Paper } from "@mantine/core";
+import { createTheme, MantineProvider } from "@mantine/core";
 import { ColorSchemeScript, mantineHtmlProps } from "@mantine/core";
 import "@mantine/carousel/styles.css";
 import "@mantine/dates/styles.css";
+import "@mantine/notifications/styles.css";
+import { Notifications } from "@mantine/notifications";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -54,7 +56,10 @@ export default function RootLayout({
         suppressHydrationWarning={true}
         className={`${geistSans.variable} ${geistMono.variable}`}
       >
-        <MantineProvider theme={theme}>{children}</MantineProvider>
+        <MantineProvider theme={theme}>
+          <Notifications position="top-right" />
+          {children}
+        </MantineProvider>
       </body>
     </html>
   );

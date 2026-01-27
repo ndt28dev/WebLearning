@@ -2,7 +2,7 @@ import { ICourse } from "@/modules/interface/ICourse";
 import { ICourseOffline } from "@/modules/interface/ICourseOffline";
 import { formatDate } from "@/utils/format";
 import { isUpcoming } from "@/utils/helpers";
-import { Badge, Flex, Group, Image, Paper, Text } from "@mantine/core";
+import { Badge, Box, Flex, Group, Image, Paper, Text } from "@mantine/core";
 import {
   IconCalendarClock,
   IconChevronsRight,
@@ -49,7 +49,9 @@ export default function TrainingProgramItem({ item }: Props) {
       h={"100%"}
     >
       <Flex direction="column" h="100%">
-        <Image src={item.image} />
+        <Box h={267} w={"100%"}>
+          <Image src={item.image} h={"100%"} w={"100%"} />
+        </Box>
         <Flex
           direction="column"
           justify="space-between"

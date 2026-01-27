@@ -27,18 +27,20 @@ export default function StudentResults() {
       {data.map((item) => (
         <Grid.Col span={{ base: 12, md: 4 }} key={item.id}>
           <Card radius={"md"} p={0} shadow="md" className="student_card">
-            <Image
-              src={item.avatar}
-              alt={item.name}
-              radius={"md"}
-              h={220}
-              width={"100%"}
-              fit="cover"
-              style={{
-                borderBottomLeftRadius: 0,
-                borderBottomRightRadius: 0,
-              }}
-            />
+            <Box h={220}>
+              <Image
+                src={item.avatar}
+                alt={item.name}
+                radius={"md"}
+                h={"100%"}
+                width={"100%"}
+                fit="cover"
+                style={{
+                  borderBottomLeftRadius: 0,
+                  borderBottomRightRadius: 0,
+                }}
+              />
+            </Box>
             <Flex align={"center"} p={"sm"} gap={10}>
               <Flex
                 w={45}

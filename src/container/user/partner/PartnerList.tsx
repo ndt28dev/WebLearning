@@ -38,13 +38,15 @@ export default function PartnerList() {
             className="partnerList-item"
             onClick={() => handleSelected(item)}
           >
-            <Image
-              src={item.image}
-              alt={item.name}
-              w="100%"
-              h={80}
-              fit="contain"
-            />
+            <Box h={80}>
+              <Image
+                src={item.image}
+                alt={item.name}
+                w="100%"
+                h={"100%"}
+                fit="contain"
+              />
+            </Box>
             <Text
               size="sm"
               mt={10}

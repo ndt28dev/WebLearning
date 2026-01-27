@@ -42,9 +42,14 @@ export default function TrainingProgramCon() {
       className="carousel"
       withControls={data.trainingPrograms.length > 3}
       withIndicators={data.trainingPrograms.length > 3}
-      slideSize={{ base: "100%", sm: "50%", md: "33.33333%" }}
+      slideSize="33.33333%"
       slideGap="md"
-      emblaOptions={{ loop: true, align: "start" }}
+      loop
+      align="start"
+      style={[
+        { maxWidth: "md", slideSize: "50%" },
+        { maxWidth: "sm", slideSize: "100%" },
+      ]}
     >
       {data.trainingPrograms.map((item) => (
         <Carousel.Slide key={item.id}>

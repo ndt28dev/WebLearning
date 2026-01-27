@@ -17,7 +17,8 @@ export default function CourseRelatedOnline() {
       withIndicators={data.length > 3}
       slideSize={{ base: "100%", sm: "50%", md: "33.33333%" }}
       slideGap="md"
-      emblaOptions={{ loop: true, align: "start" }}
+      loop
+      align="start"
     >
       {data.map((item) => (
         <Carousel.Slide key={item.id}>

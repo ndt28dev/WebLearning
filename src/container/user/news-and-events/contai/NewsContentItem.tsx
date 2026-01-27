@@ -80,13 +80,15 @@ export default function NewsContentItem() {
             className="newsContentItem"
           >
             <Flex align={"center"} gap={10}>
-              <Image
-                src={item.image}
-                w={320}
-                h={200}
-                radius={"md"}
-                style={{ cursor: "pointer" }}
-              />
+              <Box w={320} h={200}>
+                <Image
+                  h={"100%"}
+                  w={"100%"}
+                  src={item.image}
+                  radius={"md"}
+                  style={{ cursor: "pointer" }}
+                />
+              </Box>
               <Stack flex={1} gap={5}>
                 <Text
                   fw={600}

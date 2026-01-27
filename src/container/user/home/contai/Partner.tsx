@@ -2,7 +2,7 @@
 import MyTitle from "@/components/client/mytitle/MyTitle";
 import { homeMockData } from "@/modules/data/DataHome";
 import { IPartnerHome } from "@/modules/interface/IHome";
-import { Card, Grid, Image, Stack, Text } from "@mantine/core";
+import { Box, Card, Grid, Image, Stack, Text } from "@mantine/core";
 
 export default function Partner() {
   const data: IPartnerHome = homeMockData.partnerData;
@@ -14,13 +14,16 @@ export default function Partner() {
         {data.partners.map((item, index) => (
           <Grid.Col span={3} key={index}>
             <Card>
-              <Image
-                src={item.image}
-                alt={item.name}
-                w={"100%"}
-                h="80px"
-                fit="contain"
-              />
+              <Box h={80}>
+                <Image
+                  src={item.image}
+                  alt={item.name}
+                  fit="contain"
+                  h="100%"
+                  w={"100%"}
+                />
+              </Box>
+
               <Text
                 size="sm"
                 mt={10}

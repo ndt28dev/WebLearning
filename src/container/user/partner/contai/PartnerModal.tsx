@@ -1,7 +1,7 @@
 import MyGroupText from "@/components/mygrouptext/MyGroupText";
 import { IDetailsPartner, IPartner } from "@/modules/interface/IPartner";
 import { formatDate } from "@/utils/format";
-import { Flex, Grid, Image, Stack, Text, ThemeIcon } from "@mantine/core";
+import { Box, Flex, Grid, Image, Stack, Text, ThemeIcon } from "@mantine/core";
 import {
   Icon12Hours,
   IconBook,
@@ -61,13 +61,15 @@ export default function PartnerModal({ item }: Props) {
         </Grid.Col>
         <Grid.Col span={{ base: 12, md: 6 }}>
           <Stack gap={5}>
-            <Image
-              src={item.image}
-              alt={item.name}
-              w="100%"
-              h={80}
-              fit="contain"
-            />
+            <Box h={80}>
+              <Image
+                src={item.image}
+                alt={item.name}
+                w="100%"
+                h={"100%"}
+                fit="contain"
+              />
+            </Box>
             <Text
               size="sm"
               ta={"center"}

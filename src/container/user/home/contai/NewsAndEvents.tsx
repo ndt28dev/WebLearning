@@ -25,7 +25,15 @@ export default function NewsAndEvents() {
 
   const renderColumnLeft = (item: INewsAndEvents) => (
     <Box h={"100%"} style={{ position: "relative" }}>
-      <Image src={item.imageCover} alt={item.title} radius="md" h={"100%"} />
+      <Box h={"100%"} w={"100%"}>
+        <Image
+          src={item.imageCover}
+          alt={item.title}
+          radius="md"
+          w={"100%"}
+          h={"100%"}
+        />
+      </Box>
       <Overlay opacity={0.3} color="black" zIndex={1} radius="md" />
       <Box
         style={{ position: "absolute", bottom: 0, left: 0, zIndex: 2 }}

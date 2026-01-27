@@ -81,14 +81,16 @@ export default function EventsContentItem() {
             className="newsContentItem"
           >
             <Flex align={"center"} gap={10}>
-              <Image
-                src={item.image}
-                alt={item.title}
-                w={320}
-                h={200}
-                radius={"md"}
-                style={{ cursor: "pointer" }}
-              />
+              <Box w={320} h={200}>
+                <Image
+                  src={item.image}
+                  alt={item.title}
+                  radius={"md"}
+                  style={{ cursor: "pointer" }}
+                  h={"100%"}
+                  w={"100%"}
+                />
+              </Box>
               <Stack flex={1} gap={5}>
                 <Text
                   fw={600}

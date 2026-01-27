@@ -45,7 +45,8 @@ export default function TeacherAdvisorItem() {
         className="carousel"
         withIndicators
         slideSize={{ base: "100%", sm: "50%", md: "25%" }}
-        emblaOptions={{ loop: true, align: "start" }}
+        loop
+        align="start"
       >
         {data.advisors &&
           data.advisors.map((item, index) => (
