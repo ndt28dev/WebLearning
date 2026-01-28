@@ -1,3 +1,5 @@
+import AdminHomePage from "@/container/admin/AdminHomePage";
+
 export default function page() {
-  return <div>page dashboard</div>;
+  return <AdminHomePage />;
 }

@@ -1,105 +1,117 @@
 import { IMenuLink } from "../interface/IMenuLink";
 
 export const menuAdmin: IMenuLink[] = [
-  { label: "Tổng quan", link: "admin" },
+  { label: "Tổng quan", link: "dashboard" },
 
   {
-    label: "Tin tức & Thông báo",
-    initiallyOpened: true,
+    label: "Quản lý nhân sự",
     links: [
-      { label: "Thông báo chung", link: "general" },
-      { label: "Lịch sự kiện", link: "events" },
-      { label: "Hoạt động ngoại khóa", link: "activities" },
-      { label: "Bản tin nhà trường", link: "bulletin" },
+      { label: "Học viên", link: "students" },
+      { label: "Giáo viên", link: "teachers" },
+      { label: "Nhân viên", link: "employees" },
     ],
   },
 
   {
     label: "Quản lý học tập",
     links: [
-      { label: "Thời khóa biểu", link: "schedule" },
+      { label: "Chương trình đào tạo", link: "training-programs" },
+      { label: "Khoá học", link: "courses" },
+      // { label: "Lớp học", link: "classes" },
+      { label: "Thời khoá biểu", link: "timetables" },
+      { label: "Điểm danh", link: "attendance" },
+      { label: "Đánh giá & nhận xét", link: "assessments" },
+      { label: "Bài kiểm tra", link: "exams" },
       { label: "Kết quả học tập", link: "results" },
-      { label: "Kế hoạch giảng dạy", link: "plan" },
-      { label: "Quản lý lớp học", link: "classes" },
-      { label: "Quản lý môn học", link: "subjects" },
     ],
   },
 
   {
-    label: "Quản lý nhân sự",
+    label: "Học viên",
     links: [
-      { label: "Học sinh", link: "students" },
-      { label: "Giáo viên", link: "teachers" },
-      { label: "Phụ huynh", link: "parents" },
-      { label: "Nhân viên", link: "employees" },
+      { label: "Quyền lợi", link: "student-benefits" },
+      { label: "Thành tích", link: "achievements" },
+      { label: "Cảm nhận & đánh giá", link: "testimonials" },
+      { label: "Chứng chỉ & bằng cấp", link: "certificates" },
     ],
   },
 
   {
-    label: "Quản lý trường",
-    links: [
-      { label: "Khối lớp", link: "grades" },
-      { label: "Phòng học", link: "rooms" },
-      { label: "Cơ sở vật chất", link: "facilities" },
-    ],
+    label: "Lịch khai giảng",
+    link: "opening-schedules",
   },
 
   {
     label: "Tài chính",
     links: [
-      { label: "Thu học phí", link: "tuition" },
+      { label: "Thu học phí", link: "tuition-collection" },
+      { label: "Công nợ học viên", link: "student-debts" },
+      { label: "Miễn / giảm học phí", link: "discounts" },
+      { label: "Hoàn học phí", link: "refunds" },
       { label: "Chi phí hoạt động", link: "expenses" },
-      { label: "Báo cáo tài chính", link: "reports" },
+      { label: "Báo cáo tài chính", link: "financial-reports" },
     ],
   },
 
   {
-    label: "Khảo thí & Chứng chỉ",
+    label: "Quản lý nội dung",
     links: [
-      { label: "Lịch thi", link: "schedule" },
-      { label: "Ngân hàng đề", link: "questions" },
-      { label: "Kết quả thi", link: "results" },
-      { label: "Chứng chỉ & Bằng cấp", link: "certificates" },
+      { label: "Giới thiệu", link: "about" },
+      { label: "Lịch sử hoạt động", link: "history" },
+      { label: "Chính sách & cam kết", link: "policies" },
     ],
   },
 
   {
-    label: "Phân tích & Báo cáo",
-    link: "/reports",
-  },
-
-  {
-    label: "Quản lý hồ sơ",
+    label: "Bảng tin",
     links: [
-      { label: "Hồ sơ học sinh", link: "students" },
-      { label: "Hồ sơ giáo viên", link: "teachers" },
-      { label: "Hồ sơ nhân viên", link: "employees" },
+      { label: "Tin tức", link: "news" },
+      { label: "Sự kiện", link: "events" },
     ],
   },
 
   {
-    label: "Bảo mật & Tài khoản",
+    label: "Đối tác",
+    link: "partners",
+  },
+
+  {
+    label: "Tuyển dụng",
     links: [
-      { label: "Quản lý người dùng", link: "users" },
-      { label: "Phân quyền truy cập", link: "roles" },
-      { label: "Xác thực hai lớp (2FA)", link: "2fa" },
+      { label: "Bài tuyển dụng", link: "jobs" },
+      { label: "Ứng tuyển", link: "job-applications" },
     ],
   },
 
-  { label: "Cài đặt hệ thống", link: "settings" },
+  {
+    label: "Liên hệ",
+    link: "contacts",
+  },
+
+  {
+    label: "Tuyển sinh & CSKH",
+    links: [
+      { label: "Tư vấn tuyển sinh", link: "admissions" },
+      { label: "Đăng ký học thử", link: "trial-registrations" },
+      { label: "Yêu cầu & phản hồi", link: "support-tickets" },
+      { label: "Lịch hẹn phụ huynh", link: "parent-appointments" },
+    ],
+  },
+
+  {
+    label: "Quản trị hệ thống",
+    links: [
+      { label: "Người dùng", link: "users" },
+      { label: "Phân quyền", link: "roles" },
+      { label: "Nhật ký hoạt động", link: "audit-logs" },
+      { label: "Cấu hình hệ thống", link: "settings" },
+      { label: "Sao lưu & phục hồi", link: "backups" },
+    ],
+  },
 ];
 
 export const menuStudent: IMenuLink[] = [
   { label: "Tổng quan", link: "student" },
-
-  // {
-  //   label: "Tin tức & Thông báo",
-  //   links: [
-  //     { label: "Thông báo chung", link: "general" },
-  //     { label: "Lịch sự kiện", link: "events" },
-  //     { label: "Hoạt động ngoại khóa", link: "activities" },
-  //   ],
-  // },
 
   {
     label: "Học tập",

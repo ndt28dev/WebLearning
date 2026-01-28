@@ -7,6 +7,7 @@ import { ColorSchemeScript, mantineHtmlProps } from "@mantine/core";
 import "@mantine/carousel/styles.css";
 import "@mantine/dates/styles.css";
 import "@mantine/notifications/styles.css";
+import "mantine-react-table/styles.css";
 import { Notifications } from "@mantine/notifications";
 
 const geistSans = Geist({

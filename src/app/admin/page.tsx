@@ -1,9 +1,5 @@
-import { Card, Text } from "@mantine/core";
+import AdminHomePage from "@/container/admin/AdminHomePage";
 
 export default function page() {
-  return (
-    <Card p={0}>
-      <Text>Trang Tổng quan</Text>
-    </Card>
-  );
+  return <AdminHomePage />;
 }

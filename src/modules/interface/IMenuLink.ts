@@ -4,3 +4,8 @@ export interface IMenuLink {
   initiallyOpened?: boolean;
   links?: IMenuLink[];
 }
+
+export interface IMenuSelected {
+  childLabel: string;
+  parentLabel: string;
+}

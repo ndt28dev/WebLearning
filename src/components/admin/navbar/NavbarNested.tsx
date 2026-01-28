@@ -17,6 +17,7 @@ import classes from "@/styles/admin/NavbarNested.module.css";
 import NavbarSpotlight from "./NavbarSpotlight";
 import { menuAdmin } from "@/modules/data/Data";
 import { IconLogout } from "@tabler/icons-react";
+import { IMenuSelected } from "@/modules/interface/IMenuLink";
 
 interface NavbarNestedProps {
   menu: any[];

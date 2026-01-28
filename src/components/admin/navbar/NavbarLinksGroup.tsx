@@ -11,6 +11,9 @@ import {
 import classes from "@/styles/admin/NavbarLinksGroup.module.css";
 import { useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import clsx from "clsx";
+import { IMenuSelected } from "@/modules/interface/IMenuLink";
 
 interface LinksGroupProps {
   label: string;
@@ -25,23 +28,29 @@ export function NavbarLinksGroup({
   link,
   links,
 }: LinksGroupProps) {
+  const pathname = usePathname();
   const hasLinks = Array.isArray(links);
+
+  const isActiveSingle = !!link && pathname === `/admin/${link}`;
+
   const [opened, setOpened] = useState(initiallyOpened || false);
 
-  const { colorScheme, setColorScheme } = useMantineColorScheme();
-  const checkTheme = colorScheme === "light" ? true : false;
+  const items = (hasLinks ? links : []).map((item) => {
+    const href = `/admin/${item.link}`;
+    const active = pathname === href;
 
-  const items = (hasLinks ? links : []).map((link) => (
-    <Link
-      href={`/admin/${link.link}`}
-      key={link.label}
-      className={classes.link}
-    >
-      <Text size="sm" color={checkTheme ? "black" : "#c9c9c9"}>
-        {link.label}
-      </Text>
-    </Link>
-  ));
+    return (
+      <Link
+        href={href}
+        key={item.label}
+        className={clsx(classes.link, {
+          [classes.active]: active,
+        })}
+      >
+        <Text size="sm">{item.label}</Text>
+      </Link>
+    );
+  });
 
   return (
     <>
@@ -50,29 +59,27 @@ export function NavbarLinksGroup({
           onClick={() => setOpened((o) => !o)}
           className={classes.control}
         >
-          <Group justify="space-between" gap={0}>
-            <Box style={{ display: "flex", alignItems: "center" }} p={0}>
-              <Text size="sm">{label}</Text>
-            </Box>
+          <Group justify="space-between">
+            <Text size="sm">{label}</Text>
             <IconChevronRight
               className={classes.chevron}
-              stroke={1.5}
               size={16}
-              style={{ transform: opened ? "rotate(-90deg)" : "none" }}
+              style={{ transform: opened ? "rotate(-90deg)" : undefined }}
             />
           </Group>
         </UnstyledButton>
       ) : (
-        <Link href={`/admin/${link}`} className={classes.control}>
-          <Group justify="space-between" gap={0}>
-            <Box style={{ display: "flex", alignItems: "center" }} p={0}>
-              <Text size="sm">{label}</Text>
-            </Box>
-          </Group>
+        <Link
+          href={`/admin/${link}`}
+          className={clsx(classes.control, {
+            [classes.active]: isActiveSingle,
+          })}
+        >
+          <Text size="sm">{label}</Text>
         </Link>
       )}
 
-      {hasLinks ? <Collapse in={opened}>{items}</Collapse> : null}
+      {hasLinks && <Collapse in={opened}>{items}</Collapse>}
     </>
   );
 }
