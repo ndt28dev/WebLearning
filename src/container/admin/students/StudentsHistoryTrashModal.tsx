@@ -73,7 +73,7 @@ export default function StudentsHistoryTrashModal() {
       Cell: ({ cell }) => {
         if (cell.getValue<string>() === "MALE") return "Nam";
         if (cell.getValue<string>() === "FEMALE") return "Nữ";
-        if (cell.getValue<string>() === "ORTHER") return "Khác";
+        if (cell.getValue<string>() === "OTHER") return "Khác";
       },
     },
     {
