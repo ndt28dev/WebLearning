@@ -97,15 +97,20 @@ export const menuAdmin: IMenuLink[] = [
       { label: "Lịch hẹn phụ huynh", link: "parent-appointments" },
     ],
   },
-
   {
     label: "Quản trị hệ thống",
     links: [
-      { label: "Người dùng", link: "users" },
+      {
+        label: "Quản lý tài khoản",
+        links: [
+          { label: "Học viên", link: "accounts/students" },
+          { label: "Giáo viên", link: "accounts/teachers" },
+          { label: "Nhân viên", link: "accounts/employees" },
+        ],
+      },
       { label: "Phân quyền", link: "roles" },
       { label: "Nhật ký hoạt động", link: "audit-logs" },
       { label: "Cấu hình hệ thống", link: "settings" },
-      { label: "Sao lưu & phục hồi", link: "backups" },
     ],
   },
 ];

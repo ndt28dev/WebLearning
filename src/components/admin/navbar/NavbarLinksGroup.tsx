@@ -1,59 +1,33 @@
 "use client";
 import { IconChevronRight } from "@tabler/icons-react";
-import {
-  Box,
-  Collapse,
-  Group,
-  Text,
-  UnstyledButton,
-  useMantineColorScheme,
-} from "@mantine/core";
+import { Collapse, Group, Text, UnstyledButton, Box } from "@mantine/core";
 import classes from "@/styles/admin/NavbarLinksGroup.module.css";
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import clsx from "clsx";
-import { IMenuSelected } from "@/modules/interface/IMenuLink";
-
-interface LinksGroupProps {
-  label: string;
-  initiallyOpened?: boolean;
-  link?: string;
-  links?: { label: string; link: string }[];
-}
+import { IMenuLink } from "@/modules/interface/IMenuLink";
 
 export function NavbarLinksGroup({
   label,
-  initiallyOpened,
   link,
   links,
-}: LinksGroupProps) {
+  initiallyOpened,
+}: IMenuLink & { initiallyOpened?: boolean }) {
   const pathname = usePathname();
-  const hasLinks = Array.isArray(links);
+  const hasLinks = Array.isArray(links) && links.length > 0;
 
-  const isActiveSingle = !!link && pathname === `/admin/${link}`;
-
-  const [opened, setOpened] = useState(initiallyOpened || false);
-
-  const items = (hasLinks ? links : []).map((item) => {
-    const href = `/admin/${item.link}`;
-    const active = pathname === href;
-
-    return (
-      <Link
-        href={href}
-        key={item.label}
-        className={clsx(classes.link, {
-          [classes.active]: active,
-        })}
-      >
-        <Text size="sm">{item.label}</Text>
-      </Link>
+  const isActive = !!link && pathname === `/admin/${link}`;
+  const isChildActive =
+    hasLinks &&
+    links!.some(
+      (item) => item.link && pathname.startsWith(`/admin/${item.link}`)
     );
-  });
+
+  const [opened, setOpened] = useState(initiallyOpened || isChildActive);
 
   return (
-    <>
+    <Box>
       {hasLinks ? (
         <UnstyledButton
           onClick={() => setOpened((o) => !o)}
@@ -71,15 +45,23 @@ export function NavbarLinksGroup({
       ) : (
         <Link
           href={`/admin/${link}`}
-          className={clsx(classes.control, {
-            [classes.active]: isActiveSingle,
+          className={clsx(classes.link, {
+            [classes.active]: isActive,
           })}
         >
           <Text size="sm">{label}</Text>
         </Link>
       )}
 
-      {hasLinks && <Collapse in={opened}>{items}</Collapse>}
-    </>
+      {hasLinks && (
+        <Collapse in={opened}>
+          <Box className={classes.children}>
+            {links!.map((item) => (
+              <NavbarLinksGroup key={item.label} {...item} />
+            ))}
+          </Box>
+        </Collapse>
+      )}
+    </Box>
   );
 }

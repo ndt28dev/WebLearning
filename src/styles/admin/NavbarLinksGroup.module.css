@@ -1,3 +1,4 @@
+/* ===== MENU CHA ===== */
 .control {
   font-weight: 500;
   display: block;
@@ -6,24 +7,27 @@
   padding: var(--mantine-spacing-sm) var(--mantine-spacing-xs);
   color: var(--mantine-color-text);
   font-size: var(--mantine-font-size-sm);
+  border-radius: 6px;
 }
 
-.control:not(.active):hover {
+.control:hover {
   background-color: light-dark(
     var(--mantine-color-gray-0),
     var(--mantine-color-dark-7)
   );
-  color: light-dark(var(--mantine-color-black), var(--mantine-color-dark-0));
 }
 
+/* ===== MENU CON ===== */
 .link {
   display: block;
   text-decoration: none;
-  padding: var(--mantine-spacing-xs) var(--mantine-spacing-md);
-  margin-left: var(--mantine-spacing-xs);
+  padding: var(--mantine-spacing-sm) var(--mantine-spacing-xs);
   font-size: var(--mantine-font-size-sm);
+  border-radius: 6px;
+  color: var(--mantine-color-text);
 }
 
+/* hover menu con */
 .link:not(.active):hover {
   background-color: light-dark(
     var(--mantine-color-gray-0),
@@ -32,13 +36,26 @@
   color: light-dark(var(--mantine-color-black), var(--mantine-color-dark-0));
 }
 
-.active {
+/* ===== ACTIVE CHỈ ÁP DỤNG CHO MENU CON ===== */
+.link.active {
   background-color: var(--mantine-color-blue-0);
   color: var(--mantine-color-blue-7);
   font-weight: 600;
-  border-radius: 6px;
 }
 
+/* menu cha KHÔNG bị active */
+.control.active {
+  background-color: transparent;
+  color: var(--mantine-color-text);
+}
+
+/* ===== INDENT + BORDER CHO MENU CON ===== */
+.children {
+  padding-left: var(--mantine-spacing-xs);
+  border-left: 2px solid var(--mantine-color-gray-3);
+}
+
+/* ===== ICON ===== */
 .chevron {
   transition: transform 200ms ease;
 }

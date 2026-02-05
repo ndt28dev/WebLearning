@@ -17,17 +17,13 @@ import classes from "@/styles/admin/NavbarNested.module.css";
 import NavbarSpotlight from "./NavbarSpotlight";
 import { menuAdmin } from "@/modules/data/Data";
 import { IconLogout } from "@tabler/icons-react";
-import { IMenuSelected } from "@/modules/interface/IMenuLink";
+import { IMenuLink, IMenuSelected } from "@/modules/interface/IMenuLink";
 
 interface NavbarNestedProps {
-  menu: any[];
+  menu: IMenuLink[];
 }
 
 export default function NavbarNested({ menu }: NavbarNestedProps) {
-  const links = menu.map((item) => (
-    <NavbarLinksGroup {...item} key={item.label} />
-  ));
-
   return (
     <nav className={classes.navbar}>
       <div className={classes.header}>
@@ -35,16 +31,17 @@ export default function NavbarNested({ menu }: NavbarNestedProps) {
       </div>
 
       <ScrollArea className={classes.links} scrollbarSize={8}>
-        <div className={classes.linksInner}>{links}</div>
+        <div className={classes.linksInner}>
+          {menu.map((item) => (
+            <NavbarLinksGroup key={item.label} {...item} />
+          ))}
+        </div>
       </ScrollArea>
 
       <div className={classes.footer}>
-        <Box p={"md"}>
-          <Button variant="light" w={"100%"}>
-            <IconLogout size={18} />
-            <Text ml="md">Đăng xuất</Text>
-          </Button>
-        </Box>
+        <Button variant="light" w="100%">
+          Đăng xuất
+        </Button>
       </div>
     </nav>
   );

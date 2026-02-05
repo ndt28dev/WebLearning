@@ -28,7 +28,12 @@ interface NavbarSpotlightProps {
 export default function NavbarSpotlight({ menu }: NavbarSpotlightProps) {
   const [query, setQuery] = useState("");
 
-  const items = menu
+  const flattenMenu = (menu: IMenuLink[]): IMenuLink[] =>
+    menu.flatMap((item) => (item.links ? flattenMenu(item.links) : item));
+
+  const flatMenu = flattenMenu(menu);
+
+  const items = flatMenu
     .filter((item) =>
       item.label.toLowerCase().includes(query.toLowerCase().trim())
     )
