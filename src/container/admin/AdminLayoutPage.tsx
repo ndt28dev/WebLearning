@@ -16,6 +16,8 @@ import {
   Stack,
   Text,
   Title,
+  useComputedColorScheme,
+  useMantineTheme,
 } from "@mantine/core";
 import { IconArrowBack } from "@tabler/icons-react";
 import { usePathname } from "next/navigation";
@@ -48,10 +50,13 @@ export default function AdminLayoutPage({
 }) {
   const pathname = usePathname();
   const title = findLabelByPath(menuAdmin, pathname);
+  const computedColorScheme = useComputedColorScheme("light", {
+    getInitialValueInEffect: true,
+  });
 
   return (
     <Flex direction="column" style={{ height: "100vh" }}>
-      <Header title="Hệ thống quản lý sinh viên" />
+      <Header title="Quản lý hệ thống T-Learning" />
 
       <Flex style={{ flex: 1, overflow: "hidden" }}>
         <NavbarNested menu={menuAdmin} />
@@ -61,8 +66,8 @@ export default function AdminLayoutPage({
           withBorder={false}
           radius={0}
           style={{ flex: 1, overflowY: "auto", marginLeft: "320px" }}
-          p="sm"
-          bg={"#F1F3F5"}
+          bg={computedColorScheme === "light" ? "#F1F3F5" : ""}
+          p={"sm"}
         >
           <Stack gap={12} flex={1} miw={0}>
             <Flex
@@ -80,7 +85,7 @@ export default function AdminLayoutPage({
               </Group>
             </Flex>
             <Stack gap={12} flex={1} miw={0}>
-              <Box w={"100%"}>{children}</Box>
+              {children}
             </Stack>
           </Stack>
         </Paper>

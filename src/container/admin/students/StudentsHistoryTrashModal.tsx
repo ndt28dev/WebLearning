@@ -1,26 +1,20 @@
-"use client";
-import MyFieldset from "@/components/admin/mylayoutadmin/MyFieldset";
 import MyTableData from "@/components/admin/mytable/MyTableData";
-import { ActionIcon, Button, Center, Group, Loader, Text } from "@mantine/core";
-import { IconEdit, IconTrash } from "@tabler/icons-react";
-import { useQuery } from "@tanstack/react-query";
-import { MRT_ColumnDef, MRT_RowSelectionState } from "mantine-react-table";
-import StudentsCreateUpdateModal from "./crud/StudentsCreateUpdateModal";
 import { IStudents } from "@/modules/interface/IStudents";
-import { useEffect, useMemo, useRef, useState } from "react";
-import { formatDate } from "@/utils/format";
+import { Center, Group, Loader, Text } from "@mantine/core";
 
-import StudentsHideManyModal from "./crud/StudentsHideManyModal";
-import StudentsHideModal from "./crud/StudentsHideModal";
-import StudentsHistoryTrashModal from "./StudentsHistoryTrashModal";
-import MyButtonImport from "@/components/admin/mybutton/MyButtonImport";
-import StudentsImportModal from "./crud/StudentsImportModal";
-import MyButtonExport from "@/components/admin/mybutton/MyButtonExport";
-import StudentsExportModal from "./crud/StudentsExportModal";
+import { useQuery } from "@tanstack/react-query";
+import { useMemo, useRef, useState } from "react";
+import { MRT_ColumnDef, MRT_RowSelectionState } from "mantine-react-table";
+import { formatDate } from "@/utils/format";
+import StudentsRestoreModal from "./crud/StudentsRestoreModal";
+import StudentsRestoreManyModal from "./crud/StudentsRestoreManyModal";
+import MyButtonHistoryTrash from "@/components/admin/mybutton/MyButtonHistoryTrash";
+import StudentsDeleteModal from "./crud/StudentsDeleteModal";
+import StudentsDeleteManyModal from "./crud/StudentsDeleteManyModal";
 
 const fetchStudents = async ({ pageIndex, pageSize }: any) => {
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/api/students?current=${pageIndex + 1}&pageSize=${pageSize}`
+    `${process.env.NEXT_PUBLIC_API_URL}/api/students/history?current=${pageIndex + 1}&pageSize=${pageSize}`
   );
 
   if (!res.ok) {
@@ -36,14 +30,14 @@ const fetchStudents = async ({ pageIndex, pageSize }: any) => {
   };
 };
 
-export default function AdminStudentsPage() {
+export default function StudentsHistoryTrashModal() {
   const [pagination, setPagination] = useState({
     pageIndex: 0,
     pageSize: 10,
   });
 
   const { data, isLoading, isError } = useQuery({
-    queryKey: ["students", pagination],
+    queryKey: ["studentsHistory", pagination],
     queryFn: () => fetchStudents(pagination),
   });
 
@@ -61,19 +55,14 @@ export default function AdminStudentsPage() {
 
   const tableRef = useRef<any>(null);
 
-  const studentColumns: MRT_ColumnDef<IStudents>[] = [
+  const historyStudentColumns: MRT_ColumnDef<IStudents>[] = [
     {
       id: "stt",
       header: "STT",
       size: 80,
       enableSorting: false,
       enableColumnFilter: false,
-      Cell: ({ row, table }) => {
-        const pageIndex = table.getState().pagination.pageIndex;
-        const pageSize = table.getState().pagination.pageSize;
-
-        return pageIndex * pageSize + row.index + 1;
-      },
+      Cell: ({ row }) => row.index + 1,
     },
     { accessorKey: "code", header: "Mã SV", size: 100 },
     { accessorKey: "name", header: "Họ và tên" },
@@ -84,7 +73,7 @@ export default function AdminStudentsPage() {
       Cell: ({ cell }) => {
         if (cell.getValue<string>() === "MALE") return "Nam";
         if (cell.getValue<string>() === "FEMALE") return "Nữ";
-        if (cell.getValue<string>() === "OTHER") return "Khác";
+        if (cell.getValue<string>() === "ORTHER") return "Khác";
       },
     },
     {
@@ -119,44 +108,19 @@ export default function AdminStudentsPage() {
 
         return (
           <Group gap={8}>
-            <StudentsCreateUpdateModal
-              isCreateUpdate={true}
-              title="Sửa học viên"
-              data={student}
-            />
-
-            <StudentsHideModal data={student} />
+            <StudentsRestoreModal data={student} />
+            <StudentsDeleteModal data={student} />
           </Group>
         );
       },
     },
   ];
 
-  useEffect(() => {
-    setRowSelection({});
-  }, [data]);
-
-  if (isLoading) {
-    return (
-      <Center h={300}>
-        <Loader c={"var(--mantine-color-brand-5)"} />
-      </Center>
-    );
-  }
-
-  if (isError) {
-    return (
-      <Center h={300}>
-        <Text c="red">Lỗi tải dữ liệu</Text>
-      </Center>
-    );
-  }
-
   return (
-    <MyFieldset title="Danh sách học viên">
+    <MyButtonHistoryTrash size={"100%"} title="học viên">
       <MyTableData<IStudents>
         data={data?.results ?? []}
-        columns={studentColumns}
+        columns={historyStudentColumns}
         totalPages={data?.totalPages ?? 0}
         pagination={pagination}
         onPaginationChange={setPagination}
@@ -165,26 +129,26 @@ export default function AdminStudentsPage() {
           tableRef.current = table;
         }}
         topToolbar={
-          <Group gap={"md"}>
-            <StudentsCreateUpdateModal
-              isCreateUpdate={false}
-              title="Thêm học viên"
-              data={null}
-            />
-            <StudentsImportModal />
-            <StudentsExportModal />
-            <StudentsHideManyModal
+          <Group gap={"md"} align="center">
+            <StudentsRestoreManyModal
               students={selectedStudents}
               disabled={disabled}
               onSuccess={() => {
-                setRowSelection({}); // reset state ngoài
-                tableRef.current?.resetRowSelection(); // reset checkbox trong table
+                setRowSelection({});
+                tableRef.current?.resetRowSelection();
               }}
             />
-            <StudentsHistoryTrashModal />
+            <StudentsDeleteManyModal
+              students={selectedStudents}
+              disabled={disabled}
+              onSuccess={() => {
+                setRowSelection({});
+                tableRef.current?.resetRowSelection();
+              }}
+            />
           </Group>
         }
       />
-    </MyFieldset>
+    </MyButtonHistoryTrash>
   );
 }

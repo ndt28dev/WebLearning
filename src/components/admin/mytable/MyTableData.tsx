@@ -1,68 +1,104 @@
 "use client";
 
+import { Group } from "@mantine/core";
 import {
   MantineReactTable,
+  MRT_RowSelectionState,
+  MRT_TableInstance,
   useMantineReactTable,
   type MRT_ColumnDef,
 } from "mantine-react-table";
-import type { ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 
-type TableDataProps<T extends Record<string, unknown>> = {
-  data: T[];
-  columns: MRT_ColumnDef<T>[];
-  topToolbar?: ReactNode;
+type WithId = {
+  _id?: string;
 };
 
-function MyTableData<T extends Record<string, unknown>>({
+type TableDataProps<T extends WithId> = {
+  data: T[];
+  columns: MRT_ColumnDef<T>[];
+  totalPages: number;
+  pagination: {
+    pageIndex: number;
+    pageSize: number;
+  };
+  onPaginationChange: (updater: any) => void;
+  topToolbar?: ReactNode;
+  onRowSelectionChange?: (rowSelection: MRT_RowSelectionState) => void;
+  onTableReady?: (table: MRT_TableInstance<T>) => void;
+  enableRowSelection?: boolean;
+};
+
+export default function MyTableData<T extends WithId>({
   data,
   columns,
   topToolbar,
+  totalPages,
+  pagination,
+  onPaginationChange,
+  onRowSelectionChange,
+  onTableReady,
+  enableRowSelection = true,
 }: TableDataProps<T>) {
+  const [rowSelection, setRowSelection] = useState<MRT_RowSelectionState>({});
+
+  useEffect(() => {
+    onTableReady?.(table);
+  }, []);
+
+  useEffect(() => {
+    onRowSelectionChange?.(rowSelection);
+  }, [rowSelection]);
+
   const table = useMantineReactTable({
     data,
     columns,
 
-    renderTopToolbarCustomActions: () => topToolbar,
+    getRowId: (row) => row._id,
 
-    layoutMode: "grid",
-    enableColumnResizing: true,
+    manualPagination: true,
+    rowCount: totalPages * pagination.pageSize,
 
-    enableColumnPinning: true, // 👈 BẮT BUỘC
+    state: {
+      pagination,
+      rowSelection,
+    },
+
+    onPaginationChange,
+
+    onRowSelectionChange: (updater) => {
+      setRowSelection((prev) =>
+        typeof updater === "function" ? updater(prev) : updater
+      );
+    },
+
+    enableRowSelection: enableRowSelection,
+    enableMultiRowSelection: true,
+
+    renderTopToolbarCustomActions: () => (
+      <Group w="100%" justify="space-between">
+        <Group>{topToolbar}</Group>
+      </Group>
+    ),
+
+    enableColumnPinning: true,
 
     initialState: {
       columnPinning: {
-        right: ["actions"], // 👈 pin cột thao tác bên phải
+        left: ["mrt-row-select"],
+        right: ["actions"],
       },
     },
 
-    mantineTableContainerProps: {
-      style: {
-        overflowX: "auto",
-        maxWidth: "100%",
-      },
-    },
-
-    mantineTableProps: {
-      style: {
-        width: "max-content",
-        minWidth: "100%",
-      },
-    },
-
-    mantineTableHeadCellProps: {
-      style: {
-        whiteSpace: "nowrap",
-      },
-    },
-
-    mantineTableBodyCellProps: {
-      style: {
-        whiteSpace: "nowrap",
-      },
+    localization: {
+      selectedCountOfRowCountRowsSelected:
+        "{selectedCount} / {rowCount} dòng đã chọn",
+      clearSelection: "Bỏ chọn",
+      rowsPerPage: "Số dòng / trang",
+      of: "trên",
+      noRecordsToDisplay: "Không có dữ liệu",
     },
   });
 
   return <MantineReactTable table={table} />;
 }
-
-export default MyTableData;

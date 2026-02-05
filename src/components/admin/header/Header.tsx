@@ -1,31 +1,17 @@
 "use client";
 import {
   ActionIcon,
-  Avatar,
-  Button,
   Card,
   Flex,
   Group,
-  Menu,
-  Paper,
   Text,
   Tooltip,
   useComputedColorScheme,
   useMantineColorScheme,
-  useMantineTheme,
 } from "@mantine/core";
 import {
-  IconArrowsLeftRight,
   IconLayoutSidebarLeftExpand,
   IconLibraryMinus,
-  IconMessageCircle,
-  IconMoon,
-  IconPhoto,
-  IconSearch,
-  IconSettings,
-  IconSun,
-  IconTrash,
-  IconUser,
 } from "@tabler/icons-react";
 import { ActionToggle } from "@/components/ActionToggle";
 
