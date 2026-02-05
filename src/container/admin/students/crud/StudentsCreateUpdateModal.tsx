@@ -258,7 +258,7 @@ export default function StudentsCreateUpdateModal({
                 data={[
                   { value: "MALE", label: "Nam" },
                   { value: "FEMALE", label: "Nữ" },
-                  { value: "ORTHER", label: "Khác" },
+                  { value: "OTHER", label: "Khác" },
                 ]}
                 {...form.getInputProps("gender")}
               />
