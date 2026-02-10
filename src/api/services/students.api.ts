@@ -1,5 +1,5 @@
 import axios from "@/api/config/axios.config";
-import { IStudents } from "@/modules/interface/IStudents";
+import { IStudents } from "@/modules/interfaces/IStudents";
 
 export const studentApi = {
   // CRUD cơ bản
