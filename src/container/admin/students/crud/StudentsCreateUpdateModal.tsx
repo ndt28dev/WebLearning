@@ -1,6 +1,5 @@
 import { studentApi } from "@/api/services/students.api";
 import MyButtonCreateUpdate from "@/components/admin/mybutton/MyButtonCreateUpdate";
-import { IStudents } from "@/modules/interface/IStudents";
 import {
   ActionIcon,
   Avatar,
@@ -45,7 +44,7 @@ export default function StudentsCreateUpdateModal({
       phone: "",
       address: "",
       gender: "",
-      birthday: new Date() || null,
+      birthday: null as Date | null,
       avatar: "",
       educationLevel: "",
       educationClass: "",
@@ -158,21 +157,11 @@ export default function StudentsCreateUpdateModal({
   });
 
   const handleSubmit = (values: typeof form.values) => {
-    if (isCreateUpdate) {
-      const payload = {
-        ...values,
-        birthday: values.birthday ? values.birthday.toISOString() : null,
-      };
-      updateMutation.mutate(payload);
-    } else {
-      const { _id, ...rest } = values;
+    const { _id, ...payload } = values;
 
-      const payload = {
-        ...rest,
-        birthday: values.birthday ? values.birthday.toISOString() : null,
-      };
-      createMutation.mutate(payload);
-    }
+    isCreateUpdate
+      ? updateMutation.mutate(values)
+      : createMutation.mutate(payload);
   };
 
   const handleCancel = () => {
@@ -183,7 +172,10 @@ export default function StudentsCreateUpdateModal({
     <MyButtonCreateUpdate
       title={title}
       isCreateUpdate={isCreateUpdate}
-      onOpen={() => {}}
+      onOpen={() => {
+        form.clearErrors();
+        form.resetTouched();
+      }}
       isCheckClose={isCheckClose}
       onAfterClose={() => setIsCheckClose(false)}
     >
@@ -322,7 +314,7 @@ export default function StudentsCreateUpdateModal({
             </Group>
           </Fieldset>
 
-          <Group justify="flex-end" gap="md">
+          <Group justify="flex-end" gap="sm">
             <Button variant="default" onClick={handleCancel}>
               Huỷ
             </Button>

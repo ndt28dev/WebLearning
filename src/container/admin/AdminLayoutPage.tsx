@@ -22,25 +22,25 @@ import {
 import { IconArrowBack } from "@tabler/icons-react";
 import { usePathname } from "next/navigation";
 
-export function findLabelByPath(menu: any[], pathname: string): string {
-  const current = pathname.replace("/admin/", "");
-
+function findLabel(menu: any[], current: string): string | null {
   for (const item of menu) {
-    // menu cha có link
-    if (item.link === current) {
+    // match link
+    if (item.link && current.startsWith(item.link)) {
       return item.label;
     }
 
-    // menu con
-    if (item.links) {
-      const child = item.links.find((c: any) => c.link === current);
-      if (child) {
-        return child.label;
-      }
+    // duyệt sâu nếu có menu con
+    if (item.links?.length) {
+      const found = findLabel(item.links, current);
+      if (found) return found;
     }
   }
+  return null;
+}
 
-  return "Tổng quan";
+export function findLabelByPath(menu: any[], pathname: string): string {
+  const current = pathname.replace("/admin/", "");
+  return findLabel(menu, current) ?? "Tổng quan";
 }
 
 export default function AdminLayoutPage({

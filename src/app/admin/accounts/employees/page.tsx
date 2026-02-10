@@ -1,3 +1,3 @@
 export default function page() {
-  return <div>page schedule</div>;
+  return <div>page 3</div>;
 }

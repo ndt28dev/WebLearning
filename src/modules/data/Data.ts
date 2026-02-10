@@ -5,13 +5,22 @@ export const menuAdmin: IMenuLink[] = [
 
   {
     label: "Quản lý nhân sự",
+    links: [{ label: "Nhân sự", link: "employees" }],
+  },
+  {
+    label: "Quản lý giáo viên",
+    links: [{ label: "Danh sách giáo viên", link: "teachers" }],
+  },
+  {
+    label: "Quản lý học viên",
     links: [
-      { label: "Học viên", link: "students" },
-      { label: "Giáo viên", link: "teachers" },
-      { label: "Nhân viên", link: "employees" },
+      { label: "Danh sách học viên", link: "students" },
+      { label: "Quyền lợi", link: "student-benefits" },
+      { label: "Thành tích", link: "achievements" },
+      { label: "Cảm nhận & đánh giá", link: "testimonials" },
+      { label: "Chứng chỉ & bằng cấp", link: "certificates" },
     ],
   },
-
   {
     label: "Quản lý học tập",
     links: [
@@ -25,17 +34,6 @@ export const menuAdmin: IMenuLink[] = [
       { label: "Kết quả học tập", link: "results" },
     ],
   },
-
-  {
-    label: "Học viên",
-    links: [
-      { label: "Quyền lợi", link: "student-benefits" },
-      { label: "Thành tích", link: "achievements" },
-      { label: "Cảm nhận & đánh giá", link: "testimonials" },
-      { label: "Chứng chỉ & bằng cấp", link: "certificates" },
-    ],
-  },
-
   {
     label: "Lịch khai giảng",
     link: "opening-schedules",
@@ -103,12 +101,12 @@ export const menuAdmin: IMenuLink[] = [
       {
         label: "Quản lý tài khoản",
         links: [
-          { label: "Học viên", link: "accounts/students" },
-          { label: "Giáo viên", link: "accounts/teachers" },
-          { label: "Nhân viên", link: "accounts/employees" },
+          { label: "Tài khoản học viên", link: "accounts/students" },
+          { label: "Tài khoản giáo viên", link: "accounts/teachers" },
+          { label: "Tài khoản nhân sự", link: "accounts/employees" },
         ],
       },
-      { label: "Phân quyền", link: "roles" },
+      { label: "Vài trò & Phân quyền", link: "roles" },
       { label: "Nhật ký hoạt động", link: "audit-logs" },
       { label: "Cấu hình hệ thống", link: "settings" },
     ],

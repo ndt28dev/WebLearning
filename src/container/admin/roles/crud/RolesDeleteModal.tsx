@@ -1,4 +1,4 @@
-import { studentApi } from "@/api/services/students.api";
+import { rolesApi } from "@/api/services/roles.api";
 import MyButtonDelete from "@/components/admin/mybutton/MyButtonDelete";
 import { Button, Flex, Group, Stack, Text } from "@mantine/core";
 import { notifications } from "@mantine/notifications";
@@ -9,21 +9,21 @@ type Props = {
   data: any;
 };
 
-export default function StudentsDeleteModal({ data }: Props) {
+export default function RolesDeleteModal({ data }: Props) {
   const queryClient = useQueryClient();
   const [isCheckClose, setIsCheckClose] = useState<boolean>(false);
 
   const deleteMutation = useMutation({
-    mutationFn: studentApi.delete,
+    mutationFn: rolesApi.delete,
     onSuccess: () => {
       notifications.show({
         title: "Thành công",
-        message: "Xoá học viên thành công",
+        message: "Xoá vai trò thành công",
         color: "green",
         autoClose: 3000,
       });
       setIsCheckClose(true);
-      queryClient.invalidateQueries({ queryKey: ["studentsHistory"] });
+      queryClient.invalidateQueries({ queryKey: ["roles"] });
     },
     onError: (error: any) => {
       notifications.show({
@@ -47,10 +47,9 @@ export default function StudentsDeleteModal({ data }: Props) {
     <MyButtonDelete
       isCheckClose={isCheckClose}
       onAfterClose={() => setIsCheckClose(false)}
-      isHasTrashX={true}
     >
       <Stack gap={5}>
-        <Text size="sm">Bạn có chắc chắn muốn xoá vĩnh viễn học viên:</Text>
+        <Text size="sm">Bạn có chắc chắn muốn xoá vai trò:</Text>
         <Flex gap={5}>
           <Text fw={600}>
             {data?.code} - {data?.name}

@@ -1,5 +1,4 @@
 import MyTableData from "@/components/admin/mytable/MyTableData";
-import { IStudents } from "@/modules/interface/IStudents";
 import { Center, Group, Loader, Text } from "@mantine/core";
 
 import { useQuery } from "@tanstack/react-query";
@@ -11,6 +10,7 @@ import StudentsRestoreManyModal from "./crud/StudentsRestoreManyModal";
 import MyButtonHistoryTrash from "@/components/admin/mybutton/MyButtonHistoryTrash";
 import StudentsDeleteModal from "./crud/StudentsDeleteModal";
 import StudentsDeleteManyModal from "./crud/StudentsDeleteManyModal";
+import { IStudents } from "@/modules/interfaces/IStudents";
 
 const fetchStudents = async ({ pageIndex, pageSize }: any) => {
   const res = await fetch(

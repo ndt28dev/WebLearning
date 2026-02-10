@@ -1,6 +1,6 @@
 import { studentApi } from "@/api/services/students.api";
 import MyButtonHideMany from "@/components/admin/mybutton/MyButtonHideMany";
-import { IStudents } from "@/modules/interface/IStudents";
+import { IStudents } from "@/modules/interfaces/IStudents";
 import { Button, Flex, Group, Stack, Text } from "@mantine/core";
 import { notifications } from "@mantine/notifications";
 import { useMutation, useQueryClient } from "@tanstack/react-query";

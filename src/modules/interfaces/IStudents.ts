@@ -6,7 +6,7 @@ export type IStudents = {
   phone?: string;
   address?: string;
   gender?: string;
-  birthday?: string | null;
+  birthday?: Date | null;
   avatar?: string;
   educationLevel?: string;
   educationClass?: string;

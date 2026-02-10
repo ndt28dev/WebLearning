@@ -23,6 +23,7 @@ export default function MyFieldset({ title, children }: Props) {
           {title}
         </Text>
       }
+      flex={1}
     >
       {children}
     </Fieldset>

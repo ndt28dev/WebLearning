@@ -6,7 +6,6 @@ import { IconEdit, IconTrash } from "@tabler/icons-react";
 import { useQuery } from "@tanstack/react-query";
 import { MRT_ColumnDef, MRT_RowSelectionState } from "mantine-react-table";
 import StudentsCreateUpdateModal from "./crud/StudentsCreateUpdateModal";
-import { IStudents } from "@/modules/interface/IStudents";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { formatDate } from "@/utils/format";
 
@@ -17,6 +16,7 @@ import MyButtonImport from "@/components/admin/mybutton/MyButtonImport";
 import StudentsImportModal from "./crud/StudentsImportModal";
 import MyButtonExport from "@/components/admin/mybutton/MyButtonExport";
 import StudentsExportModal from "./crud/StudentsExportModal";
+import { IStudents } from "@/modules/interfaces/IStudents";
 
 const fetchStudents = async ({ pageIndex, pageSize }: any) => {
   const res = await fetch(
