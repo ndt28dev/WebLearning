@@ -12,7 +12,7 @@ import StudentsDeleteModal from "./crud/StudentsDeleteModal";
 import StudentsDeleteManyModal from "./crud/StudentsDeleteManyModal";
 import { IStudents } from "@/modules/interfaces/IStudents";
 
-const fetchStudents = async ({ pageIndex, pageSize }: any) => {
+const fetchStudentsHistory = async ({ pageIndex, pageSize }: any) => {
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_API_URL}/api/students/history?current=${pageIndex + 1}&pageSize=${pageSize}`
   );
@@ -38,7 +38,7 @@ export default function StudentsHistoryTrashModal() {
 
   const { data, isLoading, isError } = useQuery({
     queryKey: ["studentsHistory", pagination],
-    queryFn: () => fetchStudents(pagination),
+    queryFn: () => fetchStudentsHistory(pagination),
   });
 
   const [rowSelection, setRowSelection] = useState<MRT_RowSelectionState>({});

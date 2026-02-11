@@ -1,13 +1,11 @@
-import { studentApi } from "@/api/services/students.api";
+import { teacherApi } from "@/api/services/teachers.api";
 import MyButtonExport from "@/components/admin/mybutton/MyButtonExport";
-import MyButtonImport from "@/components/admin/mybutton/MyButtonImport";
-import { Button, FileInput, Group, Table, Text } from "@mantine/core";
 import { notifications } from "@mantine/notifications";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { useMutation } from "@tanstack/react-query";
 
-export default function StudentsExportModal() {
+export default function TeachersExportModal() {
   const exportMutation = useMutation<Blob>({
-    mutationFn: studentApi.exportExcel,
+    mutationFn: teacherApi.exportExcel,
     onSuccess: (blob) => {
       if (blob) {
         notifications.show({
@@ -21,7 +19,7 @@ export default function StudentsExportModal() {
 
       const a = document.createElement("a");
       a.href = url;
-      a.download = "students.xlsx"; // hoặc .csv
+      a.download = "teachers.xlsx";
       a.click();
 
       URL.revokeObjectURL(url);

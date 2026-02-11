@@ -1,38 +1,38 @@
-import { studentApi } from "@/api/services/students.api";
-import MyButtonDeleteMany from "@/components/admin/mybutton/MyButtonDeleteMany";
-import { IStudents } from "@/modules/interfaces/IStudents";
+import { teacherApi } from "@/api/services/teachers.api";
+import MyButtonHideMany from "@/components/admin/mybutton/MyButtonHideMany";
+import { ITeachers } from "@/modules/interfaces/ITeachers";
 import { Button, Flex, Group, Stack, Text } from "@mantine/core";
 import { notifications } from "@mantine/notifications";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
 
 type Props = {
-  students: IStudents[];
+  teachers: ITeachers[];
   disabled?: boolean;
   onSuccess?: () => void;
 };
 
-export default function StudentsDeleteManyModal({
-  students,
+export default function TeachersHideManyModal({
+  teachers,
   disabled,
   onSuccess,
 }: Props) {
   const queryClient = useQueryClient();
   const [isCheckClose, setIsCheckClose] = useState<boolean>(false);
 
-  const deleteManyMutation = useMutation({
-    mutationFn: studentApi.deleteMany,
+  const hideManyMutation = useMutation({
+    mutationFn: teacherApi.hideMany,
     onSuccess: () => {
       notifications.show({
         title: "Thành công",
-        message: "Xoá học viên thành công",
+        message: "Xoá giáo viên thành công",
         color: "green",
         autoClose: 3000,
       });
       setIsCheckClose(true);
       onSuccess?.();
-      queryClient.invalidateQueries({ queryKey: ["students"] });
-      queryClient.invalidateQueries({ queryKey: ["studentsHistory"] });
+      queryClient.invalidateQueries({ queryKey: ["teachers"] });
+      queryClient.invalidateQueries({ queryKey: ["teachersHistory"] });
     },
     onError: (error: any) => {
       notifications.show({
@@ -43,44 +43,41 @@ export default function StudentsDeleteManyModal({
     },
   });
 
-  const handleDeleteMany = () => {
-    const ids = students
+  const handleHideMany = () => {
+    const ids = teachers
       .map((st) => st._id)
       .filter((id): id is string => Boolean(id));
 
-    deleteManyMutation.mutate(ids);
+    hideManyMutation.mutate(ids);
   };
 
   const handleCancel = () => {
     setIsCheckClose(true);
   };
   return (
-    <MyButtonDeleteMany
+    <MyButtonHideMany
       disabled={disabled}
       isCheckClose={isCheckClose}
       onAfterClose={() => setIsCheckClose(false)}
     >
       <Stack gap={5}>
-        <Text size="sm">Bạn có chắc chắn muốn xoá vĩnh viễn các học viên:</Text>
-        {students.map((st) => (
+        <Text size="sm">Bạn có chắc chắn muốn xoá giáo viên:</Text>
+        {teachers.map((st) => (
           <Flex gap={5} key={st._id}>
             <Text fw={600}>
               {st.code} - {st.name}
             </Text>
           </Flex>
         ))}
-        <Text c="red" size="xs">
-          Hành động này không thể hoàn tác.
-        </Text>
       </Stack>
       <Group justify="flex-end" mt={12} gap={"sm"}>
         <Button variant="default" onClick={handleCancel}>
           Huỷ
         </Button>
-        <Button color="red" onClick={handleDeleteMany}>
+        <Button color="red" onClick={handleHideMany}>
           Xác nhận
         </Button>
       </Group>
-    </MyButtonDeleteMany>
+    </MyButtonHideMany>
   );
 }

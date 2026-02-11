@@ -1,3 +1,5 @@
+import AdminAccountsTeachersPage from "@/container/admin/accounts/teachers/AdminAccountsTeachersPage";
+
 export default function page() {
-  return <div>page 2</div>;
+  return <AdminAccountsTeachersPage />;
 }

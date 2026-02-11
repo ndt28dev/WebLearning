@@ -1,19 +1,19 @@
-import { studentApi } from "@/api/services/students.api";
+import { teacherApi } from "@/api/services/teachers.api";
 import MyButtonDeleteMany from "@/components/admin/mybutton/MyButtonDeleteMany";
-import { IStudents } from "@/modules/interfaces/IStudents";
+import { ITeachers } from "@/modules/interfaces/ITeachers";
 import { Button, Flex, Group, Stack, Text } from "@mantine/core";
 import { notifications } from "@mantine/notifications";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
 
 type Props = {
-  students: IStudents[];
+  teachers: ITeachers[];
   disabled?: boolean;
   onSuccess?: () => void;
 };
 
-export default function StudentsDeleteManyModal({
-  students,
+export default function TeachersDeleteManyModal({
+  teachers,
   disabled,
   onSuccess,
 }: Props) {
@@ -21,18 +21,18 @@ export default function StudentsDeleteManyModal({
   const [isCheckClose, setIsCheckClose] = useState<boolean>(false);
 
   const deleteManyMutation = useMutation({
-    mutationFn: studentApi.deleteMany,
+    mutationFn: teacherApi.deleteMany,
     onSuccess: () => {
       notifications.show({
         title: "Thành công",
-        message: "Xoá học viên thành công",
+        message: "Xoá giáo viên thành công",
         color: "green",
         autoClose: 3000,
       });
       setIsCheckClose(true);
       onSuccess?.();
-      queryClient.invalidateQueries({ queryKey: ["students"] });
-      queryClient.invalidateQueries({ queryKey: ["studentsHistory"] });
+      queryClient.invalidateQueries({ queryKey: ["teachers"] });
+      queryClient.invalidateQueries({ queryKey: ["teachersHistory"] });
     },
     onError: (error: any) => {
       notifications.show({
@@ -44,7 +44,7 @@ export default function StudentsDeleteManyModal({
   });
 
   const handleDeleteMany = () => {
-    const ids = students
+    const ids = teachers
       .map((st) => st._id)
       .filter((id): id is string => Boolean(id));
 
@@ -54,6 +54,7 @@ export default function StudentsDeleteManyModal({
   const handleCancel = () => {
     setIsCheckClose(true);
   };
+
   return (
     <MyButtonDeleteMany
       disabled={disabled}
@@ -61,8 +62,10 @@ export default function StudentsDeleteManyModal({
       onAfterClose={() => setIsCheckClose(false)}
     >
       <Stack gap={5}>
-        <Text size="sm">Bạn có chắc chắn muốn xoá vĩnh viễn các học viên:</Text>
-        {students.map((st) => (
+        <Text size="sm">
+          Bạn có chắc chắn muốn xoá vĩnh viễn các giáo viên:
+        </Text>
+        {teachers.map((st) => (
           <Flex gap={5} key={st._id}>
             <Text fw={600}>
               {st.code} - {st.name}
