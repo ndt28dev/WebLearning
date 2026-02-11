@@ -135,32 +135,34 @@ export default function RolesCreateUpdateModal({
     >
       <form onSubmit={form.onSubmit(handleSubmit)}>
         <Stack gap="sm">
-          <TextInput
-            label="Mã vai trò"
-            disabled={isCreateUpdate}
-            placeholder="VD: CONTENT_MANAGER"
-            {...form.getInputProps("code")}
-          />
-
-          <TextInput
-            label="Tên vai trò"
-            placeholder="VD: Quản lý nội dung"
-            {...form.getInputProps("name")}
-          />
-
-          <Textarea
-            label="Mô tả"
-            placeholder="Mô tả vai trò này dùng để làm gì"
-            minRows={3}
-            {...form.getInputProps("description")}
-          />
-
-          {isCreateUpdate && (
-            <Switch
-              label={form.values.is_system ? "Không thể xoá" : "Có thể xoá"}
-              {...form.getInputProps("is_system", { type: "checkbox" })}
+          <Stack gap={5}>
+            <TextInput
+              label="Mã vai trò"
+              disabled={isCreateUpdate}
+              placeholder="VD: CONTENT_MANAGER"
+              {...form.getInputProps("code")}
             />
-          )}
+
+            <TextInput
+              label="Tên vai trò"
+              placeholder="VD: Quản lý nội dung"
+              {...form.getInputProps("name")}
+            />
+
+            <Textarea
+              label="Mô tả"
+              placeholder="Mô tả vai trò này dùng để làm gì"
+              minRows={3}
+              {...form.getInputProps("description")}
+            />
+
+            {isCreateUpdate && (
+              <Switch
+                label={form.values.is_system ? "Không thể xoá" : "Có thể xoá"}
+                {...form.getInputProps("is_system", { type: "checkbox" })}
+              />
+            )}
+          </Stack>
 
           <Group justify="flex-end" gap={"sm"}>
             <Button variant="default" onClick={handleCancel}>

@@ -1,3 +1,5 @@
+import AdminEmployeesPage from "@/container/admin/employees/AdminEmployeesPage";
+
 export default function page() {
-  return <div>page</div>;
+  return <AdminEmployeesPage />;
 }

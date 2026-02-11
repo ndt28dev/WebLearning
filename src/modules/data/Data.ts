@@ -4,8 +4,8 @@ export const menuAdmin: IMenuLink[] = [
   { label: "Tổng quan", link: "dashboard" },
 
   {
-    label: "Quản lý nhân sự",
-    links: [{ label: "Nhân sự", link: "employees" }],
+    label: "Quản lý nhân viên",
+    links: [{ label: "Danh sách nhân viên", link: "employees" }],
   },
   {
     label: "Quản lý giáo viên",
@@ -103,7 +103,7 @@ export const menuAdmin: IMenuLink[] = [
         links: [
           { label: "Tài khoản học viên", link: "accounts/students" },
           { label: "Tài khoản giáo viên", link: "accounts/teachers" },
-          { label: "Tài khoản nhân sự", link: "accounts/employees" },
+          { label: "Tài khoản nhân viên", link: "accounts/employees" },
         ],
       },
       { label: "Vài trò & Phân quyền", link: "roles" },

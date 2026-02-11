@@ -194,92 +194,94 @@ export default function TeachersCreateUpdateModal({
               </Text>
             }
           >
-            <Group grow gap={"sm"} align="center">
-              <Stack gap="sm">
+            <Stack gap={5}>
+              <Group grow gap={"sm"} align="center">
+                <Stack gap={5}>
+                  <TextInput
+                    disabled={isCreateUpdate}
+                    label="Mã giáo viên"
+                    placeholder="GV001"
+                    {...form.getInputProps("code")}
+                  />
+                  <TextInput
+                    label="Họ và tên"
+                    placeholder="Nguyễn Văn A"
+                    {...form.getInputProps("name")}
+                  />
+                </Stack>
+                <Stack gap="sm">
+                  <Group justify="center">
+                    <Box pos="relative">
+                      <Avatar
+                        src={form.values.avatar || null}
+                        radius="100%"
+                        w={130}
+                        h={130}
+                      />
+
+                      <FileButton
+                        accept="image/png,image/jpeg"
+                        onChange={(file) =>
+                          form.setFieldValue(
+                            "avatar",
+                            file ? URL.createObjectURL(file) : ""
+                          )
+                        }
+                      >
+                        {(props) => (
+                          <ActionIcon
+                            {...props}
+                            size="lg"
+                            radius="xl"
+                            variant="filled"
+                            color="brand.5"
+                            pos="absolute"
+                            bottom={4}
+                            right={4}
+                            style={{
+                              boxShadow: "0 2px 6px rgba(0,0,0,0.25)",
+                            }}
+                          >
+                            <IconPencil size={18} />
+                          </ActionIcon>
+                        )}
+                      </FileButton>
+                    </Box>
+                  </Group>
+                </Stack>
+              </Group>
+              <Group grow>
+                <Select
+                  label="Giới tính"
+                  data={[
+                    { value: "MALE", label: "Nam" },
+                    { value: "FEMALE", label: "Nữ" },
+                    { value: "OTHER", label: "Khác" },
+                  ]}
+                  {...form.getInputProps("gender")}
+                />
+                <DateInput
+                  label="Ngày sinh"
+                  placeholder="Chọn ngày sinh"
+                  valueFormat="DD/MM/YYYY"
+                  {...form.getInputProps("birthday")}
+                />
+              </Group>
+              <Group grow gap={"sm"}>
                 <TextInput
-                  disabled={isCreateUpdate}
-                  label="Mã giáo viên"
-                  placeholder="GV001"
-                  {...form.getInputProps("code")}
+                  label="Số điện thoại"
+                  placeholder="0123456789"
+                  {...form.getInputProps("phone")}
                 />
                 <TextInput
-                  label="Họ và tên"
-                  placeholder="Nguyễn Văn A"
-                  {...form.getInputProps("name")}
+                  label="Email"
+                  placeholder="email@gmail.com"
+                  {...form.getInputProps("email")}
                 />
-              </Stack>
-              <Stack gap="sm">
-                <Group justify="center">
-                  <Box pos="relative">
-                    <Avatar
-                      src={form.values.avatar || null}
-                      radius="100%"
-                      w={130}
-                      h={130}
-                    />
+              </Group>
 
-                    <FileButton
-                      accept="image/png,image/jpeg"
-                      onChange={(file) =>
-                        form.setFieldValue(
-                          "avatar",
-                          file ? URL.createObjectURL(file) : ""
-                        )
-                      }
-                    >
-                      {(props) => (
-                        <ActionIcon
-                          {...props}
-                          size="lg"
-                          radius="xl"
-                          variant="filled"
-                          color="brand.5"
-                          pos="absolute"
-                          bottom={4}
-                          right={4}
-                          style={{
-                            boxShadow: "0 2px 6px rgba(0,0,0,0.25)",
-                          }}
-                        >
-                          <IconPencil size={18} />
-                        </ActionIcon>
-                      )}
-                    </FileButton>
-                  </Box>
-                </Group>
-              </Stack>
-            </Group>
-            <Group grow>
-              <Select
-                label="Giới tính"
-                data={[
-                  { value: "MALE", label: "Nam" },
-                  { value: "FEMALE", label: "Nữ" },
-                  { value: "OTHER", label: "Khác" },
-                ]}
-                {...form.getInputProps("gender")}
-              />
-              <DateInput
-                label="Ngày sinh"
-                placeholder="Chọn ngày sinh"
-                valueFormat="DD/MM/YYYY"
-                {...form.getInputProps("birthday")}
-              />
-            </Group>
-            <Group grow gap={"sm"}>
-              <TextInput
-                label="Số điện thoại"
-                placeholder="0123456789"
-                {...form.getInputProps("phone")}
-              />
-              <TextInput
-                label="Email"
-                placeholder="email@gmail.com"
-                {...form.getInputProps("email")}
-              />
-            </Group>
-
-            <TextInput label="Địa chỉ" {...form.getInputProps("address")} />
+              <TextInput label="Địa chỉ" {...form.getInputProps("address")} />
+            </Stack>
           </Fieldset>
 
           <Fieldset
@@ -290,7 +292,7 @@ export default function TeachersCreateUpdateModal({
               </Text>
             }
           >
-            <Stack gap="sm">
+            <Stack gap={5}>
               <Group gap="sm">
                 <Select
                   label="Bằng cấp"

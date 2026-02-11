@@ -1,5 +1,6 @@
-import { studentApi } from "@/api/services/students.api";
+import { employeeApi } from "@/api/services/employees.api";
 import MyButtonCreateUpdate from "@/components/admin/mybutton/MyButtonCreateUpdate";
+import { IRoles } from "@/modules/interfaces/IRoles";
 import {
   ActionIcon,
   Avatar,
@@ -10,15 +11,14 @@ import {
   Group,
   Select,
   Stack,
-  Switch,
   Text,
   TextInput,
 } from "@mantine/core";
 import { DateInput } from "@mantine/dates";
 import { useForm } from "@mantine/form";
 import { notifications } from "@mantine/notifications";
-import { IconCamera, IconPencil } from "@tabler/icons-react";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { IconPencil } from "@tabler/icons-react";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
 
 type MyProps = {
@@ -27,13 +27,42 @@ type MyProps = {
   data: any;
 };
 
-export default function StudentsCreateUpdateModal({
+const fetchRoles = async () => {
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/api/roles?current=1&pageSize=999`
+  );
+
+  if (!res.ok) {
+    throw new Error("Lỗi khi lấy danh sách vai trò");
+  }
+
+  const json = await res.json();
+
+  return {
+    results: json.data.results,
+    totalPages: json.data.totalPages,
+    total: json.data.total,
+  };
+};
+
+export default function EmployeeesCreateUpdateModal({
   isCreateUpdate = false,
   title = "",
   data = null,
 }: MyProps) {
   const queryClient = useQueryClient();
   const [isCheckClose, setIsCheckClose] = useState<boolean>(false);
+
+  const { data: rolesData, isLoading: rolesLoading } = useQuery({
+    queryKey: ["roles"],
+    queryFn: () => fetchRoles(),
+  });
+
+  const roleOptions =
+    rolesData?.results.map((role: IRoles) => ({
+      value: role._id,
+      label: role.name,
+    })) || [];
 
   const form = useForm({
     initialValues: {
@@ -46,15 +75,15 @@ export default function StudentsCreateUpdateModal({
       gender: "",
       birthday: null as Date | null,
       avatar: "",
-      educationLevel: "",
-      educationClass: "",
-      educationSchool: "",
+      role: "",
     },
 
     validate: {
-      code: (v) => (!v.trim() ? "Mã học viên không được để trống" : null),
+      code: (v) => (!v.trim() ? "Mã nhân viên không được để trống" : null),
 
       name: (v) => (!v.trim() ? "Tên không được để trống" : null),
+
+      role: (v) => (!v.trim() ? "Vai trò không được để trống" : null),
 
       email: (v) => {
         if (!v.trim()) return "Email không được để trống";
@@ -81,13 +110,6 @@ export default function StudentsCreateUpdateModal({
         if (v > new Date()) return "Ngày sinh không được ở tương lai";
         return null;
       },
-
-      educationLevel: (v) => (!v ? "Trình độ không được để trống" : null),
-
-      educationClass: (v) => (!v.trim() ? "Lớp học không được để trống" : null),
-
-      educationSchool: (v) =>
-        !v.trim() ? "Trường học không được để trống" : null,
     },
   });
 
@@ -103,25 +125,23 @@ export default function StudentsCreateUpdateModal({
         gender: data?.gender,
         birthday: new Date(data?.birthday),
         avatar: data?.avatar,
-        educationLevel: data?.educationLevel,
-        educationClass: data?.educationClass,
-        educationSchool: data?.educationSchool,
+        role: data?.role,
       });
     }
   }, [data]);
 
   const createMutation = useMutation({
-    mutationFn: studentApi.create,
+    mutationFn: employeeApi.create,
     onSuccess: () => {
       notifications.show({
         title: "Thành công",
-        message: "Thêm học viên thành công",
+        message: "Thêm nhân viên thành công",
         color: "green",
         autoClose: 3000,
       });
       form.reset();
       setIsCheckClose(true);
-      queryClient.invalidateQueries({ queryKey: ["students"] });
+      queryClient.invalidateQueries({ queryKey: ["employees"] });
     },
     onError: (error: any) => {
       notifications.show({
@@ -134,17 +154,17 @@ export default function StudentsCreateUpdateModal({
   });
 
   const updateMutation = useMutation({
-    mutationFn: studentApi.update,
+    mutationFn: employeeApi.update,
     onSuccess: () => {
       notifications.show({
         title: "Thành công",
-        message: "Cập nhật học viên thành công",
+        message: "Cập nhật nhân viên thành công",
         color: "green",
         autoClose: 3000,
       });
       form.reset();
       setIsCheckClose(true);
-      queryClient.invalidateQueries({ queryKey: ["students"] });
+      queryClient.invalidateQueries({ queryKey: ["employees"] });
     },
     onError: (error: any) => {
       notifications.show({
@@ -263,59 +283,26 @@ export default function StudentsCreateUpdateModal({
                 />
               </Group>
               <Group grow gap={"sm"}>
+                <Select
+                  label="Vai trò"
+                  placeholder="Chọn vai trò"
+                  data={roleOptions}
+                  {...form.getInputProps("role")}
+                />
                 <TextInput
                   label="Số điện thoại"
                   placeholder="0123456789"
                   {...form.getInputProps("phone")}
                 />
-                <TextInput
-                  label="Email"
-                  placeholder="email@gmail.com"
-                  {...form.getInputProps("email")}
-                />
               </Group>
-
+              <TextInput
+                label="Email"
+                placeholder="email@gmail.com"
+                {...form.getInputProps("email")}
+              />
               <TextInput label="Địa chỉ" {...form.getInputProps("address")} />
             </Stack>
           </Fieldset>
-
-          <Fieldset
-            p={"sm"}
-            legend={
-              <Text size="md" c={"brand.5"} fw={600}>
-                Học vấn
-              </Text>
-            }
-          >
-            <Group gap="sm">
-              <Select
-                label="Trình độ"
-                placeholder="Chọn trình độ"
-                w={180}
-                data={[
-                  { value: "PRIMARY", label: "Tiểu học" },
-                  { value: "SECONDARY", label: "Trung học cơ sở" },
-                  { value: "HIGH_SCHOOL", label: "Trung học phổ thông" },
-                  { value: "UNIVERSITY", label: "Đại học" },
-                ]}
-                {...form.getInputProps("educationLevel")}
-              />
-
-              <TextInput
-                label="Lớp học"
-                placeholder="VD: 12A1, CNTT K20"
-                {...form.getInputProps("educationClass")}
-              />
-
-              <TextInput
-                label="Trường học"
-                placeholder="VD: THPT Nguyễn Huệ"
-                flex={1}
-                {...form.getInputProps("educationSchool")}
-              />
-            </Group>
-          </Fieldset>
-
           <Group justify="flex-end" gap="sm">
             <Button variant="default" onClick={handleCancel}>
               Huỷ
