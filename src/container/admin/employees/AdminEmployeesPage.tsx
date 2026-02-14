@@ -3,7 +3,7 @@ import MyFieldset from "@/components/admin/mylayoutadmin/MyFieldset";
 import MyTableData from "@/components/admin/mytable/MyTableData";
 import { IEmployees } from "@/modules/interfaces/IEmployees";
 import { formatDate } from "@/utils/format";
-import { Center, Group, Loader, Text } from "@mantine/core";
+import { Avatar, Center, Group, Loader, Text } from "@mantine/core";
 import { useQuery } from "@tanstack/react-query";
 import { MRT_ColumnDef, MRT_RowSelectionState } from "mantine-react-table";
 import { useEffect, useMemo, useRef, useState } from "react";
@@ -69,6 +69,19 @@ export default function AdminEmployeesPage() {
         const pageSize = table.getState().pagination.pageSize;
 
         return pageIndex * pageSize + row.index + 1;
+      },
+    },
+    {
+      accessorKey: "avatar",
+      header: "Ảnh đại diện",
+      Cell: ({ cell }) => {
+        return (
+          <Avatar
+            src={`${process.env.NEXT_PUBLIC_API_URL}${cell.getValue<string>()}`}
+            alt="image error"
+            size={"lg"}
+          />
+        );
       },
     },
     { accessorKey: "code", header: "Mã SV", size: 100 },

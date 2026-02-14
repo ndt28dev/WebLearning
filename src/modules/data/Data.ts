@@ -9,7 +9,10 @@ export const menuAdmin: IMenuLink[] = [
   },
   {
     label: "Quản lý giáo viên",
-    links: [{ label: "Danh sách giáo viên", link: "teachers" }],
+    links: [
+      { label: "Danh sách giáo viên", link: "teachers" },
+      { label: "Chứng chỉ giáo viên", link: "teacher-certificates" },
+    ],
   },
   {
     label: "Quản lý học viên",

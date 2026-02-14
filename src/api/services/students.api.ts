@@ -1,11 +1,10 @@
 import axios from "@/api/config/axios.config";
-import { IStudents } from "@/modules/interfaces/IStudents";
 
 export const studentApi = {
   // CRUD cơ bản
-  create: (payload: IStudents) => axios.post("/students", payload),
+  create: (payload: any) => axios.post("/students", payload),
 
-  update: (payload: IStudents) => axios.patch("/students", payload),
+  update: (payload: any) => axios.patch("/students", payload),
 
   hide: (id: string) => axios.patch(`/students/${id}/hide`),
 

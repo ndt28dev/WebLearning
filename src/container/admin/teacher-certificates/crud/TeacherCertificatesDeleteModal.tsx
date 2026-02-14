@@ -1,4 +1,4 @@
-import { accountsTeachersApi } from "@/api/services/accountsTeachers";
+import { teacherCertificatesApi } from "@/api/services/teacherCertificates.api";
 import MyButtonDelete from "@/components/admin/mybutton/MyButtonDelete";
 import { Button, Flex, Group, Stack, Text } from "@mantine/core";
 import { notifications } from "@mantine/notifications";
@@ -9,21 +9,21 @@ type Props = {
   data: any;
 };
 
-export default function AccountsTeachersDeleteModal({ data }: Props) {
+export default function TeacherCertificatesDeleteModal({ data }: Props) {
   const queryClient = useQueryClient();
   const [isCheckClose, setIsCheckClose] = useState<boolean>(false);
 
   const deleteMutation = useMutation({
-    mutationFn: accountsTeachersApi.delete,
+    mutationFn: teacherCertificatesApi.delete,
     onSuccess: () => {
       notifications.show({
         title: "Thành công",
-        message: "Xoá tài khoản giáo viên thành công",
+        message: "Xoá chứng chỉ giáo viên thành công",
         color: "green",
         autoClose: 3000,
       });
       setIsCheckClose(true);
-      queryClient.invalidateQueries({ queryKey: ["accountsTeachers"] });
+      queryClient.invalidateQueries({ queryKey: ["teacherCertificates"] });
     },
     onError: (error: any) => {
       notifications.show({
@@ -50,12 +50,10 @@ export default function AccountsTeachersDeleteModal({ data }: Props) {
     >
       <Stack gap={5}>
         <Text size="sm">
-          Bạn có chắc chắn muốn xoá tài khoản của giáo viên:
+          Bạn có chắc chắn muốn xoá chứng chỉ của giáo viên:
         </Text>
         <Flex gap={5}>
-          <Text fw={600}>
-            {data?.username} - {data?.teacher?.name}
-          </Text>
+          <Text fw={600}>{data?.teacher?.name}</Text>
         </Flex>
         <Text c="red" size="xs">
           Hành động này không thể hoàn tác.

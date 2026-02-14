@@ -34,6 +34,7 @@ export default function TeachersCreateUpdateModal({
 }: MyProps) {
   const queryClient = useQueryClient();
   const [isCheckClose, setIsCheckClose] = useState<boolean>(false);
+  const [avatarFile, setAvatarFile] = useState<File | null>(null);
 
   const form = useForm({
     initialValues: {
@@ -93,28 +94,6 @@ export default function TeachersCreateUpdateModal({
     },
   });
 
-  useEffect(() => {
-    if (data) {
-      form.setValues({
-        _id: data?._id,
-        code: data?.code,
-        name: data?.name,
-        email: data?.email,
-        phone: data?.phone,
-        address: data?.address,
-        gender: data?.gender,
-        birthday: new Date(data?.birthday),
-        avatar: data?.avatar,
-        degree: data?.degree,
-        specialization: data?.specialization,
-        university: data?.university,
-        experience: data?.experience,
-        achievements: data?.achievements,
-        description: data?.description,
-      });
-    }
-  }, [data]);
-
   const createMutation = useMutation({
     mutationFn: teacherApi.create,
     onSuccess: () => {
@@ -162,11 +141,28 @@ export default function TeachersCreateUpdateModal({
   });
 
   const handleSubmit = (values: typeof form.values) => {
-    const { _id, ...payload } = values;
+    const formData = new FormData();
 
-    isCreateUpdate
-      ? updateMutation.mutate(values)
-      : createMutation.mutate(payload);
+    Object.entries(values).forEach(([key, value]) => {
+      if (key === "_id") return;
+
+      if (key === "birthday" && value) {
+        formData.append(key, (value as Date).toISOString());
+      } else if (key !== "avatar") {
+        formData.append(key, value as string);
+      }
+    });
+
+    if (avatarFile) {
+      formData.append("avatar", avatarFile);
+    }
+
+    if (isCreateUpdate) {
+      formData.append("_id", values._id);
+      updateMutation.mutate(formData);
+    } else {
+      createMutation.mutate(formData);
+    }
   };
 
   const handleCancel = () => {
@@ -175,181 +171,220 @@ export default function TeachersCreateUpdateModal({
 
   return (
     <MyButtonCreateUpdate
+      size="80%"
       title={title}
       isCreateUpdate={isCreateUpdate}
       onOpen={() => {
         form.clearErrors();
         form.resetTouched();
+        if (isCreateUpdate && data) {
+          form.setValues({
+            _id: data._id,
+            code: data.code,
+            name: data.name,
+            email: data.email,
+            phone: data.phone,
+            address: data.address,
+            gender: data.gender,
+            birthday: data.birthday ? new Date(data.birthday) : null,
+            avatar: data.avatar,
+            degree: data.degree,
+            specialization: data.specialization,
+            university: data.university,
+            experience: data.experience,
+            achievements: data.achievements,
+            description: data.description,
+          });
+        } else {
+          form.reset();
+        }
       }}
       isCheckClose={isCheckClose}
       onAfterClose={() => setIsCheckClose(false)}
     >
       <form onSubmit={form.onSubmit(handleSubmit)}>
         <Stack gap="sm">
-          <Fieldset
-            p={"sm"}
-            legend={
-              <Text size="md" c={"brand.5"} fw={600}>
-                Thống tin cơ bản
-              </Text>
-            }
-          >
-            <Stack gap={5}>
-              <Group grow gap={"sm"} align="center">
-                <Stack gap={5}>
+          <Group gap={"sm"} align="flex-start">
+            <Fieldset
+              p={"sm"}
+              legend={
+                <Text size="md" c={"brand.5"} fw={600}>
+                  Thống tin cơ bản
+                </Text>
+              }
+              flex={1}
+            >
+              <Stack gap={5}>
+                <Group grow gap={"sm"} align="center">
+                  <Stack gap={5}>
+                    <TextInput
+                      disabled={isCreateUpdate}
+                      label="Mã giáo viên"
+                      placeholder="GV001"
+                      {...form.getInputProps("code")}
+                    />
+                    <TextInput
+                      label="Họ và tên"
+                      placeholder="Nguyễn Văn A"
+                      {...form.getInputProps("name")}
+                    />
+                  </Stack>
+                  <Stack gap="sm">
+                    <Group justify="center">
+                      <Box pos="relative">
+                        <Avatar
+                          src={
+                            form.values.avatar
+                              ? form.values.avatar.startsWith("blob:")
+                                ? form.values.avatar
+                                : `${process.env.NEXT_PUBLIC_API_URL}${form.values.avatar}`
+                              : null
+                          }
+                          radius="100%"
+                          w={130}
+                          h={130}
+                        />
+
+                        <FileButton
+                          accept="image/png,image/jpeg"
+                          onChange={(file) => {
+                            if (file) {
+                              setAvatarFile(file);
+                              form.setFieldValue(
+                                "avatar",
+                                URL.createObjectURL(file)
+                              );
+                            }
+                          }}
+                        >
+                          {(props) => (
+                            <ActionIcon
+                              {...props}
+                              size="lg"
+                              radius="xl"
+                              variant="filled"
+                              color="brand.5"
+                              pos="absolute"
+                              bottom={4}
+                              right={4}
+                              style={{
+                                boxShadow: "0 2px 6px rgba(0,0,0,0.25)",
+                              }}
+                            >
+                              <IconPencil size={18} />
+                            </ActionIcon>
+                          )}
+                        </FileButton>
+                      </Box>
+                    </Group>
+                  </Stack>
+                </Group>
+                <Group grow>
+                  <Select
+                    label="Giới tính"
+                    data={[
+                      { value: "MALE", label: "Nam" },
+                      { value: "FEMALE", label: "Nữ" },
+                      { value: "OTHER", label: "Khác" },
+                    ]}
+                    {...form.getInputProps("gender")}
+                  />
+                  <DateInput
+                    label="Ngày sinh"
+                    placeholder="Chọn ngày sinh"
+                    valueFormat="DD/MM/YYYY"
+                    {...form.getInputProps("birthday")}
+                  />
+                </Group>
+                <Group grow gap={"sm"}>
                   <TextInput
-                    disabled={isCreateUpdate}
-                    label="Mã giáo viên"
-                    placeholder="GV001"
-                    {...form.getInputProps("code")}
+                    label="Số điện thoại"
+                    placeholder="0123456789"
+                    {...form.getInputProps("phone")}
                   />
                   <TextInput
-                    label="Họ và tên"
-                    placeholder="Nguyễn Văn A"
-                    {...form.getInputProps("name")}
+                    label="Email"
+                    placeholder="email@gmail.com"
+                    {...form.getInputProps("email")}
                   />
-                </Stack>
-                <Stack gap="sm">
-                  <Group justify="center">
-                    <Box pos="relative">
-                      <Avatar
-                        src={form.values.avatar || null}
-                        radius="100%"
-                        w={130}
-                        h={130}
-                      />
+                </Group>
 
-                      <FileButton
-                        accept="image/png,image/jpeg"
-                        onChange={(file) =>
-                          form.setFieldValue(
-                            "avatar",
-                            file ? URL.createObjectURL(file) : ""
-                          )
-                        }
-                      >
-                        {(props) => (
-                          <ActionIcon
-                            {...props}
-                            size="lg"
-                            radius="xl"
-                            variant="filled"
-                            color="brand.5"
-                            pos="absolute"
-                            bottom={4}
-                            right={4}
-                            style={{
-                              boxShadow: "0 2px 6px rgba(0,0,0,0.25)",
-                            }}
-                          >
-                            <IconPencil size={18} />
-                          </ActionIcon>
-                        )}
-                      </FileButton>
-                    </Box>
-                  </Group>
-                </Stack>
-              </Group>
-              <Group grow>
-                <Select
-                  label="Giới tính"
-                  data={[
-                    { value: "MALE", label: "Nam" },
-                    { value: "FEMALE", label: "Nữ" },
-                    { value: "OTHER", label: "Khác" },
-                  ]}
-                  {...form.getInputProps("gender")}
-                />
-                <DateInput
-                  label="Ngày sinh"
-                  placeholder="Chọn ngày sinh"
-                  valueFormat="DD/MM/YYYY"
-                  {...form.getInputProps("birthday")}
-                />
-              </Group>
-              <Group grow gap={"sm"}>
+                <TextInput label="Địa chỉ" {...form.getInputProps("address")} />
+              </Stack>
+            </Fieldset>
+
+            <Fieldset
+              p="sm"
+              legend={
+                <Text size="md" c="brand.5" fw={600}>
+                  Học vấn & Kinh nghiệm
+                </Text>
+              }
+              flex={1}
+            >
+              <Stack gap={5}>
+                <Group gap="sm">
+                  <Select
+                    label="Bằng cấp"
+                    placeholder="Chọn bằng cấp"
+                    w={200}
+                    data={[
+                      { value: "COLLEGE", label: "Cao đẳng" },
+                      { value: "BACHELOR", label: "Cử nhân" },
+                      { value: "ENGINEER", label: "Kỹ sư" },
+                      { value: "MASTER", label: "Thạc sĩ" },
+                      { value: "PHD", label: "Tiến sĩ" },
+                    ]}
+                    {...form.getInputProps("degree")}
+                  />
+                  <TextInput
+                    label="Chuyên ngành"
+                    placeholder="VD: Công nghệ thông tin"
+                    flex={1}
+                    {...form.getInputProps("specialization")}
+                  />
+                </Group>
+
                 <TextInput
-                  label="Số điện thoại"
-                  placeholder="0123456789"
-                  {...form.getInputProps("phone")}
+                  label="Trường / Đơn vị đào tạo"
+                  placeholder="VD: Đại học Bách Khoa TP.HCM"
+                  {...form.getInputProps("university")}
                 />
-                <TextInput
-                  label="Email"
-                  placeholder="email@gmail.com"
-                  {...form.getInputProps("email")}
+                <Textarea
+                  label="Kinh nghiệm"
+                  placeholder="VD: 2 năm Frontend, 1 năm Backend"
+                  autosize
+                  minRows={1}
+                  {...form.getInputProps("experience")}
                 />
-              </Group>
-
-              <TextInput label="Địa chỉ" {...form.getInputProps("address")} />
-            </Stack>
-          </Fieldset>
-
-          <Fieldset
-            p="sm"
-            legend={
-              <Text size="md" c="brand.5" fw={600}>
-                Học vấn & Kinh nghiệm
-              </Text>
-            }
-          >
-            <Stack gap={5}>
-              <Group gap="sm">
-                <Select
-                  label="Bằng cấp"
-                  placeholder="Chọn bằng cấp"
-                  w={200}
-                  data={[
-                    { value: "COLLEGE", label: "Cao đẳng" },
-                    { value: "BACHELOR", label: "Cử nhân" },
-                    { value: "ENGINEER", label: "Kỹ sư" },
-                    { value: "MASTER", label: "Thạc sĩ" },
-                    { value: "PHD", label: "Tiến sĩ" },
-                  ]}
-                  {...form.getInputProps("degree")}
+                <Textarea
+                  label="Thành tích"
+                  placeholder="VD: Giải khuyến khích Olympic Tin học, học bổng..."
+                  autosize
+                  minRows={1}
+                  {...form.getInputProps("achievements")}
                 />
-                <TextInput
-                  label="Chuyên ngành"
-                  placeholder="VD: Công nghệ thông tin"
-                  flex={1}
-                  {...form.getInputProps("specialization")}
+
+                <Textarea
+                  label="Mô tả thêm"
+                  placeholder="Mô tả chi tiết về học vấn, kinh nghiệm, định hướng..."
+                  autosize
+                  minRows={1}
+                  {...form.getInputProps("description")}
                 />
-              </Group>
-
-              <TextInput
-                label="Trường / Đơn vị đào tạo"
-                placeholder="VD: Đại học Bách Khoa TP.HCM"
-                {...form.getInputProps("university")}
-              />
-              <Textarea
-                label="Kinh nghiệm"
-                placeholder="VD: 2 năm Frontend, 1 năm Backend"
-                autosize
-                minRows={2}
-                {...form.getInputProps("experience")}
-              />
-              <Textarea
-                label="Thành tích"
-                placeholder="VD: Giải khuyến khích Olympic Tin học, học bổng..."
-                autosize
-                minRows={2}
-                {...form.getInputProps("achievements")}
-              />
-
-              <Textarea
-                label="Mô tả thêm"
-                placeholder="Mô tả chi tiết về học vấn, kinh nghiệm, định hướng..."
-                autosize
-                minRows={3}
-                {...form.getInputProps("description")}
-              />
-            </Stack>
-          </Fieldset>
+              </Stack>
+            </Fieldset>
+          </Group>
 
           <Group justify="flex-end" gap="sm">
             <Button variant="default" onClick={handleCancel}>
               Huỷ
             </Button>
-            <Button type="submit" color="teal">
+            <Button
+              type="submit"
+              loading={createMutation.isPending || updateMutation.isPending}
+              color="teal"
+            >
               Lưu
             </Button>
           </Group>

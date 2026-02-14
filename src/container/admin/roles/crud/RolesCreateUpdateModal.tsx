@@ -51,18 +51,6 @@ export default function RolesCreateUpdateModal({
     },
   });
 
-  useEffect(() => {
-    if (data) {
-      form.setValues({
-        _id: data?._id,
-        code: data?.code,
-        name: data?.name,
-        description: data?.description,
-        is_system: data?.is_system,
-      });
-    }
-  }, [data]);
-
   const createMutation = useMutation({
     mutationFn: rolesApi.create,
     onSuccess: () => {
@@ -128,6 +116,13 @@ export default function RolesCreateUpdateModal({
       onOpen={() => {
         form.clearErrors();
         form.resetTouched();
+        if (isCreateUpdate && data) {
+          form.setValues({
+            ...data,
+          });
+        } else {
+          form.reset();
+        }
       }}
       isCheckClose={isCheckClose}
       onAfterClose={() => setIsCheckClose(false)}

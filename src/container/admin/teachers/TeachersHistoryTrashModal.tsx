@@ -2,7 +2,7 @@ import MyButtonHistoryTrash from "@/components/admin/mybutton/MyButtonHistoryTra
 import MyTableData from "@/components/admin/mytable/MyTableData";
 import { ITeachers } from "@/modules/interfaces/ITeachers";
 import { formatDate } from "@/utils/format";
-import { Group, Text } from "@mantine/core";
+import { Avatar, Group, Text } from "@mantine/core";
 import { useQuery } from "@tanstack/react-query";
 import { MRT_ColumnDef, MRT_RowSelectionState } from "mantine-react-table";
 import { useMemo, useRef, useState } from "react";
@@ -62,6 +62,19 @@ export default function TeachersHistoryTrashModal() {
       enableSorting: false,
       enableColumnFilter: false,
       Cell: ({ row }) => row.index + 1,
+    },
+    {
+      accessorKey: "avatar",
+      header: "Ảnh đại diện",
+      Cell: ({ cell }) => {
+        return (
+          <Avatar
+            src={`${process.env.NEXT_PUBLIC_API_URL}${cell.getValue<string>()}`}
+            alt="image error"
+            size={"lg"}
+          />
+        );
+      },
     },
     { accessorKey: "code", header: "Mã GV", size: 100 },
     { accessorKey: "name", header: "Họ và tên" },

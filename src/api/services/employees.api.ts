@@ -1,11 +1,10 @@
 import axios from "@/api/config/axios.config";
-import { IEmployees } from "@/modules/interfaces/IEmployees";
 
 export const employeeApi = {
   // CRUD cơ bản
-  create: (payload: IEmployees) => axios.post("/employees", payload),
+  create: (payload: any) => axios.post("/employees", payload),
 
-  update: (payload: IEmployees) => axios.patch("/employees", payload),
+  update: (payload: any) => axios.patch("/employees", payload),
 
   hide: (id: string) => axios.patch(`/employees/${id}/hide`),
 

@@ -52,6 +52,7 @@ export default function EmployeeesCreateUpdateModal({
 }: MyProps) {
   const queryClient = useQueryClient();
   const [isCheckClose, setIsCheckClose] = useState<boolean>(false);
+  const [avatarFile, setAvatarFile] = useState<File | null>(null);
 
   const { data: rolesData, isLoading: rolesLoading } = useQuery({
     queryKey: ["roles"],
@@ -113,23 +114,6 @@ export default function EmployeeesCreateUpdateModal({
     },
   });
 
-  useEffect(() => {
-    if (data) {
-      form.setValues({
-        _id: data?._id,
-        code: data?.code,
-        name: data?.name,
-        email: data?.email,
-        phone: data?.phone,
-        address: data?.address,
-        gender: data?.gender,
-        birthday: new Date(data?.birthday),
-        avatar: data?.avatar,
-        role: data?.role,
-      });
-    }
-  }, [data]);
-
   const createMutation = useMutation({
     mutationFn: employeeApi.create,
     onSuccess: () => {
@@ -177,11 +161,28 @@ export default function EmployeeesCreateUpdateModal({
   });
 
   const handleSubmit = (values: typeof form.values) => {
-    const { _id, ...payload } = values;
+    const formData = new FormData();
 
-    isCreateUpdate
-      ? updateMutation.mutate(values)
-      : createMutation.mutate(payload);
+    Object.entries(values).forEach(([key, value]) => {
+      if (key === "_id") return;
+
+      if (key === "birthday" && value) {
+        formData.append(key, (value as Date).toISOString());
+      } else if (key !== "avatar") {
+        formData.append(key, value as string);
+      }
+    });
+
+    if (avatarFile) {
+      formData.append("avatar", avatarFile);
+    }
+
+    if (isCreateUpdate) {
+      formData.append("_id", values._id);
+      updateMutation.mutate(formData);
+    } else {
+      createMutation.mutate(formData);
+    }
   };
 
   const handleCancel = () => {
@@ -195,6 +196,23 @@ export default function EmployeeesCreateUpdateModal({
       onOpen={() => {
         form.clearErrors();
         form.resetTouched();
+        if (isCreateUpdate && data) {
+          form.setValues({
+            _id: data._id,
+            code: data.code,
+            name: data.name,
+            email: data.email,
+            phone: data.phone,
+            address: data.address,
+            gender: data.gender,
+            avatar: data.avatar,
+            birthday: data.birthday ? new Date(data.birthday) : null,
+            role:
+              typeof data.role === "object" ? data.role._id : (data.role ?? ""),
+          });
+        } else {
+          form.reset();
+        }
       }}
       isCheckClose={isCheckClose}
       onAfterClose={() => setIsCheckClose(false)}
@@ -228,7 +246,13 @@ export default function EmployeeesCreateUpdateModal({
                   <Group justify="center">
                     <Box pos="relative">
                       <Avatar
-                        src={form.values.avatar || null}
+                        src={
+                          form.values.avatar
+                            ? form.values.avatar.startsWith("blob:")
+                              ? form.values.avatar
+                              : `${process.env.NEXT_PUBLIC_API_URL}${form.values.avatar}`
+                            : null
+                        }
                         radius="100%"
                         w={130}
                         h={130}
@@ -236,12 +260,15 @@ export default function EmployeeesCreateUpdateModal({
 
                       <FileButton
                         accept="image/png,image/jpeg"
-                        onChange={(file) =>
-                          form.setFieldValue(
-                            "avatar",
-                            file ? URL.createObjectURL(file) : ""
-                          )
-                        }
+                        onChange={(file) => {
+                          if (file) {
+                            setAvatarFile(file);
+                            form.setFieldValue(
+                              "avatar",
+                              URL.createObjectURL(file)
+                            );
+                          }
+                        }}
                       >
                         {(props) => (
                           <ActionIcon

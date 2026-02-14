@@ -7,7 +7,7 @@ import { useEffect } from "react";
 type MyProps = {
   children: React.ReactNode;
   title: string;
-  size?: "xs" | "sm" | "md" | "lg" | "xl";
+  size?: "xs" | "sm" | "md" | "lg" | "xl" | "70%" | "80%" | "90%" | "100%";
   isCreateUpdate?: boolean;
   onOpen: () => void;
   isCheckClose?: boolean;
